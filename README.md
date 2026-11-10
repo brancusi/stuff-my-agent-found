@@ -1,23 +1,34 @@
-# Clojure Radar
+# stuff my agent found
 
-An open dossier on the Clojure ecosystem: front-end frameworks, data sync, novel frameworks, runtimes and agentic coding, with GitHub health data for 3,000+ repositories.
+Open case files on the tech I'm researching, built with an AI agent. Each case starts from a real decision. The agent maps the field, measures the repos from the GitHub API, reads the primary sources, and files its findings with confidence levels and citations.
 
-**Live site:** https://clojure-radar.atd-ai.workers.dev
+**Live site:** https://stuff-my-agent-found.atd-ai.workers.dev
 
-- **Brief:** a radar of 137 curated projects, the key findings, and what "normal" activity looks like in Clojure.
-- **Sectors:** front-end, data sync, novel frameworks, runtimes. Each has hand-written notes and live tables.
-- **Why Clojure for agentic coding:** the arguments, evidence, real-world wins and counterpoints.
-- **Blog:** every finding written up as a dispatch, with an Atom feed.
-- **Explore:** search and sort every repo by stars, commits, issues, recency and health.
-- **For agents:** [`/llms.txt`](https://clojure-radar.atd-ai.workers.dev/llms.txt), a search API (`/api/search?q=`) and compact TSV catalogs, plus a Claude Code skill in [`skills/clojure-radar`](skills/clojure-radar/SKILL.md). See [`/for-agents/`](https://clojure-radar.atd-ai.workers.dev/for-agents/).
+## Case files
 
-Press `⌘K` or `/` anywhere for fuzzy search, and `?` for keyboard shortcuts.
+| Case | Question | Status |
+| --- | --- | --- |
+| [001](https://stuff-my-agent-found.atd-ai.workers.dev/cases/clojure/) | What is alive in Clojure and ClojureScript, and where is the new energy? | filed |
+| [002](https://stuff-my-agent-found.atd-ai.workers.dev/cases/frontend-sync/) | The backend is Clojure. What should the front end be, which systems sync data between server and client, and does ClojureScript cost anything? | open |
+| [003](https://stuff-my-agent-found.atd-ai.workers.dev/cases/agentic-frameworks/) | Which app frameworks work best when coding agents write the code, and what is the evidence? | open |
 
-Snapshot: 2026-11-10. Window: the last 12 months.
+Every repo from every case sits in one index, and language is a filter. Press `⌘K` or `/` on any page for fuzzy search (type a language like `clojure` or `lang:typescript` to filter), and `?` for keyboard shortcuts.
 
-## Why "health" is calibrated to Clojure
+- **Dispatches:** every finding written up with data and sources, with an Atom feed.
+- **Explore:** search and sort every repo by language, category, stars, commits, issues, recency and health.
+- **For agents:** [`/llms.txt`](https://stuff-my-agent-found.atd-ai.workers.dev/llms.txt), a search API (`/api/search?q=`), per-case TSV shortlists, and a Claude Code skill in [`skills/stuff-my-agent-found`](skills/stuff-my-agent-found/SKILL.md). See [`/for-agents/`](https://stuff-my-agent-found.atd-ai.workers.dev/for-agents/).
 
-Only about 27% of established Clojure repos (50+ stars) see a commit in a given year, and the median repo has been quiet for about 4.5 years. Most of them are finished, not abandoned. The health score ranks each repo against that baseline instead of against npm norms. See [`/method/`](https://clojure-radar.atd-ai.workers.dev/method/).
+## Health is calibrated to Clojure
+
+Clojure has the deepest coverage: every Clojure repo with 50+ stars. Only about 27% of those see a commit in a given year, and most are finished rather than abandoned, so the health score ranks repos against that baseline. Other languages are scored on the same Clojure baseline, so busy JavaScript and TypeScript projects score high easily. Across languages, compare raw commits and issues. See [`/method/`](https://stuff-my-agent-found.atd-ai.workers.dev/method/).
+
+## Adding a case
+
+1. Add the case to `CASES` in `scripts/cases.py` (number, slug, question, tabs).
+2. List its repos in `data/cases/<slug>.json` as `[owner/repo, category, note]`.
+3. Measure them: `scripts/enrich.py` and `scripts/monthly.py` (see below), merged into `data/enriched_cases.json` and `data/monthly.json`.
+4. Write `scripts/case_<slug>.py` with `pages(memo, R, d)`, `posts(R, BL, d)` and `sources()`.
+5. `python3 scripts/build.py && python3 scripts/site.py`.
 
 ## Pipeline
 
@@ -25,19 +36,19 @@ Requires Python 3.12+ and an authenticated [`gh`](https://cli.github.com/) CLI.
 
 | step | script | output |
 | --- | --- | --- |
-| 1. Discover repos via GitHub search | `scripts/discover.py` | `data/discovered.json` |
+| 1. Discover Clojure repos via GitHub search | `scripts/discover.py` | `data/discovered.json` |
 | 2. Fetch metrics (GraphQL) | `scripts/enrich.py <names.json> <out.json>` | `data/enriched_*.json` |
 | 3. Monthly commit counts | `scripts/monthly.py <names.json> <out.json>` | `data/monthly.json` |
 | 4. Parse awesome-clojure | `scripts/parse_awesome.py` | `data/awesome/entries.json` |
-| 5. Merge, baseline, health scores | `scripts/build.py` | `data/dataset.json` |
+| 5. Merge, baseline, health scores, case membership | `scripts/build.py` | `data/dataset.json` |
 | 6. Build the static site | `scripts/site.py` | `dist/` |
 | 7. Deploy to Cloudflare Workers (assets + `/api` Worker in `src/worker.js`) | `scripts/deploy.sh` | live site |
 
-Curated projects and their notes are in `data/curated.json`. Editorial content (dispatches, the why-clojure brief, sources) is in `scripts/content.py`. Styles and client code are in `site/assets/`.
+Case 001's curated projects are in `data/curated.json` and its writing in `scripts/content.py`. Later cases keep their repos in `data/cases/` and their writing in `scripts/case_<slug>.py`. Styles and client code are in `site/assets/`.
 
 ## Contributing
 
-Corrections and missing projects are welcome. Open an issue or PR that edits `data/curated.json` (format: `[owner/repo, category, note]`) or `scripts/content.py`.
+Corrections and missing projects are welcome. Open an issue or PR that edits a case's repo list or writing.
 
 ## License
 

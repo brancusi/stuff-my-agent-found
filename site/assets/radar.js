@@ -1,4 +1,4 @@
-/* Clojure Radar — client components. Progressive: every page reads fine without JS; JS adds tables, radar, explorer, drawer. */
+/* stuff my agent found — client components. Progressive: every page reads fine without JS; JS adds tables, radar, explorer, drawer. */
 (function () {
   'use strict';
   const $ = (s, r = document) => r.querySelector(s);
@@ -146,7 +146,7 @@
         svg.append(b); });
     });
     const box = el('div', { class: 'radar' }); box.append(svg);
-    const side = el('div', { class: 'radar-list' }, lists.map(([lab, key, items]) => el('div', {}, el('h3', {}, el('a', { href: key === 'agents' ? '/why-clojure/' : '/' + key + '/', style: 'color:inherit;text-decoration:none' }, lab + ' →')),
+    const side = el('div', { class: 'radar-list' }, lists.map(([lab, key, items]) => el('div', {}, el('h3', {}, el('a', { href: key === 'agents' ? '/cases/clojure/agents/' : '/' + key + '/', style: 'color:inherit;text-decoration:none' }, lab + ' →')),
       el('ol', {}, items.filter(r => r.hs != null).sort((a, b) => b.hs - a.hs).slice(0, 5).map(r => el('li', {}, el('a', { href: 'https://github.com/' + r.n, onclick: e => { e.preventDefault(); openDrawer(r); } }, r.n), el('span', {}, 'health ' + r.hs)))))));
     host.replaceChildren(el('div', { class: 'radar-wrap' }, el('div', {}, box, el('div', { class: 'legend', style: 'justify-content:center;margin-top:8px' }, el('span', {}, el('span', { class: 'dot' }), 'tracked project'), el('span', {}, el('span', { class: 'dot new' }), 'created in the last 12 months'), el('span', {}, 'blip size = stars · inner ring = most active'))), side));
   }
@@ -155,6 +155,9 @@
   function explorer(host, R) {
     const sp = new URLSearchParams(location.search);
     const cats = [...new Set(R.map(r => r.cat))].sort();
+    const lc = new Map(); R.forEach(r => { if (r.lang) lc.set(r.lang, (lc.get(r.lang) || 0) + 1); });
+    const lang = el('select', { id: 'f-lang', 'aria-label': 'Language' }, el('option', { value: '' }, 'all languages'), [...lc].sort((a, b) => b[1] - a[1]).map(([l, n]) => el('option', { value: l }, `${l} (${n})`)));
+    if (sp.get('lang')) lang.value = sp.get('lang');
     const q = el('input', { type: 'search', id: 'f-q', placeholder: 'search name, description, topic', 'aria-label': 'Search repositories', value: sp.get('q') || '' });
     const cat = el('select', { id: 'f-cat', 'aria-label': 'Category' }, el('option', { value: '' }, 'all categories'), cats.map(c => el('option', { value: c }, c)));
     const st = el('select', { id: 'f-st', 'aria-label': 'Status' }, el('option', { value: '' }, 'any status'), ORDER.map(s => el('option', { value: s }, ':' + s)));
@@ -164,11 +167,12 @@
     const count = el('p', {}); let lim = 100; const more = el('button', { class: 'ghost', hidden: true }, 'show 100 more');
     const t = table([], PRESET.explore, { sort: 's', limit: lim, onRender: n => { count.textContent = `${full(n)} repositories match`; more.hidden = n <= lim; } });
     const apply = () => { const s = q.value.trim().toLowerCase();
-      const rows = R.filter(r => (!s || (r.n + ' ' + r.d + ' ' + r.tp.join(' ') + ' ' + (r.note || '') + ' ' + r.cat).toLowerCase().includes(s)) && (!cat.value || r.cat === cat.value) && (!st.value || r.st === st.value) && r.s >= +stars.value && (!act.checked || (r.ld != null && r.ld <= 365)) && (!nw.checked || r.cd <= 365) && (!aw.checked || r.aw));
+      const rows = R.filter(r => (!s || (r.n + ' ' + r.d + ' ' + r.tp.join(' ') + ' ' + (r.note || '') + ' ' + r.cat).toLowerCase().includes(s)) && (!lang.value || r.lang === lang.value) && (!cat.value || r.cat === cat.value) && (!st.value || r.st === st.value) && r.s >= +stars.value && (!act.checked || (r.ld != null && r.ld <= 365)) && (!nw.checked || r.cd <= 365) && (!aw.checked || r.aw));
       lim = 100; t.limit(lim); t.rows(rows); };
-    [q, cat, st, stars, act, nw, aw].forEach(n => n.addEventListener('input', apply));
+    const sync = () => { const u = new URL(location.href); [['lang', lang.value], ['cat', cat.value], ['status', st.value]].forEach(([k, v]) => v ? u.searchParams.set(k, v) : u.searchParams.delete(k)); history.replaceState(null, '', u); };
+    [q, lang, cat, st, stars, act, nw, aw].forEach(n => n.addEventListener('input', () => { apply(); sync(); }));
     more.addEventListener('click', () => { lim += 100; t.limit(lim); });
-    host.replaceChildren(el('div', { class: 'panel' }, el('div', { class: 'filters' }, q, cat, st, stars, el('label', {}, act, 'active in last 12 mo'), el('label', {}, nw, 'created in last 12 mo'), el('label', {}, aw, 'in awesome-clojure')),
+    host.replaceChildren(el('div', { class: 'panel' }, el('div', { class: 'filters' }, q, lang, cat, st, stars, el('label', {}, act, 'active in last 12 mo'), el('label', {}, nw, 'created in last 12 mo'), el('label', {}, aw, 'in awesome-clojure')),
       el('header', {}, count, el('p', {}, 'press / or ⌘K to search everything')), el('div', { class: 'scroll' }, t.el), el('div', { class: 'more' }, more)));
     apply();
   }
@@ -194,8 +198,8 @@
         [fmt(r.c), 'all commits', ''], [full(r.f), 'forks', ''], [r.rel ? r.rel.slice(0, 14) : '—', 'latest release', r.rd || '']].map(([v, l, p]) => el('div', {}, el('div', { class: 'v' }, v), el('div', { class: 'l' }, l), el('div', { class: 'p' }, p)))),
     );
     if (r.m) dr.append(el('h3', { class: 'eyebrow', style: 'margin:14px 0 4px' }, `commits / month · ${(DATA.months[0] || '').slice(0, 7)} → ${(DATA.months[DATA.months.length - 1] || '').slice(0, 7)} (partial)`), spark(r.m, Math.min(520, dr.clientWidth - 44), 70));
-    if (r.hc) dr.append(el('h3', { class: 'eyebrow', style: 'margin:16px 0 0' }, `health ${r.hs}/100 · percentiles vs Clojure baseline`), el('div', { class: 'comp' }, ['activity (commits 12mo)', 'recency', 'issue closure', 'open-issue load', 'release cadence', 'adoption (stars)'].map((c, i) => el('div', { class: 'row' }, el('span', {}, c), el('div', { class: 't' }, el('i', { style: `width:${r.hc[i]}%` })), el('span', {}, String(r.hc[i]))))));
-    dr.append(el('div', { class: 'links' }, el('a', { href: 'https://github.com/' + r.n, target: '_blank', rel: 'noopener' }, 'github ↗'), r.h ? el('a', { href: r.h, target: '_blank', rel: 'noopener' }, 'homepage ↗') : null, el('a', { href: `https://github.com/${r.n}/issues`, target: '_blank', rel: 'noopener' }, 'issues ↗'), el('a', { href: `https://github.com/${r.n}/commits`, target: '_blank', rel: 'noopener' }, 'commits ↗'), el('a', { href: `https://clojars.org/search?q=${encodeURIComponent(r.n.split('/')[1])}`, target: '_blank', rel: 'noopener' }, 'clojars ↗'), el('a', { href: '/explore/?repo=' + encodeURIComponent(r.n) }, 'permalink')));
+    if (r.hc) dr.append(el('h3', { class: 'eyebrow', style: 'margin:16px 0 0' }, `health ${r.hs}/100 · percentiles vs the Clojure baseline${r.lang && r.lang !== 'Clojure' ? ' (a ' + r.lang + ' repo: compare raw numbers across languages)' : ''}`), el('div', { class: 'comp' }, ['activity (commits 12mo)', 'recency', 'issue closure', 'open-issue load', 'release cadence', 'adoption (stars)'].map((c, i) => el('div', { class: 'row' }, el('span', {}, c), el('div', { class: 't' }, el('i', { style: `width:${r.hc[i]}%` })), el('span', {}, String(r.hc[i]))))));
+    dr.append(el('div', { class: 'links' }, el('a', { href: 'https://github.com/' + r.n, target: '_blank', rel: 'noopener' }, 'github ↗'), r.h ? el('a', { href: r.h, target: '_blank', rel: 'noopener' }, 'homepage ↗') : null, el('a', { href: `https://github.com/${r.n}/issues`, target: '_blank', rel: 'noopener' }, 'issues ↗'), el('a', { href: `https://github.com/${r.n}/commits`, target: '_blank', rel: 'noopener' }, 'commits ↗'), r.lang === 'Clojure' ? el('a', { href: `https://clojars.org/search?q=${encodeURIComponent(r.n.split('/')[1])}`, target: '_blank', rel: 'noopener' }, 'clojars ↗') : null, el('a', { href: '/explore/?repo=' + encodeURIComponent(r.n) }, 'permalink')));
     dr.hidden = false; scrim.hidden = false; dr.scrollTop = 0; $('.x', dr).focus();
   }
   function closeDrawer() { dr.hidden = true; scrim.hidden = true; if (last && last.focus) last.focus(); }
@@ -208,7 +212,7 @@
     for (let i = 0; i < text.length; i++) { const m = set.has(i); if (m !== on) { if (buf) f.append(on ? el('mark', {}, buf) : buf); buf = ''; on = m; } buf += text[i]; } if (buf) f.append(on ? el('mark', {}, buf) : buf); return f; }
 
   let PAGES = null; const getPages = () => PAGES ? Promise.resolve(PAGES) : fetch('/data/pages.json').then(r => r.json()).then(p => (PAGES = p));
-  const pal = el('dialog', { class: 'palette', 'aria-label': 'Search Clojure Radar' });
+  const pal = el('dialog', { class: 'palette', 'aria-label': 'Search stuff my agent found' });
   const pin = el('input', { type: 'search', class: 'pin', placeholder: 'search projects, categories, pages… try “ui”, “db”, “datalog”, “uix”', 'aria-label': 'Search', autocomplete: 'off', spellcheck: 'false', role: 'combobox', 'aria-expanded': 'true', 'aria-controls': 'pal-list' });
   const plist = el('div', { class: 'plist', id: 'pal-list', role: 'listbox' });
   const pstat = el('div', { class: 'pfoot' }, el('span', {}, el('span', { class: 'kbd' }, '↑↓'), ' move  ', el('span', { class: 'kbd' }, '↵'), ' open  ', el('span', { class: 'kbd' }, 'esc'), ' close'), el('span', { class: 'pcount' }, ''));
@@ -221,13 +225,13 @@
     const head = t => plist.append(el('div', { class: 'pgrp', role: 'presentation' }, t));
     if (!q.trim()) {
       head('Jump to'); (PAGES || []).filter(p => p.k !== 'source').slice(0, 10).forEach(p => add(el('div', { class: 'pitem' }, el('span', { class: 'pk' }, p.k), el('span', { class: 'pt' }, p.t), el('span', { class: 'pd' }, p.d)), () => { location.href = p.u; }));
-      plist.append(el('div', { class: 'phint' }, 'Fuzzy search across ' + (DATA ? DATA.repos.length.toLocaleString('en-US') : '3,000+') + ' repos, every category and every page. Category words work too: ui, frontend, db, datalog, sync, runtime, agent, css, tui, test…'));
+      plist.append(el('div', { class: 'phint' }, 'Fuzzy search across ' + (DATA ? DATA.repos.length.toLocaleString('en-US') : '3,000+') + ' repos, every category and every page. A language filters (clojure, typescript, lang:go). Category words work too: ui, frontend, db, datalog, sync, crdt, runtime, agent, css, tui, test…'));
     } else {
-      const synQ = q.trim().toLowerCase().split(/\s+/).every(t => synFor(t));
+      const synQ = q.trim().toLowerCase().split(/\s+/).every(t => synFor(t) || (res.lang && (t === res.lang.toLowerCase() || t.startsWith('lang:'))));
       const GRP = {
-        cats: () => { if (!res.cats.length) return; head('Categories'); res.cats.forEach(c => add(el('div', { class: 'pitem' }, el('span', { class: 'pk' }, 'cat'), el('span', { class: 'pt' }, hl(c.c, c.idx)), el('span', { class: 'pd' }, c.n + ' repos →')), () => { location.href = '/explore/?all=1&cat=' + encodeURIComponent(c.c); })); },
+        cats: () => { if (!res.cats.length) return; head('Categories'); res.cats.forEach(c => add(el('div', { class: 'pitem' }, el('span', { class: 'pk' }, 'cat'), el('span', { class: 'pt' }, hl(c.c, c.idx)), el('span', { class: 'pd' }, c.n + ' repos →')), () => { location.href = '/explore/?all=1&cat=' + encodeURIComponent(c.c) + (res.lang ? '&lang=' + encodeURIComponent(res.lang) : ''); })); },
         pages: () => { if (!res.pages.length) return; head('Pages'); res.pages.forEach(({ p, idx }) => add(el('div', { class: 'pitem' }, el('span', { class: 'pk' }, p.k), el('span', { class: 'pt' }, hl(p.t, idx)), el('span', { class: 'pd' }, p.d)), e => { if (p.k === 'source' || e.metaKey || e.ctrlKey) window.open(p.u, '_blank', 'noopener'); else location.href = p.u; })); },
-        repos: () => { if (!res.repos.length) return; head(synQ ? 'Top repositories' : 'Repositories'); res.repos.forEach(({ r, idx }) => add(el('div', { class: 'pitem' }, el('span', { class: 'pk st-' + r.st }, ':' + r.st), el('span', { class: 'pt' }, hl(r.n, idx)), el('span', { class: 'pd' }, fmt(r.s) + '★ · ' + r.cat)), () => { closePal(); openDrawer(r); })); },
+        repos: () => { if (!res.repos.length) return; head((synQ ? 'Top repositories' : 'Repositories') + (res.lang ? ' // language: ' + res.lang : '')); res.repos.forEach(({ r, idx }) => add(el('div', { class: 'pitem' }, el('span', { class: 'pk st-' + r.st }, ':' + r.st), el('span', { class: 'pt' }, hl(r.n, idx)), el('span', { class: 'pd' }, fmt(r.s) + '★ · ' + r.cat)), () => { closePal(); openDrawer(r); })); },
       };
       const top = { cats: res.cats[0] ? res.cats[0].s : 0, pages: res.pages[0] ? res.pages[0].s : 0, repos: res.repos[0] ? res.repos[0].s * .55 : 0 };
       (synQ ? ['cats', 'repos', 'pages'] : Object.keys(top).sort((x, y) => top[y] - top[x])).forEach(g => GRP[g]());
@@ -248,11 +252,11 @@
   function closePal() { if (pal.open) pal.close(); }
 
   const KEYS = [['⌘K / Ctrl K', 'open search'], ['/', 'open search'], ['?', 'show this help'], ['t', 'toggle light / dark'], ['esc', 'close search, help or a project file'],
-    ['g b', 'go to brief'], ['g f', 'go to front-end'], ['g d', 'go to data-sync'], ['g n', 'go to novel'], ['g r', 'go to runtimes'], ['g w', 'go to why-clojure'], ['g l', 'go to blog'], ['g s', 'go to sources'], ['g e', 'go to explore'], ['g m', 'go to method'],
+    ['g i', 'go to the index'], ['g c', 'go to case files'], ['g 1', 'case 001: Clojure ecosystem'], ['g 2', 'case 002: front end for a Clojure backend'], ['g 3', 'case 003: frameworks agents work well in'], ['g d', 'go to dispatches'], ['g e', 'go to explore'], ['g s', 'go to sources'], ['g a', 'go to for-agents'], ['g m', 'go to method'],
     ['↑ ↓ / Ctrl N P', 'move through search results'], ['↵', 'open the selected result']];
-  const GO = { b: '/', f: '/frontend/', d: '/sync/', n: '/novel/', r: '/runtimes/', w: '/why-clojure/', l: '/blog/', s: '/sources/', e: '/explore/', m: '/method/' };
+  const GO = { i: '/', c: '/cases/', 1: '/cases/clojure/', 2: '/cases/frontend-sync/', 3: '/cases/agentic-frameworks/', d: '/blog/', s: '/sources/', e: '/explore/', a: '/for-agents/', m: '/method/' };
   const help = el('dialog', { class: 'palette help', 'aria-labelledby': 'help-t' },
-    el('div', { class: 'phead' }, el('span', { class: 'prompt', 'aria-hidden': 'true' }, '$'), el('h2', { id: 'help-t' }, 'man clojure-radar'), el('button', { class: 'ghost', type: 'button', onclick: () => help.close() }, '[ esc ]')),
+    el('div', { class: 'phead' }, el('span', { class: 'prompt', 'aria-hidden': 'true' }, '$'), el('h2', { id: 'help-t' }, 'man stuff-my-agent-found'), el('button', { class: 'ghost', type: 'button', onclick: () => help.close() }, '[ esc ]')),
     el('div', { class: 'plist' }, el('p', { class: 'phint', style: 'padding-top:4px' }, 'KEYBOARD SHORTCUTS. These work anywhere except while typing in a text field.'),
       el('table', { class: 'keys' }, el('tbody', {}, KEYS.map(([k, d]) => el('tr', {}, el('td', {}, k.split(' / ').map((x, i) => [i ? ' or ' : '', ...x.split(' ').map((y, j) => [j ? ' ' : '', el('span', { class: 'kbd' }, y)])])), el('td', {}, d)))))));
   document.body.append(help);

@@ -1,26 +1,27 @@
-/* Clojure Radar search core: fuzzy matching + category synonyms. Shared by the site (browser) and the /api/search Worker. */
+/* stuff my agent found search core: fuzzy matching + category synonyms. Shared by the site (browser) and the /api/search Worker. */
 (function (G) {
   'use strict';
   const STARS = r => Math.log10(r.s + 1);
   const GROUPS = {
-    frontend: ['React wrapper', 'Non-React UI', 'State management', 'Routing', 'CSS', 'Component library', 'HTML', 'Mobile', 'Desktop UI', 'Front-end / UI', 'GUI', 'HTML Manipulation', 'Terminal UI'],
+    frontend: ['Functional front end', 'UI framework', 'UI components', 'React wrapper', 'Non-React UI', 'State management', 'Routing', 'CSS', 'Component library', 'HTML', 'Mobile', 'Desktop UI', 'Front-end / UI', 'GUI', 'HTML Manipulation', 'Terminal UI'],
     db: ['Data sync / DB', 'Data / DB', 'Database', 'ORM and SQL generation', 'Connection pools', 'Structural Migrations', 'Redis', 'Database Cli'],
-    sync: ['Data sync / DB', 'Reactive', 'Novel / reactive'],
+    sync: ['Data sync / DB', 'Reactive', 'Novel / reactive', 'Sync engine', 'CRDT', 'Local-first database', 'Reactive client store', 'Backend platform'],
+    crdt: ['CRDT', 'Local-first database'],
     reactive: ['Reactive', 'Concurrency / async', 'Async processing', 'Novel / reactive'],
     runtime: ['Novel / runtime', 'Runtime / compiler', 'Language / runtime', 'Languages'],
-    ai: ['Agent tooling', 'AI / LLM', 'Machine Learning'],
+    ai: ['Agent tooling', 'AI / LLM', 'Machine Learning', 'Framework agent tooling', 'Benchmark'],
     web: ['Web / HTTP', 'HTTP', 'Web server', 'RESTful API', 'Web Framework', 'Full-stack framework', 'Hypermedia / server-driven', 'WebSocket', 'GraphQL API'],
     css: ['CSS'], routing: ['Routing'], state: ['State management'], test: ['Testing', 'Webdriver automation'],
     tooling: ['Dev tooling', 'Build tooling', 'Editor Plugins', 'Code Analysis and Linter', 'Debugging', 'Build Automation and Package management'],
     desktop: ['Desktop UI', 'GUI', 'Terminal UI'], mobile: ['Mobile'],
     data: ['Data science', 'Science and Data Analysis', 'Machine Learning', 'Data'],
-    hypermedia: ['Hypermedia / server-driven'], fullstack: ['Full-stack framework', 'Web Framework'],
+    hypermedia: ['Hypermedia / server-driven', 'Server-driven UI'], fullstack: ['Full-stack framework', 'Web Framework', 'App framework', 'Backend platform'],
     games: ['Games / art / music', 'Game Development', 'Audio'], validation: ['Data Validation', 'Data'],
   };
   const SYN = {
     ui: 'frontend', frontend: 'frontend', 'front-end': 'frontend', fe: 'frontend', react: 'frontend', component: 'frontend', components: 'frontend', dom: 'frontend', view: 'frontend', spa: 'frontend', browser: 'frontend', cljs: 'frontend',
     db: 'db', database: 'db', databases: 'db', datalog: 'db', sql: 'db', storage: 'db', store: 'db', persistence: 'db', postgres: 'db', sqlite: 'db',
-    sync: 'sync', realtime: 'sync', 'real-time': 'sync', 'local-first': 'sync', offline: 'sync', crdt: 'sync',
+    sync: 'sync', realtime: 'sync', 'real-time': 'sync', 'local-first': 'sync', localfirst: 'sync', offline: 'sync', crdt: 'crdt', crdts: 'crdt', replication: 'sync', 'sync-engine': 'sync', liveview: 'hypermedia',
     reactive: 'reactive', frp: 'reactive', signals: 'reactive', stream: 'reactive', streams: 'reactive', async: 'reactive', dataflow: 'reactive',
     runtime: 'runtime', runtimes: 'runtime', compiler: 'runtime', language: 'runtime', lang: 'runtime', dialect: 'runtime', interpreter: 'runtime', native: 'runtime',
     ai: 'ai', llm: 'ai', agent: 'ai', agents: 'ai', agentic: 'ai', mcp: 'ai', claude: 'ai', gpt: 'ai', ml: 'ai',
@@ -33,6 +34,9 @@
   };
   const synFor = t => { if (SYN[t]) return SYN[t]; if (t.length >= 3) { const k = Object.keys(SYN).find(k => k.length > t.length && k.startsWith(t)); if (k) return SYN[k]; } return null; };
   const BOUND = /[\s\/\-_.:]/;
+  const LALIAS = { ts: 'typescript', js: 'javascript', golang: 'go', py: 'python', ex: 'elixir', rb: 'ruby', 'c#': 'c#' };
+  // language tokens filter instead of score: "clojure", "typescript", "lang:rust"
+  function langOf(t, LANGS) { if (t.startsWith('lang:')) { const v = t.slice(5); return LANGS.get(LALIAS[v] || v) || v; } if (SYN[t]) return null; const v = LALIAS[t] || t; return v.length >= 4 || LALIAS[t] ? LANGS.get(v) || null : null; }
   // fzf-style subsequence score; returns {s, idx} or null
   function fz(q, text) {
     if (!text) return null; const t = text.toLowerCase(); const i0 = t.indexOf(q);
@@ -51,15 +55,19 @@
       if (a.length > b.length) i++; else if (b.length > a.length) j++; else if (a[i + 1] === b[j] && a[i] === b[j + 1]) { i += 2; j += 2; } else { i++; j++; } } return e + (a.length - i) + (b.length - j) <= 1; };
   function search(DATA, PAGES, qraw, lim) {
     lim = lim || {};
-    const q = qraw.trim().toLowerCase(); const toks = q.split(/\s+/).filter(Boolean); const out = { cats: [], pages: [], repos: [] };
-    if (!toks.length) return out;
+    const q = qraw.trim().toLowerCase(); const all = q.split(/\s+/).filter(Boolean); const out = { cats: [], pages: [], repos: [], lang: null };
+    if (!all.length) return out;
+    const LANGS = new Map(); if (DATA) DATA.repos.forEach(r => { if (r.lang) LANGS.set(r.lang.toLowerCase(), r.lang); });
+    let lang = null; const toks = all.filter(t => { const l = langOf(t, LANGS); if (l) { lang = l; return false; } return true; }); out.lang = lang;
     const groups = new Set(toks.map(synFor).filter(Boolean)); const synCats = new Set([...groups].flatMap(g => GROUPS[g]));
     const synOnly = toks.every(t => synFor(t));
-    if (DATA) {
-      const counts = new Map(); DATA.repos.forEach(r => counts.set(r.cat, (counts.get(r.cat) || 0) + 1));
+    const pool = DATA ? (lang ? DATA.repos.filter(r => r.lang === lang) : DATA.repos) : [];
+    if (DATA && !toks.length) { out.repos = pool.map(r => ({ r, s: STARS(r) * 30 + (r.hs || 0) * .6 + (r.note ? 40 : 0), idx: null })).sort((a, b) => b.s - a.s).slice(0, lim.repos || 14); }
+    if (DATA && toks.length) {
+      const counts = new Map(); pool.forEach(r => counts.set(r.cat, (counts.get(r.cat) || 0) + 1));
       out.cats = [...counts.keys()].map(c => { let s = 0, idx = null; for (const t of toks) { const m = c.toLowerCase().includes(t) ? fz(t, c) : null; if (m) { s += m.s; idx = toks.length === 1 ? m.idx : null; } else if (synCats.has(c)) s += 80; else return null; } return { c, s: s + Math.log10(counts.get(c)) * 8, idx, n: counts.get(c) }; })
         .filter(Boolean).sort((a, b) => b.s - a.s).slice(0, lim.cats || 5);
-      out.repos = DATA.repos.map(r => {
+      out.repos = pool.map(r => {
         const [o, nm] = r.n.split('/'); let s = 0, idx = null;
         for (const t of toks) {
           const mn = fz(t, nm), mo = fz(t, o), mc = fz(t, r.cat), syn = synFor(t);
@@ -75,12 +83,12 @@
           if (!best) return null; s += best;
         }
         if (toks.length > 1) { const nl = nm.toLowerCase(); if (nl === toks.join('-') || nl === toks.join('') || nl === toks.join('.')) s += 400; else if (nl.includes(toks.join('-'))) s += 200; }
-        return { r, s: s + STARS(r) * (synOnly ? 30 : 8) + (r.hs || 0) * (synOnly ? .6 : .15) + (r.fa ? (synOnly ? 40 : 15) : 0), idx };
+        return { r, s: s + STARS(r) * (synOnly ? 30 : 8) + (r.hs || 0) * (synOnly ? .6 : .15) + (r.note ? (synOnly ? 40 : 15) : 0), idx };
       }).filter(Boolean).sort((a, b) => b.s - a.s).slice(0, lim.repos || 14);
     }
-    if (PAGES) out.pages = PAGES.map(p => { let s = 0, idx = null; for (const t of toks) { const mt = fz(t, p.t), md = t.length > 2 && p.d && p.d.toLowerCase().includes(t);
-        const syn = synFor(t); const sec = syn && p.k === 'sector' && ({ frontend: '/frontend/', db: '/sync/', sync: '/sync/', reactive: '/sync/', runtime: '/runtimes/', ai: '/why-clojure/', hypermedia: '/novel/', fullstack: '/novel/' })[syn] === p.u;
-        if (mt) { s += mt.s * 1.4; if (toks.length === 1) idx = mt.idx; } else if (sec) s += 200; else if (md) s += 60; else return null; }
+    if (PAGES) out.pages = PAGES.map(p => { let s = 0, idx = null; for (const t of all) { const mt = fz(t, p.t), md = t.length > 2 && p.d && p.d.toLowerCase().includes(t);
+        const syn = synFor(t); const sec = syn && p.k === 'sector' && ({ frontend: '/cases/clojure/frontend/', db: '/cases/clojure/sync/', sync: '/cases/clojure/sync/', reactive: '/cases/clojure/sync/', runtime: '/cases/clojure/runtimes/', ai: '/cases/clojure/agents/', hypermedia: '/cases/clojure/novel/', fullstack: '/cases/clojure/novel/' })[syn] === p.u;
+        if (mt) { s += mt.s * 1.4; if (all.length === 1) idx = mt.idx; } else if (sec) s += 200; else if (md) s += 60; else return null; }
       return { p, s: s + (p.k === 'sector' ? 30 : p.k === 'page' ? 20 : p.k === 'dispatch' ? 10 : 0), idx }; }).filter(Boolean).sort((a, b) => b.s - a.s).slice(0, lim.pages || 6);
     return out;
   }

@@ -1,0 +1,312 @@
+[
+[
+"rocicorp/mono",
+"Sync engine",
+"Zero (1.0, Jun 2026) and Replicache. Zero: query-driven sync with server-authoritative mutators, needs Postgres 15+ with logical replication. Replicache: open-sourced, free, push/pull against any backend, superseded by Zero."
+],
+[
+"electric-sql/electric",
+"Sync engine",
+"Postgres read-path sync ('shapes') over plain HTTP; writes go through your API. Joined Neon/Databricks Aug 2026; Electric Cloud winding down. Needs Postgres."
+],
+[
+"durable-streams/durable-streams",
+"Sync engine",
+"Electric's open protocol for ordered, replayable HTTP streams with catch-up and live tailing. Not tied to Postgres, so a Clojure server could implement it."
+],
+[
+"TanStack/db",
+"Reactive client store",
+"Reactive client store with live queries maintained by differential dataflow and optimistic writes. Query Collection works against any REST API. 1.0 RC Nov 2026. Best client-DB fit for a Clojure server."
+],
+[
+"livestorejs/livestore",
+"Local-first database",
+"Event-sourced client SQLite. The sync backend only has to serve an ordered event log from a cursor, which maps well onto XTDB's log. Pre-1.0, TS/Effect-heavy."
+],
+[
+"pubkey/rxdb",
+"Local-first database",
+"NoSQL client DB with a documented checkpoint pull/push replication protocol for any backend. A Clojure server can use XTDB system time or tx-id as the checkpoint."
+],
+[
+"instantdb/instant",
+"Backend platform",
+"Firebase-style backend with a client Datalog store. Its sync engine is Clojure: it tails the Postgres WAL and invalidates subscribed queries. 1.0 Apr 2026. Can't front XTDB, but the best open reference for a reactive-query invalidator in Clojure."
+],
+[
+"convex/convex-backend",
+"Backend platform",
+"Hosted reactive backend: TypeScript server functions, query subscriptions re-run on change, own Rust database. Self-hostable under FSL. Needs its own DB."
+],
+[
+"powersync-ja/powersync-service",
+"Sync engine",
+"Replicates Postgres, MongoDB, MySQL, SQL Server or Convex into client SQLite via Sync Streams; writes go through your API. XTDB is not a supported source."
+],
+[
+"garden-co/jazz",
+"Local-first database",
+"Jazz 2 (alpha): a database embedded in a Node backend with mergeable and serializable transactions. TypeScript only."
+],
+[
+"aspen-cloud/triplit",
+"Local-first database",
+"Full-stack syncing database (AGPL). Acquired by Supabase; repo quiet since Jan 2026."
+],
+[
+"automerge/automerge",
+"CRDT",
+"JSON CRDT with full history (Rust core, JS/WASM). 3.0 cut memory use 10x. For collaborative documents, not ledger entries."
+],
+[
+"automerge/automerge-repo",
+"CRDT",
+"Networking and storage layer for Automerge documents."
+],
+[
+"yjs/yjs",
+"CRDT",
+"The most widely used text CRDT. v14 RC Oct 2026."
+],
+[
+"jamsocket/y-sweet",
+"CRDT",
+"Realtime CRDT document store backed by S3. Its team joined Modal."
+],
+[
+"loro-dev/loro",
+"CRDT",
+"High-performance Rust CRDT library: rich text, lists, trees and version control."
+],
+[
+"tinyplex/tinybase",
+"Reactive client store",
+"Small reactive store with a MergeableStore CRDT and WebSocket synchronizers."
+],
+[
+"evoluhq/evolu",
+"Local-first database",
+"SQLite on each device, synced end-to-end encrypted through self-hostable relays."
+],
+[
+"dxos/dxos",
+"Local-first database",
+"Local-first, peer-to-peer framework for collaborative apps (FSL). Brings its own stack."
+],
+[
+"starfederation/datastar",
+"Server-driven UI",
+"Hypermedia framework: the server streams DOM patches and signals over SSE. Any backend; official Clojure SDK in sdk/clojure. 1.0.5. The most inspectable fit for a Clojure server."
+],
+[
+"andersmurphy/hyperlith",
+"Server-driven UI",
+"Anders Murphy's Clojure framework for Datastar: server-rendered, streamed, almost no ClojureScript."
+],
+[
+"bigskysoftware/htmx",
+"Server-driven UI",
+"Hypermedia attributes with SSE/WebSocket extensions. v4."
+],
+[
+"jacobobryant/biff",
+"Server-driven UI",
+"Clojure web framework pairing htmx with XTDB; XTDB v2 support in pre-release."
+],
+[
+"hotwired/turbo",
+"Server-driven UI",
+"HTML over the wire with Turbo Streams for pushes. Rails-first, backend-agnostic."
+],
+[
+"livewire/livewire",
+"Server-driven UI",
+"Laravel server components (PHP)."
+],
+[
+"phoenixframework/phoenix_live_view",
+"Server-driven UI",
+"Stateful server processes push minimal diffs over WebSocket. The reference design that Datastar, Lustre server components and Electric react to."
+],
+[
+"lustre-labs/lustre",
+"Functional front end",
+"Gleam's Elm-architecture framework, with server components over WebSocket. Typed, immutable."
+],
+[
+"elm/compiler",
+"Functional front end",
+"Elm: pure, immutable, no runtime exceptions, excellent compiler errors. 0.19.2 in Jul 2026 started the road to 1.0."
+],
+[
+"rescript-lang/rescript",
+"Functional front end",
+"Sound types, immutable records, first-class React bindings. v12 Dec 2025."
+],
+[
+"Effect-TS/effect",
+"Functional front end",
+"TypeScript library that tracks errors and dependencies in types; pitched as reliable TypeScript for the AI era."
+],
+[
+"wzhudev/reverse-linear-sync-engine",
+"Sync engine",
+"Reverse-engineered study of Linear's sync engine, endorsed by Linear's CTO. The clearest write-up of server authority plus client rebase."
+],
+[
+"hyperfiddle/electric",
+"Novel / reactive",
+"Electric v3: one reactive program the compiler splits across client and server. Free for bootstrappers and non-commercial use, otherwise commercial."
+],
+[
+"fulcrologic/fulcro",
+"State management",
+"Normalized client DB, EQL queries co-located with components, mutations and remotes."
+],
+[
+"fulcrologic/fulcro-rad",
+"State management",
+"Rapid Application Development on Fulcro: attributes drive forms, reports and resolvers."
+],
+[
+"wilkerlucio/pathom3",
+"Data sync / DB",
+"Attribute-graph resolver engine behind Fulcro's EQL remotes."
+],
+[
+"leonoel/missionary",
+"Reactive",
+"Functional effect and streaming system Electric is built on."
+],
+[
+"squint-cljs/squint",
+"Runtime / compiler",
+"Light ClojureScript dialect compiling to plain JS with JS data structures. Small bundles."
+],
+[
+"squint-cljs/cherry",
+"Runtime / compiler",
+"ClojureScript with the real standard library, emitting ES modules."
+],
+[
+"bhauman/clojure-mcp-light",
+"Agent tooling",
+"Paren-repair hooks for Claude Code, Codex and Gemini. In its sample log 4.2% of writes had delimiter errors and parinfer fixed all of them."
+],
+[
+"starfederation/datastar-clojure",
+"Server-driven UI",
+"Datastar's official Clojure SDK: SSE generators for Ring and http-kit, Malli schemas, Brotli."
+],
+[
+"brianium/datastar.wow",
+"Server-driven UI",
+"Combines Nexus-style data actions with Datastar."
+],
+[
+"day8/re-frame-pair",
+"Agent tooling",
+"Claude Code skill for re-frame: inspect app-db, dispatch events, trace, hot-swap handlers and time-travel in the running app."
+],
+[
+"day8/re-frame2",
+"State management",
+"Spec-first, AI-first successor to re-frame. Pre-alpha, not on Clojars yet."
+],
+[
+"hyperfiddle/electric3-starter-app",
+"Novel / reactive",
+"Electric v3 starter app; where public v3 activity shows up (commits Oct 2026)."
+],
+[
+"hyperfiddle/electric-fiddle",
+"Novel / reactive",
+"Electric demos, including an XTDB 2 alias."
+],
+[
+"fulcrologic/statecharts",
+"State management",
+"Tony Kay's statecharts library, the focus of Fulcro's recent work."
+],
+[
+"replikativ/konserve-sync",
+"Local-first database",
+"Differential store sync behind Datahike's streaming writer to browser clients (beta)."
+],
+[
+"simongray/like-minded",
+"Local-first database",
+"New (Oct 2026) local-first sync for Clojure(Script). Unproven."
+],
+[
+"pitch-io/uix",
+"",
+""
+],
+[
+"lilactown/helix",
+"",
+""
+],
+[
+"day8/re-frame",
+"",
+""
+],
+[
+"day8/re-frame-10x",
+"",
+""
+],
+[
+"taoensso/sente",
+"",
+""
+],
+[
+"tonsky/datascript",
+"",
+""
+],
+[
+"replikativ/datahike",
+"",
+""
+],
+[
+"xtdb/xtdb",
+"",
+""
+],
+[
+"metosin/malli",
+"",
+""
+],
+[
+"bhauman/clojure-mcp",
+"",
+""
+],
+[
+"clj-kondo/clj-kondo",
+"",
+""
+],
+[
+"thheller/shadow-cljs",
+"",
+""
+],
+[
+"cjohansen/replicant",
+"",
+""
+],
+[
+"cjohansen/nexus",
+"",
+""
+]
+]

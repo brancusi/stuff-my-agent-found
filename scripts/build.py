@@ -7,11 +7,18 @@ def days(ts):
     return (NOW - datetime.datetime.fromisoformat(ts.replace('Z', '+00:00'))).days
 
 raw = {}
-for f in ['enriched_discovered.json', 'enriched_extra.json', 'enriched_awesome.json', 'enriched_agents.json']:
+for f in ['enriched_discovered.json', 'enriched_extra.json', 'enriched_awesome.json', 'enriched_agents.json', 'enriched_cases.json']:
     p = os.path.join(D, f)
     if os.path.exists(p): raw.update(json.load(open(p)))
 disc = {x['full_name'].lower(): x['tags'] for x in json.load(open(os.path.join(D, 'discovered.json')))}
 cur = {c[0].lower(): c for c in json.load(open(os.path.join(D, 'curated.json')))}
+# later case files: data/cases/<slug>.json = [[owner/repo, category, note], ...]
+CASE_LISTS = {}
+for f in sorted(os.listdir(os.path.join(D, 'cases'))) if os.path.isdir(os.path.join(D, 'cases')) else []:
+    if f.endswith('.json'): CASE_LISTS[f[:-5]] = {c[0].lower(): c for c in json.load(open(os.path.join(D, 'cases', f)))}
+def case_entry(k):
+    for lst in CASE_LISTS.values():
+        if k in lst: return lst[k]
 debuts = {}
 for line in open(os.path.join(D, 'deref_debuts.txt')):
     m = re.match(r'(\S+)\s+([\w.-]+/[\w.-]+)', line)
@@ -52,7 +59,7 @@ def heur(desc, topics):
 
 repos = []; seen = set()
 for k, r in raw.items():
-    if r.get('isFork') and k not in cur: continue
+    if r.get('isFork') and k not in cur and not case_entry(k): continue
     if r['nameWithOwner'].lower() in seen: continue
     seen.add(r['nameWithOwner'].lower())
     aw = AW.get(k) or AW.get(r['nameWithOwner'].lower())
@@ -62,7 +69,7 @@ for k, r in raw.items():
     rel = (r.get('releases') or {}).get('nodes') or []
     tags = (r.get('refs') or {}).get('nodes') or []
     topics = [n['topic']['name'] for n in (r.get('repositoryTopics') or {}).get('nodes', [])]
-    c = cur.get(k)
+    c = cur.get(k); ce = case_entry(k)
     oi, ci = r['openIssues']['totalCount'], r['closedIssues']['totalCount']
     o = {
      'n': r['nameWithOwner'], 'd': (r.get('description') or '').strip()[:240], 'h': r.get('homepageUrl') or '',
@@ -75,12 +82,13 @@ for k, r in raw.items():
      'rd': rel[0]['publishedAt'][:10] if rel and rel[0].get('publishedAt') else None,
      'lang': (r.get('primaryLanguage') or {}).get('name'), 'lic': (r.get('licenseInfo') or {}).get('spdxId'),
      'ar': r['isArchived'], 'tp': topics[:8],
-     'cat': c[1] if c else (aw['section'] if aw else heur(r.get('description'), topics)),
-     'fa': FA_OVERRIDE.get(k) or (FOCUS.get(c[1], 'other') if c else None), 'note': c[2] if c else None,
+     'cat': c[1] if c else (ce[1] if ce and ce[1] else (aw['section'] if aw else heur(r.get('description'), topics))),
+     'fa': FA_OVERRIDE.get(k) or (FOCUS.get(c[1], 'other') if c else ('case' if ce and ce[1] else None)), 'note': c[2] if c else (ce[2] if ce and ce[2] else None),
      'aw': aw['section'] if aw else None, 'mv': MOVED.get(k),
      'deb': debuts.get(k), 'src': disc.get(k, ['curated' if c else 'deref']),
      'm': monthly.get(k),
     }
+    o['cs'] = (['clojure'] if (o['lang'] == 'Clojure' or c) else []) + [sl for sl, lst in CASE_LISTS.items() if k in lst]
     repos.append(o)
 
 # ---- Clojure baseline: language:clojure, >=50 stars, not archived (from search 'baseline' tag)

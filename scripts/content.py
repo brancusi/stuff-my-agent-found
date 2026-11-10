@@ -1,4 +1,4 @@
-"""Editorial content for Clojure Radar: sectors, dispatches (blog), why-clojure essay, method, sources."""
+"""Editorial content for stuff my agent found: sectors, dispatches (blog), why-clojure essay, method, sources."""
 import re
 
 def _a(R, name, label=None):
@@ -15,28 +15,28 @@ def table(repos, title, cols='compact', sort='hs'): return f'<div data-table="li
 HIGH, MOD, LOW = ('high', 'HIGH CONFIDENCE'), ('mod', 'MODERATE CONFIDENCE'), ('low', 'LOW CONFIDENCE')
 
 SECTORS = [
- dict(fa='frontend', code='FE', href='/frontend/', title='Front-end frameworks', more='Front-end / UI',
+ dict(fa='frontend', code='FE', href='/cases/clojure/frontend/', title='Front-end frameworks', more='Front-end / UI',
       subj='React wrappers, React-free renderers, state, CSS, components, desktop and mobile UI',
       blurb='Reagent, re-frame, UIx, Helix, Replicant, shadow-grove, Reagami, BareDOM and the tools around them.',
       bluf='The React wrappers are mature and slow-moving. New energy has moved to React-free renderers, web components and server-driven UIs. For a new app in 2026: re-frame on Reagent is the safe default, UIx or Helix if you want modern React directly, Replicant for a data-first React-free stack.',
       body='''<p>Everything for building browser, desktop and mobile UIs in Clojure. Rows tagged <span class="tag new">new</span> debuted in the Clojure Deref this year. Rows tagged <span class="tag aw">awesome</span> are listed in awesome-clojure.</p>
-<div class="callout signal"><span class="lbl">Choosing today</span><p><strong>re-frame + Reagent</strong>: the biggest talent pool, best docs, battle-tested. <strong>UIx / Helix</strong>: modern React hooks and the npm ecosystem with almost no wrapper. <strong>Replicant + Nexus</strong>: pure functions return hiccup, with no React and no component state. Now developed on Codeberg. <strong>Reagami / Squint</strong>: tiny bundles. <strong>Mostly server-rendered?</strong> See the <a href="/novel/">novel sector</a>.</p></div>'''),
- dict(fa='sync', code='DS', href='/sync/', title='Data sync and databases', more='Data / DB',
+<div class="callout signal"><span class="lbl">Choosing today</span><p><strong>re-frame + Reagent</strong>: the biggest talent pool, best docs, battle-tested. <strong>UIx / Helix</strong>: modern React hooks and the npm ecosystem with almost no wrapper. <strong>Replicant + Nexus</strong>: pure functions return hiccup, with no React and no component state. Now developed on Codeberg. <strong>Reagami / Squint</strong>: tiny bundles. <strong>Mostly server-rendered?</strong> See the <a href="/cases/clojure/novel/">novel sector</a>.</p></div>'''),
+ dict(fa='sync', code='DS', href='/cases/clojure/sync/', title='Data sync and databases', more='Data / DB',
       subj='Client databases, sync engines, reactive dataflow and the Datalog databases behind them',
       blurb='Instant, DataScript, Datahike, Datalevin, XTDB, Electric’s runtime Missionary, and replikativ’s versioned-data stack.',
       bluf='Data sync is where Clojure ideas travel furthest. Datalog over immutable facts runs on both client and server, and Instant sells that model as a product. Datalevin, XTDB and Datahike are among the most active repos in the whole ecosystem.',
       body='''<p>The common pattern is a Datalog store on the client (DataScript or Datahike) synced with a durable store on the server (Datomic, XTDB, Datahike or Datalevin), moving data as datoms or EQL queries. replikativ is pushing toward Git-like versioned, forkable data. SQLite is quietly becoming the default app database in the hypermedia crowd.</p>'''),
- dict(fa='novel', code='NV', href='/novel/', title='Novel frameworks', more=None,
+ dict(fa='novel', code='NV', href='/cases/clojure/novel/', title='Novel frameworks', more=None,
       subj='Frameworks that change the shape of an app: cross-tier compilers, hypermedia, full-stack',
       blurb='Electric, Datastar and the hypermedia wave (hyper, hyperlith, stube, ripley), plus Fulcro, Biff, Kit and Clerk.',
       bluf='Two ideas compete to replace the SPA. Electric compiles one program across client and server. Datastar-style hypermedia streams server-rendered state to the browser. Hypermedia has the momentum in 2026, with five frameworks shipping and borkdude experimenting in the same space.',
       body='<p>Frameworks that change where code runs instead of wrapping a UI library. Full-stack frameworks and notebooks are included because they are how most teams experience these ideas.</p>'),
- dict(fa='runtimes', code='RT', href='/runtimes/', title='Runtimes and compilers', more=None,
+ dict(fa='runtimes', code='RT', href='/cases/clojure/runtimes/', title='Runtimes and compilers', more=None,
       subj='ClojureScript and its lighter siblings, native hosts, and the 2026 runtime boom',
       blurb='ClojureScript, Squint, Cherry, Scittle, nbb, babashka, jank, ClojureDart, basilisp, and new hosts on Chez, Zig, Go and QuickJS.',
       bluf='Clojure is becoming a family of languages. Besides the JVM and JavaScript, there are now serious efforts on LLVM (jank), Dart, Python, Go, Chez Scheme, Zig/Wasm and QuickJS. Several of them started in 2026 and already have thousands of commits.',
       body='<p>Ways to run Clojure beyond the JVM, from the front end (Squint, Cherry, Scittle) to native binaries (jank, babashka, cream, gloat).</p>'),
- dict(fa='agents', code='AI', href='/why-clojure/', title='Agentic coding', more=None, subj='', bluf='',
+ dict(fa='agents', code='AI', href='/cases/clojure/agents/', title='Agentic coding', more=None, subj='', bluf='',
       blurb='Why REPL-connected agents do well in Clojure, and the tools that make it work: clojure-mcp, ECA, Backseat Driver, re-frame-pair.', body=''),
 ]
 
@@ -151,7 +151,7 @@ def posts(R, BL, d):
       body=f'''{stat(v('unclebob/swarm-forge'), f'stars on {a("unclebob/swarm-forge","swarm-forge")}, Robert C. Martin\'s multi-agent orchestrator. It is the most-starred Clojure repo created in the last 12 months.', 'Top new repo')}
 <p>The tooling splits in two. One group builds agents in Clojure: {a('redplanetlabs/agent-o-rama','agent-o-rama')} on Rama, and Nubank's agent work. The other makes coding agents good at Clojure: {a('bhauman/clojure-mcp','clojure-mcp')}, {a('bhauman/clojure-mcp-light','clojure-mcp-light')}, {a('editor-code-assistant/eca','ECA')} ({v('editor-code-assistant/eca','c12')} commits), {a('BetterThanTomorrow/calva-backseat-driver','Calva Backseat Driver')} and {a('day8/re-frame-pair','re-frame-pair')}.</p>
 {caveat('<p>Repos outside the curated list are categorised by keywords, so "AI / LLM" counts are approximate. Read them as an order of magnitude, not a census.</p>')}
-<p>Why Clojure attracts this work is its own question, covered in <a href="/blog/why-clojure-for-agents/">DSP-009</a> and the full <a href="/why-clojure/">why-clojure brief</a>.</p>''',
+<p>Why Clojure attracts this work is its own question, covered in <a href="/blog/why-clojure-for-agents/">DSP-009</a> and the full <a href="/cases/clojure/agents/">why-clojure brief</a>.</p>''',
       after=table(['unclebob/swarm-forge','editor-code-assistant/eca','bhauman/clojure-mcp','bhauman/clojure-mcp-light','BetterThanTomorrow/calva-backseat-driver','redplanetlabs/agent-o-rama','unclebob/empire-2025','day8/re-frame-pair','iwillig/clojure-skills','ctford/mcp-nrepl'], 'Agent tooling')))
 
     P.append(dict(slug='why-clojure-for-agents', kj='Agents do their best work in Clojure when wired to a REPL', conf=MOD, tags=['agents'],
@@ -162,7 +162,7 @@ def posts(R, BL, d):
 <p>Three teams report the same pattern independently. Shortcut's 250–300K-line codebase went from "a constant source of hallucinated functions" to one-shotting tasks after clojure-mcp was connected. Metabase built ten domain subagents for its 500K-line backend and tells them to step through middleware in the REPL. Robert C. Martin built a full game, {a('unclebob/empire-2025','empire-2025')}, with role-based Claude agents across about 1,300 commits.</p>
 {stat('35/35', 'delimiter errors automatically fixed by a parinfer hook across 829 agent edits in Bruce Hauman\'s log. It is the only hard number in the field so far: the famous paren problem is real, small and mechanically solvable.', 'Measured')}
 {caveat('<p>No controlled study exists yet. There is no Clojure-specific agent benchmark, and MultiPL-E has not published Clojure pass@1 figures. A September 2026 audit of 93 Clojure repos found agent tooling almost undeployed: 0 with MCP configured, 2 with a paren-repair hook.</p>', 'Evidence quality')}
-<p><a href="/why-clojure/"><strong>Read the full brief: Why Clojure for agentic coding →</strong></a></p>'''))
+<p><a href="/cases/clojure/agents/"><strong>Read the full brief: Why Clojure for agentic coding →</strong></a></p>'''))
 
     P.append(dict(slug='awesome-clojure-audit', kj='awesome-clojure has no front-end section', conf=HIGH, tags=['ecosystem', 'frontend'],
       title='Auditing awesome-clojure: strong on the JVM, silent on the front end',
@@ -254,7 +254,7 @@ def method(memo, d, BL):
 <h2>Known limits</h2>
 <ul><li>Only default branches are counted, and imported histories inflate counts (re-frame2).</li><li>Off-GitHub and private development is invisible (Electric, Rama, parts of Instant, Replicant since November 2026).</li><li>Star counts reflect history as much as health.</li></ul>
 <h2>Reproduce it</h2>
-<p>Every script and the raw data are in the <a href="https://github.com/brancusi/clojure-radar">public repository</a>. <code>scripts/discover.py</code> → <code>enrich.py</code> → <code>monthly.py</code> → <code>build.py</code> → <code>site.py</code>.</p>
+<p>Every script and the raw data are in the <a href="https://github.com/brancusi/stuff-my-agent-found">public repository</a>. <code>scripts/discover.py</code> → <code>enrich.py</code> → <code>monthly.py</code> → <code>build.py</code> → <code>site.py</code>.</p>
 </div>'''
 
 def sources():

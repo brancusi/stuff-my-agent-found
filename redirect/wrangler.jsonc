@@ -1,0 +1,2 @@
+// Redirect from the old name. Deploy: cd redirect && npx wrangler deploy
+{ "name": "clojure-radar", "main": "worker.js", "compatibility_date": "2026-11-01" }

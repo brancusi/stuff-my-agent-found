@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "clojure-radar",
+  "name": "stuff-my-agent-found",
   "main": "src/worker.js",
   "compatibility_date": "2026-11-01",
   "ratelimits": [
