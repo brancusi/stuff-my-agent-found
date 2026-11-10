@@ -1,0 +1,7 @@
+dist/
+.wrangler/
+node_modules/
+__pycache__/
+.DS_Store
+# third-party README copied for parsing; regenerate with scripts/parse_awesome.py
+data/awesome/README.md

@@ -1,0 +1,1610 @@
+[
+ {
+  "repo": "OneKeePass/desktop",
+  "section": "Products",
+  "label": "OneKeePass",
+  "desc": "A secure password manager and [mobile app in ClojureScript](https://github.com/OneKeePass/mobile)"
+ },
+ {
+  "repo": "OneKeePass/mobile",
+  "section": "Products",
+  "label": "mobile app in ClojureScript",
+  "desc": "A secure password manager and [mobile app in ClojureScript](https://github.com/OneKeePass/mobile)"
+ },
+ {
+  "repo": "puppetlabs/puppet-server",
+  "section": "Products",
+  "label": "Puppet Server",
+  "desc": ""
+ },
+ {
+  "repo": "puppetlabs/puppetdb",
+  "section": "Products",
+  "label": "PuppetDB",
+  "desc": ""
+ },
+ {
+  "repo": "metabase/metabase",
+  "section": "Products",
+  "label": "Metabase",
+  "desc": ""
+ },
+ {
+  "repo": "lambdaisland/metabase-datomic",
+  "section": "Products",
+  "label": "Metabase Datomic",
+  "desc": ""
+ },
+ {
+  "repo": "maitria/avi",
+  "section": "Products",
+  "label": "Avi (vim rewrite)",
+  "desc": "](https://github.com/maitria/avi)"
+ },
+ {
+  "repo": "mogenslund/liquid",
+  "section": "Products",
+  "label": "Liquid (Text Editor)",
+  "desc": "](https://github.com/mogenslund/liquid)"
+ },
+ {
+  "repo": "clojupyter/clojupyter",
+  "section": "Products",
+  "label": "Clojupyter",
+  "desc": ""
+ },
+ {
+  "repo": "matthiasn/meins",
+  "section": "Products",
+  "label": "meins",
+  "desc": ""
+ },
+ {
+  "repo": "jepsen-io/jepsen",
+  "section": "Products",
+  "label": "Jepsen",
+  "desc": ""
+ },
+ {
+  "repo": "braidchat/braid",
+  "section": "Products",
+  "label": "Braid",
+  "desc": "a team-chat app with a novel UI that leads to better conversations"
+ },
+ {
+  "repo": "tokenmill/accelerated-text",
+  "section": "Products",
+  "label": "Accelerated Text",
+  "desc": "a natural language generation environment (backend: Clojure, frontend: JS)"
+ },
+ {
+  "repo": "gojek/ziggurat",
+  "section": "Products",
+  "label": "Ziggurat",
+  "desc": "a framework built to simplify Stream processing on Kafka"
+ },
+ {
+  "repo": "oakes/Nightcode",
+  "section": "Products",
+  "label": "Nightcode",
+  "desc": "An IDE for Clojure (archived)"
+ },
+ {
+  "repo": "oakes/Nightlight",
+  "section": "Products",
+  "label": "Nightlight",
+  "desc": "text editor (archived)"
+ },
+ {
+  "repo": "pkamenarsky/atea",
+  "section": "Products",
+  "label": "Atea",
+  "desc": "a minimalistic menu bar time tracker for MacOS (legacy, requires jvm 1.6)"
+ },
+ {
+  "repo": "ertugrulcetin/herfi",
+  "section": "Products",
+  "label": "herfi",
+  "desc": "3D multiplayer game prototype written in Clojure and ClojureScript"
+ },
+ {
+  "repo": "ertugrulcetin/racing-game-cljs",
+  "section": "Products",
+  "label": "racing-game-cljs",
+  "desc": "A 3D racing game built with ClojureScript, React and ThreeJS"
+ },
+ {
+  "repo": "logseq/logseq",
+  "section": "Products",
+  "label": "Logseq",
+  "desc": "knowledge management and collaboration (open frontend)"
+ },
+ {
+  "repo": "jeaye/jank",
+  "section": "Languages",
+  "label": "jank",
+  "desc": ""
+ },
+ {
+  "repo": "LuxLang/lux",
+  "section": "Languages",
+  "label": "lux",
+  "desc": ""
+ },
+ {
+  "repo": "kanaka/mal",
+  "section": "Languages",
+  "label": "mal",
+  "desc": ""
+ },
+ {
+  "repo": "turbopape/scheje",
+  "section": "Languages",
+  "label": "scheje",
+  "desc": ""
+ },
+ {
+  "repo": "benzap/eden",
+  "section": "Languages",
+  "label": "eden",
+  "desc": ""
+ },
+ {
+  "repo": "clojure/core.async",
+  "section": "Awesome macros usage",
+  "label": "core.async",
+  "desc": "transforms AST into CSP programs"
+ },
+ {
+  "repo": "leonoel/cloroutine",
+  "section": "Awesome macros usage",
+  "label": "cloroutine",
+  "desc": "suspends and continuations (coroutines)"
+ },
+ {
+  "repo": "leonoel/missionary",
+  "section": "Awesome macros usage",
+  "label": "missionary",
+  "desc": "a reactive dataflow programming toolkit"
+ },
+ {
+  "repo": "venantius/photon",
+  "section": "Awesome macros usage",
+  "label": "photon",
+  "desc": "realtime web, like Meteor, but for Clojure(Script)"
+ },
+ {
+  "repo": "brandonbloom/metaclj",
+  "section": "Awesome macros usage",
+  "label": "metaclj",
+  "desc": "staged compilation"
+ },
+ {
+  "repo": "noprompt/meander",
+  "section": "Awesome macros usage",
+  "label": "meander",
+  "desc": "transparent data transformation using datastructure pattermatching"
+ },
+ {
+  "repo": "ztellman/proteus",
+  "section": "Awesome macros usage",
+  "label": "proteus",
+  "desc": "introduce mutable variables (don't use, just learn how to map your mind into immutable world)"
+ },
+ {
+  "repo": "redplanetlabs/specter",
+  "section": "Advanced datastructures",
+  "label": "specter",
+  "desc": "an elegant API for querying and transforming nested and recursive data"
+ },
+ {
+  "repo": "clojure/data.avl",
+  "section": "Advanced datastructures",
+  "label": "Persistent AVL trees",
+  "desc": "persistent sorted maps and sets with log-time rank queries"
+ },
+ {
+  "repo": "clojure/data.finger-tree",
+  "section": "Advanced datastructures",
+  "label": "Finger Tree",
+  "desc": "double-list, counted-double-list, counted-sorted-set"
+ },
+ {
+  "repo": "datacrypt-project/hitchhiker-tree",
+  "section": "Advanced datastructures",
+  "label": "Hitchhiker Tree",
+  "desc": "create fast, snapshottable, massively scalable databases"
+ },
+ {
+  "repo": "llasram/hier-set",
+  "section": "Advanced datastructures",
+  "label": "Hierarchical set",
+  "desc": ""
+ },
+ {
+  "repo": "amalloy/ordered",
+  "section": "Advanced datastructures",
+  "label": "Ordered",
+  "desc": "ordered sets and maps"
+ },
+ {
+  "repo": "Malabarba/lazy-map-clojure",
+  "section": "Advanced datastructures",
+  "label": "Lazy Map",
+  "desc": "whose values are only calculated when accessed"
+ },
+ {
+  "repo": "jimpil/duratom",
+  "section": "Advanced datastructures",
+  "label": "Duratom",
+  "desc": "persisted atoms"
+ },
+ {
+  "repo": "Factual/durable-queue",
+  "section": "Advanced datastructures",
+  "label": "Durable Queue",
+  "desc": "queue persisted on disk"
+ },
+ {
+  "repo": "lacuna/bifurcan",
+  "section": "Advanced datastructures",
+  "label": "bifurcan",
+  "desc": "linear map/set/list (stores entries contiguously in memory), ;writtern in java, but test suite (read: usage examples) [in clojure](https://github.com/lacuna/bifurcan/blob/master/test/bifurcan)"
+ },
+ {
+  "repo": "weavejester/compojure",
+  "section": "Web Framework",
+  "label": "Compojure",
+  "desc": ""
+ },
+ {
+  "repo": "metosin/compojure-api",
+  "section": "Web Framework",
+  "label": "Compojure-api",
+  "desc": ""
+ },
+ {
+  "repo": "weavejester/duct",
+  "section": "Web Framework",
+  "label": "Duct",
+  "desc": ""
+ },
+ {
+  "repo": "pedestal/pedestal",
+  "section": "Web Framework",
+  "label": "Pedestal",
+  "desc": ""
+ },
+ {
+  "repo": "metasoarous/datsys",
+  "section": "Web Framework",
+  "label": "Datsys",
+  "desc": ""
+ },
+ {
+  "repo": "juxt/yada",
+  "section": "Web Framework",
+  "label": "yada",
+  "desc": ""
+ },
+ {
+  "repo": "fulcrologic/fulcro",
+  "section": "Web Framework",
+  "label": "Fulcro",
+  "desc": ""
+ },
+ {
+  "repo": "metosin/reitit",
+  "section": "Web Framework",
+  "label": "Reitit",
+  "desc": ""
+ },
+ {
+  "repo": "stuartsierra/component",
+  "section": "Dependency injection",
+  "label": "Component",
+  "desc": ""
+ },
+ {
+  "repo": "danielsz/system",
+  "section": "Dependency injection",
+  "label": "System",
+  "desc": ""
+ },
+ {
+  "repo": "tolitius/mount",
+  "section": "Dependency injection",
+  "label": "mount",
+  "desc": ""
+ },
+ {
+  "repo": "weavejester/integrant",
+  "section": "Dependency injection",
+  "label": "Integrant",
+  "desc": ""
+ },
+ {
+  "repo": "juxt/clip",
+  "section": "Dependency injection",
+  "label": "clip",
+  "desc": ""
+ },
+ {
+  "repo": "piotr-yuxuan/closeable-map",
+  "section": "Dependency injection",
+  "label": "piotr-yuxuan/closeable-map",
+  "desc": ""
+ },
+ {
+  "repo": "darkleaf/di",
+  "section": "Dependency injection",
+  "label": "darkleaf/di",
+  "desc": ""
+ },
+ {
+  "repo": "technomancy/leiningen",
+  "section": "Build Automation and Package management",
+  "label": "Leiningen",
+  "desc": ""
+ },
+ {
+  "repo": "boot-clj/boot",
+  "section": "Build Automation and Package management",
+  "label": "Boot",
+  "desc": ""
+ },
+ {
+  "repo": "gnl/build.simple",
+  "section": "Build Automation and Package management",
+  "label": "build.simple",
+  "desc": ""
+ },
+ {
+  "repo": "clojurephant/clojurephant",
+  "section": "Build Automation and Package management",
+  "label": "clojurephant",
+  "desc": "(Gradle plugin)"
+ },
+ {
+  "repo": "thheller/shadow-cljs",
+  "section": "Build Automation and Package management",
+  "label": "shadow-cljs",
+  "desc": "(Clojurescript)"
+ },
+ {
+  "repo": "clj-jgit/clj-jgit",
+  "section": "Version Control Management",
+  "label": "clj-jgit",
+  "desc": ""
+ },
+ {
+  "repo": "clj-time/clj-time",
+  "section": "Date and Time",
+  "label": "clj-time",
+  "desc": ""
+ },
+ {
+  "repo": "dm3/clojure.java-time",
+  "section": "Date and Time",
+  "label": "clojure.java-time",
+  "desc": "Java 8 Date-Time API"
+ },
+ {
+  "repo": "luciolucio/holi",
+  "section": "Date and Time",
+  "label": "holi",
+  "desc": "Calendar operations that are aware of weekends and holidays"
+ },
+ {
+  "repo": "tokenmill/timewords",
+  "section": "Date and Time",
+  "label": "timewords",
+  "desc": ""
+ },
+ {
+  "repo": "juxt/tick",
+  "section": "Date and Time",
+  "label": "tick",
+  "desc": "Clojure(Script) library, intended as replacement for clj-time"
+ },
+ {
+  "repo": "daveray/seesaw",
+  "section": "GUI",
+  "label": "seesaw",
+  "desc": ""
+ },
+ {
+  "repo": "lambdaisland/trikl",
+  "section": "GUI",
+  "label": "trikl",
+  "desc": ""
+ },
+ {
+  "repo": "aaronc/fx-clj",
+  "section": "GUI",
+  "label": "fx-clj",
+  "desc": ""
+ },
+ {
+  "repo": "alda-lang/alda",
+  "section": "Audio",
+  "label": "Alda",
+  "desc": ""
+ },
+ {
+  "repo": "dakrone/clj-http",
+  "section": "HTTP",
+  "label": "clj-http",
+  "desc": "Apache HttpComponents client wrapper"
+ },
+ {
+  "repo": "http-kit/http-kit",
+  "section": "HTTP",
+  "label": "http-kit",
+  "desc": "Simple, high-performance event-driven HTTP client and server"
+ },
+ {
+  "repo": "ring-clojure/ring",
+  "section": "HTTP",
+  "label": "ring",
+  "desc": "HTTP server abstraction"
+ },
+ {
+  "repo": "nervous-systems/kvlt",
+  "section": "HTTP",
+  "label": "kvlt",
+  "desc": "Uniform, asychronous client interface for HTTP across JVM / Node / browsers"
+ },
+ {
+  "repo": "clj-commons/aleph",
+  "section": "HTTP",
+  "label": "aleph",
+  "desc": "Async client/server based on Netty, with defaults for HTTP, TCP and UDP"
+ },
+ {
+  "repo": "gnarroway/hato",
+  "section": "HTTP",
+  "label": "hato",
+  "desc": "An HTTP client for Clojure, wrapping JDK 11's HttpClient"
+ },
+ {
+  "repo": "xtdb/xtdb",
+  "section": "Database",
+  "label": "xtdb",
+  "desc": "bitemporal database for SQL, Datalog & graph queries"
+ },
+ {
+  "repo": "replikativ/datahike",
+  "section": "Database",
+  "label": "Datahike",
+  "desc": ""
+ },
+ {
+  "repo": "tonsky/datascript",
+  "section": "Database",
+  "label": "Datascript",
+  "desc": ""
+ },
+ {
+  "repo": "juji-io/datalevin",
+  "section": "Database",
+  "label": "Datalevin",
+  "desc": ""
+ },
+ {
+  "repo": "seancorfield/next-jdbc",
+  "section": "Database",
+  "label": "next.jdbc",
+  "desc": ""
+ },
+ {
+  "repo": "clojure/java.jdbc",
+  "section": "Database",
+  "label": "clojure.java.jdbc",
+  "desc": ""
+ },
+ {
+  "repo": "funcool/clojure.jdbc",
+  "section": "Database",
+  "label": "clojure.jdbc",
+  "desc": ""
+ },
+ {
+  "repo": "robashton/cravendb",
+  "section": "Database",
+  "label": "cravendb",
+  "desc": ""
+ },
+ {
+  "repo": "tkaryadis/cmql-core",
+  "section": "Database",
+  "label": "cmql",
+  "desc": "for MongoDB"
+ },
+ {
+  "repo": "apa512/clj-rethinkdb",
+  "section": "Database",
+  "label": "clj-rethinkdb",
+  "desc": "for RethinkDB"
+ },
+ {
+  "repo": "bitemyapp/revise",
+  "section": "Database",
+  "label": "Revise",
+  "desc": "for RethinkDB"
+ },
+ {
+  "repo": "mpenet/spandex",
+  "section": "Database",
+  "label": "Spandex",
+  "desc": "for ElasticSearch"
+ },
+ {
+  "repo": "mpenet/alia",
+  "section": "Database",
+  "label": "Alia",
+  "desc": "for Cassandra"
+ },
+ {
+  "repo": "AppsFlyer/aerospike-clj",
+  "section": "Database",
+  "label": "aerospike-clj",
+  "desc": "for Aerospike"
+ },
+ {
+  "repo": "tomekw/hikari-cp",
+  "section": "Connection pools",
+  "label": "hikari-cp",
+  "desc": ""
+ },
+ {
+  "repo": "metabase/connection-pool",
+  "section": "Connection pools",
+  "label": "metabase/connection-pool",
+  "desc": ""
+ },
+ {
+  "repo": "budu/lobos",
+  "section": "Structural Migrations",
+  "label": "Lobos",
+  "desc": ""
+ },
+ {
+  "repo": "weavejester/ragtime",
+  "section": "Structural Migrations",
+  "label": "Ragtime",
+  "desc": ""
+ },
+ {
+  "repo": "juxt/joplin",
+  "section": "Structural Migrations",
+  "label": "Joplin",
+  "desc": ""
+ },
+ {
+  "repo": "yogthos/migratus",
+  "section": "Structural Migrations",
+  "label": "Migratus",
+  "desc": ""
+ },
+ {
+  "repo": "macourtney/drift",
+  "section": "Structural Migrations",
+  "label": "Drift",
+  "desc": ""
+ },
+ {
+  "repo": "ptaoussanis/carmine",
+  "section": "Redis",
+  "label": "carmine",
+  "desc": ""
+ },
+ {
+  "repo": "lerouxrgd/celtuce",
+  "section": "Redis",
+  "label": "celtuce",
+  "desc": ""
+ },
+ {
+  "repo": "dakrone/cheshire",
+  "section": "JSON",
+  "label": "cheshire",
+  "desc": ""
+ },
+ {
+  "repo": "metosin/jsonista",
+  "section": "JSON",
+  "label": "jsonista",
+  "desc": ""
+ },
+ {
+  "repo": "AppsFlyer/pronto",
+  "section": "Protocol Buffers and gRPC",
+  "label": "pronto",
+  "desc": ""
+ },
+ {
+  "repo": "AppsFlyer/lein-protodeps",
+  "section": "Protocol Buffers and gRPC",
+  "label": "lein-protodeps",
+  "desc": ""
+ },
+ {
+  "repo": "metosin/protojure",
+  "section": "Protocol Buffers and gRPC",
+  "label": "protojure",
+  "desc": ""
+ },
+ {
+  "repo": "walkable-server/walkable",
+  "section": "ORM and SQL generation",
+  "label": "Walkable",
+  "desc": ""
+ },
+ {
+  "repo": "korma/Korma",
+  "section": "ORM and SQL generation",
+  "label": "Korma",
+  "desc": ""
+ },
+ {
+  "repo": "tatut/specql",
+  "section": "ORM and SQL generation",
+  "label": "Specql",
+  "desc": ""
+ },
+ {
+  "repo": "stch-library/sql",
+  "section": "ORM and SQL generation",
+  "label": "stch-library/sql",
+  "desc": ""
+ },
+ {
+  "repo": "r0man/sqlingvo",
+  "section": "ORM and SQL generation",
+  "label": "sqlingvo",
+  "desc": ""
+ },
+ {
+  "repo": "TheLadders/sqlium",
+  "section": "ORM and SQL generation",
+  "label": "sqlium",
+  "desc": ""
+ },
+ {
+  "repo": "jkk/honeysql",
+  "section": "ORM and SQL generation",
+  "label": "honeysql",
+  "desc": ""
+ },
+ {
+  "repo": "metabase/toucan",
+  "section": "ORM and SQL generation",
+  "label": "Toucan",
+  "desc": ""
+ },
+ {
+  "repo": "funcool/buddy",
+  "section": "Security",
+  "label": "Buddy",
+  "desc": ""
+ },
+ {
+  "repo": "lvh/caesium",
+  "section": "Security",
+  "label": "caesium",
+  "desc": "(libsodium bindings)"
+ },
+ {
+  "repo": "cemerick/friend",
+  "section": "Security",
+  "label": "Friend",
+  "desc": ""
+ },
+ {
+  "repo": "lk-geimfari/secrets.clj",
+  "section": "Security",
+  "label": "secrets.clj",
+  "desc": ""
+ },
+ {
+  "repo": "juxt/bolt",
+  "section": "Security",
+  "label": "bolt",
+  "desc": ""
+ },
+ {
+  "repo": "theronic/eacl",
+  "section": "Security",
+  "label": "EACL",
+  "desc": "Situated ReBAC authorization library inspired by SpiceDB and backed by Datomic Pro, Datahike, Datalevin or DataScript."
+ },
+ {
+  "repo": "zalando/friboo",
+  "section": "RESTful API",
+  "label": "Friboo",
+  "desc": ""
+ },
+ {
+  "repo": "darkleaf/router",
+  "section": "RESTful API",
+  "label": "router",
+  "desc": ""
+ },
+ {
+  "repo": "drewr/postal",
+  "section": "Emails",
+  "label": "postal",
+  "desc": ""
+ },
+ {
+  "repo": "cgrand/enlive",
+  "section": "HTML Manipulation",
+  "label": "Enlive",
+  "desc": ""
+ },
+ {
+  "repo": "weavejester/hiccup",
+  "section": "HTML Manipulation",
+  "label": "hiccup",
+  "desc": ""
+ },
+ {
+  "repo": "fhd/clostache",
+  "section": "HTML Manipulation",
+  "label": "clostache",
+  "desc": ""
+ },
+ {
+  "repo": "yogthos/Selmer",
+  "section": "HTML Manipulation",
+  "label": "selmer",
+  "desc": ""
+ },
+ {
+  "repo": "fulcrologic/guardrails",
+  "section": "Data Validation",
+  "label": "Guardrails",
+  "desc": ""
+ },
+ {
+  "repo": "metosin/malli",
+  "section": "Data Validation",
+  "label": "Malli",
+  "desc": ""
+ },
+ {
+  "repo": "plumatic/schema",
+  "section": "Data Validation",
+  "label": "Prismatic's schema",
+  "desc": ""
+ },
+ {
+  "repo": "leonardoborges/bouncer",
+  "section": "Data Validation",
+  "label": "Bouncer",
+  "desc": ""
+ },
+ {
+  "repo": "markwoodhall/clova",
+  "section": "Data Validation",
+  "label": "clova",
+  "desc": ""
+ },
+ {
+  "repo": "jeaye/orchestra",
+  "section": "Data Validation",
+  "label": "Orchestra",
+  "desc": ""
+ },
+ {
+  "repo": "funcool/struct",
+  "section": "Data Validation",
+  "label": "struct",
+  "desc": ""
+ },
+ {
+  "repo": "friemen/domaintypes",
+  "section": "Data Validation",
+  "label": "domaintypes",
+  "desc": ""
+ },
+ {
+  "repo": "clojure/core.typed",
+  "section": "Type System",
+  "label": "core.typed",
+  "desc": ""
+ },
+ {
+  "repo": "clojure/core.match",
+  "section": "Pattern Matching",
+  "label": "core.match",
+  "desc": ""
+ },
+ {
+  "repo": "killme2008/defun",
+  "section": "Pattern Matching",
+  "label": "defun",
+  "desc": ""
+ },
+ {
+  "repo": "zalando/cats.match",
+  "section": "Pattern Matching",
+  "label": "cats.match",
+  "desc": ""
+ },
+ {
+  "repo": "missingfaktor/akar",
+  "section": "Pattern Matching",
+  "label": "Akar",
+  "desc": ""
+ },
+ {
+  "repo": "WeshGuillaume/Verbal-Exprejon",
+  "section": "Pattern Matching",
+  "label": "Verbal-Exprejon",
+  "desc": ""
+ },
+ {
+  "repo": "puniverse/pulsar",
+  "section": "Async processing",
+  "label": "pulsar",
+  "desc": ""
+ },
+ {
+  "repo": "ztellman/manifold",
+  "section": "Async processing",
+  "label": "manifold",
+  "desc": ""
+ },
+ {
+  "repo": "nilenso/goose",
+  "section": "Async processing",
+  "label": "goose",
+  "desc": ""
+ },
+ {
+  "repo": "funcool/cats",
+  "section": "Monads",
+  "label": "cats",
+  "desc": ""
+ },
+ {
+  "repo": "clojure/algo.monads",
+  "section": "Monads",
+  "label": "algo.monads",
+  "desc": ""
+ },
+ {
+  "repo": "uncomplicate/fluokitten",
+  "section": "Monads",
+  "label": "Fluokitten",
+  "desc": ""
+ },
+ {
+  "repo": "jarohen/chord",
+  "section": "WebSocket",
+  "label": "Chord",
+  "desc": ""
+ },
+ {
+  "repo": "ptaoussanis/sente",
+  "section": "WebSocket",
+  "label": "Sente",
+  "desc": ""
+ },
+ {
+  "repo": "ztellman/aleph",
+  "section": "WebSocket",
+  "label": "aleph",
+  "desc": ""
+ },
+ {
+  "repo": "clojure-expectations/expectations",
+  "section": "Testing",
+  "label": "Expectations",
+  "desc": ""
+ },
+ {
+  "repo": "marick/Midje",
+  "section": "Testing",
+  "label": "Midje",
+  "desc": ""
+ },
+ {
+  "repo": "GreenPowerMonitor/test-doubles",
+  "section": "Testing",
+  "label": "test-doubles",
+  "desc": ""
+ },
+ {
+  "repo": "lambdaisland/kaocha",
+  "section": "Testing",
+  "label": "kaocha",
+  "desc": ""
+ },
+ {
+  "repo": "nubank/state-flow",
+  "section": "Testing",
+  "label": "StateFlow",
+  "desc": ""
+ },
+ {
+  "repo": "amokfa/datest",
+  "section": "Testing",
+  "label": "Datest",
+  "desc": ""
+ },
+ {
+  "repo": "igrishaev/etaoin",
+  "section": "Webdriver automation",
+  "label": "Etaoin",
+  "desc": ""
+ },
+ {
+  "repo": "technomancy/slamhound",
+  "section": "Code Analysis and Linter",
+  "label": "Slamhound",
+  "desc": ""
+ },
+ {
+  "repo": "jonase/eastwood",
+  "section": "Code Analysis and Linter",
+  "label": "eastwood",
+  "desc": ""
+ },
+ {
+  "repo": "jonase/kibit",
+  "section": "Code Analysis and Linter",
+  "label": "kibit",
+  "desc": ""
+ },
+ {
+  "repo": "venantius/yagni",
+  "section": "Code Analysis and Linter",
+  "label": "yagni",
+  "desc": ""
+ },
+ {
+  "repo": "dakrone/lein-bikeshed",
+  "section": "Code Analysis and Linter",
+  "label": "lein-bikeshed",
+  "desc": ""
+ },
+ {
+  "repo": "arohner/spectrum",
+  "section": "Code Analysis and Linter",
+  "label": "spectrum",
+  "desc": ""
+ },
+ {
+  "repo": "cloverage/cloverage",
+  "section": "Code Analysis and Linter",
+  "label": "cloverage",
+  "desc": ""
+ },
+ {
+  "repo": "borkdude/clj-kondo",
+  "section": "Code Analysis and Linter",
+  "label": "clj-kondo",
+  "desc": ""
+ },
+ {
+  "repo": "NoahTheDuke/splint",
+  "section": "Code Analysis and Linter",
+  "label": "splint",
+  "desc": ""
+ },
+ {
+  "repo": "incanter/incanter",
+  "section": "Science and Data Analysis",
+  "label": "Incanter",
+  "desc": ""
+ },
+ {
+  "repo": "onyx-platform/onyx",
+  "section": "Science and Data Analysis",
+  "label": "Onyx",
+  "desc": ""
+ },
+ {
+  "repo": "gorillalabs/sparkling",
+  "section": "Science and Data Analysis",
+  "label": "sparklling",
+  "desc": ""
+ },
+ {
+  "repo": "yieldbot/flambo",
+  "section": "Science and Data Analysis",
+  "label": "flambo",
+  "desc": ""
+ },
+ {
+  "repo": "uncomplicate/neanderthal",
+  "section": "Science and Data Analysis",
+  "label": "Neanderthal",
+  "desc": ""
+ },
+ {
+  "repo": "bigmlcom/histogram",
+  "section": "Science and Data Analysis",
+  "label": "Streaming Histograms",
+  "desc": ""
+ },
+ {
+  "repo": "uncomplicate/bayadera",
+  "section": "Science and Data Analysis",
+  "label": "Bayadera - Bayesian Data Analysis on the GPU",
+  "desc": ""
+ },
+ {
+  "repo": "uncomplicate/clojurecuda",
+  "section": "Science and Data Analysis",
+  "label": "ClojureCUDA",
+  "desc": ""
+ },
+ {
+  "repo": "uncomplicate/clojurecl",
+  "section": "Science and Data Analysis",
+  "label": "ClojureCL - parallel computations with OpenCL",
+  "desc": ""
+ },
+ {
+  "repo": "aysylu/loom",
+  "section": "Science and Data Analysis",
+  "label": "Loom - graph library for Clojure",
+  "desc": ""
+ },
+ {
+  "repo": "originrose/cortex",
+  "section": "Machine Learning",
+  "label": "cortex",
+  "desc": ""
+ },
+ {
+  "repo": "aria42/flare",
+  "section": "Machine Learning",
+  "label": "Flare",
+  "desc": ""
+ },
+ {
+  "repo": "bigmlcom/clj-bigml",
+  "section": "Machine Learning",
+  "label": "clj-bigml",
+  "desc": ""
+ },
+ {
+  "repo": "deeplearning4j/deeplearning4j",
+  "section": "Machine Learning",
+  "label": "Deeplearning4j",
+  "desc": ""
+ },
+ {
+  "repo": "jimpil/enclog",
+  "section": "Machine Learning",
+  "label": "Enclog",
+  "desc": ""
+ },
+ {
+  "repo": "cloudkj/lambda-ml",
+  "section": "Machine Learning",
+  "label": "lambda-ml",
+  "desc": ""
+ },
+ {
+  "repo": "kieranbrowne/clojure-tensorflow",
+  "section": "Machine Learning",
+  "label": "clojure-tensorflow",
+  "desc": ""
+ },
+ {
+  "repo": "yetanalytics/dl4clj",
+  "section": "Machine Learning",
+  "label": "dl4clj (deeplearning4j to clojure)",
+  "desc": "](https://github.com/yetanalytics/dl4clj)"
+ },
+ {
+  "repo": "antoniogarrote/clj-ml",
+  "section": "Machine Learning",
+  "label": "clj-ml",
+  "desc": ""
+ },
+ {
+  "repo": "rinuboney/clatern",
+  "section": "Machine Learning",
+  "label": "Clatern",
+  "desc": ""
+ },
+ {
+  "repo": "gigasquid/k9",
+  "section": "Machine Learning",
+  "label": "k9",
+  "desc": ""
+ },
+ {
+  "repo": "clojurewerkz/statistiker",
+  "section": "Machine Learning",
+  "label": "Statistiker",
+  "desc": ""
+ },
+ {
+  "repo": "japonophile/synaptic",
+  "section": "Machine Learning",
+  "label": "Synaptic",
+  "desc": ""
+ },
+ {
+  "repo": "aria42/infer",
+  "section": "Machine Learning",
+  "label": "Infer",
+  "desc": ""
+ },
+ {
+  "repo": "mrdimosthenis/clj-synapses",
+  "section": "Machine Learning",
+  "label": "clj-synapses",
+  "desc": ""
+ },
+ {
+  "repo": "scicloj/scicloj.ml",
+  "section": "Machine Learning",
+  "label": "scicloj.ml",
+  "desc": ""
+ },
+ {
+  "repo": "hellonico/origami",
+  "section": "Computer Vision",
+  "label": "origami",
+  "desc": "OpenCV 4 wrapper"
+ },
+ {
+  "repo": "antoniogarrote/clj-tesseract",
+  "section": "Computer Vision",
+  "label": "clj-tesseract",
+  "desc": ""
+ },
+ {
+  "repo": "dakrone/clojure-opennlp",
+  "section": "Text Processing",
+  "label": "clojure-opennlp",
+  "desc": ""
+ },
+ {
+  "repo": "turbopape/postagga",
+  "section": "Text Processing",
+  "label": "postagga",
+  "desc": ""
+ },
+ {
+  "repo": "tokenmill/beagle",
+  "section": "Text Processing",
+  "label": "beagle",
+  "desc": ""
+ },
+ {
+  "repo": "dainiusjocas/lucene-grep",
+  "section": "Text Processing",
+  "label": "lmgrep",
+  "desc": ""
+ },
+ {
+  "repo": "Engelberg/instaparse",
+  "section": "Parsing",
+  "label": "Instaparse",
+  "desc": ""
+ },
+ {
+  "repo": "blancas/kern",
+  "section": "Parsing",
+  "label": "kern",
+  "desc": ""
+ },
+ {
+  "repo": "wit-ai/duckling",
+  "section": "Parsing",
+  "label": "duckling",
+  "desc": ""
+ },
+ {
+  "repo": "alekseysotnikov/buran",
+  "section": "Parsing",
+  "label": "buran",
+  "desc": "RSS/Atom feed consumer and producer"
+ },
+ {
+  "repo": "mpenet/ex",
+  "section": "Exceptions and Error Handling",
+  "label": "Ex",
+  "desc": ""
+ },
+ {
+  "repo": "grammarly/perseverance",
+  "section": "Exceptions and Error Handling",
+  "label": "Perseverance",
+  "desc": ""
+ },
+ {
+  "repo": "MichaelDrogalis/dire",
+  "section": "Exceptions and Error Handling",
+  "label": "Dire",
+  "desc": ""
+ },
+ {
+  "repo": "oakes/odoyle-rules",
+  "section": "Rule-based Programming",
+  "label": "O'Doyle Rules",
+  "desc": ""
+ },
+ {
+  "repo": "cerner/clara-rules",
+  "section": "Rule-based Programming",
+  "label": "Clara Rules",
+  "desc": ""
+ },
+ {
+  "repo": "yipeeio/arete",
+  "section": "Rule-based Programming",
+  "label": "Arete",
+  "desc": ""
+ },
+ {
+  "repo": "BetterThanTomorrow/calva",
+  "section": "Editor Plugins",
+  "label": "Calva (VSCode)",
+  "desc": "](https://github.com/BetterThanTomorrow/calva)"
+ },
+ {
+  "repo": "clojure-lsp/clojure-lsp",
+  "section": "Editor Plugins",
+  "label": "clojure-lsp (multiple editors)",
+  "desc": "](https://github.com/clojure-lsp/clojure-lsp)"
+ },
+ {
+  "repo": "clojure-emacs/cider",
+  "section": "Editor Plugins",
+  "label": "CIDER (Emacs)",
+  "desc": "](https://github.com/clojure-emacs/cider)"
+ },
+ {
+  "repo": "Fuco1/smartparens",
+  "section": "Editor Plugins",
+  "label": "smartparens (Emacs)",
+  "desc": "](https://github.com/Fuco1/smartparens)"
+ },
+ {
+  "repo": "Fanael/rainbow-delimiters",
+  "section": "Editor Plugins",
+  "label": "rainbow-delimiters (Emacs)",
+  "desc": "](https://github.com/Fanael/rainbow-delimiters)"
+ },
+ {
+  "repo": "Malabarba/aggressive-indent-mode",
+  "section": "Editor Plugins",
+  "label": "aggressive-indent (Emacs)",
+  "desc": "](https://github.com/Malabarba/aggressive-indent-mode)"
+ },
+ {
+  "repo": "Olical/conjure",
+  "section": "Editor Plugins",
+  "label": "Conjure (Neovim)",
+  "desc": "](https://github.com/Olical/conjure)"
+ },
+ {
+  "repo": "venantius/vim-cljfmt",
+  "section": "Editor Plugins",
+  "label": "vim-cljfmt (Vim)",
+  "desc": "](https://github.com/venantius/vim-cljfmt)"
+ },
+ {
+  "repo": "venantius/vim-eastwood",
+  "section": "Editor Plugins",
+  "label": "vim-eastwood (Vim)",
+  "desc": "](https://github.com/venantius/vim-eastwood)"
+ },
+ {
+  "repo": "tpope/vim-fireplace",
+  "section": "Editor Plugins",
+  "label": "vim-fireplace (Vim)",
+  "desc": "](https://github.com/tpope/vim-fireplace)"
+ },
+ {
+  "repo": "dgrnbrg/vim-redl",
+  "section": "Editor Plugins",
+  "label": "vim-redl (Vim)",
+  "desc": "](https://github.com/dgrnbrg/vim-redl)"
+ },
+ {
+  "repo": "tpope/vim-salve",
+  "section": "Editor Plugins",
+  "label": "vim-leiningen (Vim)",
+  "desc": "](https://github.com/tpope/vim-salve)"
+ },
+ {
+  "repo": "junegunn/rainbow_parentheses.vim",
+  "section": "Editor Plugins",
+  "label": "rainbow_parentheses.vim (Vim)",
+  "desc": "](https://github.com/junegunn/rainbow_parentheses.vim)"
+ },
+ {
+  "repo": "liquidz/vim-iced",
+  "section": "Editor Plugins",
+  "label": "vim-iced (Vim)",
+  "desc": "](https://github.com/liquidz/vim-iced)"
+ },
+ {
+  "repo": "avli/clojureVSCode",
+  "section": "Editor Plugins",
+  "label": "clojureVSCode (VSCode)",
+  "desc": "](https://github.com/avli/clojureVSCode)"
+ },
+ {
+  "repo": "linpengcheng/ClojureBoxNpp",
+  "section": "Editor Plugins",
+  "label": "Notepad++",
+  "desc": "modified config files of Lisp"
+ },
+ {
+  "repo": "weavejester/codox",
+  "section": "Documentation",
+  "label": "codox",
+  "desc": ""
+ },
+ {
+  "repo": "gdeer81/marginalia",
+  "section": "Literate Programming",
+  "label": "marginalia",
+  "desc": ""
+ },
+ {
+  "repo": "viebel/klipse",
+  "section": "Literate Programming",
+  "label": "klipse",
+  "desc": ""
+ },
+ {
+  "repo": "neromous/blackfog.dsl",
+  "section": "Literate Programming",
+  "label": "blackfog",
+  "desc": ""
+ },
+ {
+  "repo": "AeroNotix/swindon",
+  "section": "Archives and Compression",
+  "label": "swindon (java.util.zip wrapper)",
+  "desc": "](https://github.com/AeroNotix/swindon)"
+ },
+ {
+  "repo": "ztellman/potemkin",
+  "section": "Miscellaneous",
+  "label": "potemkin",
+  "desc": "reexport vars in another ns / act like a clojure map"
+ },
+ {
+  "repo": "ztellman/clj-tuple",
+  "section": "Miscellaneous",
+  "label": "clj-tuple",
+  "desc": ""
+ },
+ {
+  "repo": "scgilardi/slingshot",
+  "section": "Miscellaneous",
+  "label": "slingshot",
+  "desc": ""
+ },
+ {
+  "repo": "ztellman/virgil",
+  "section": "Miscellaneous",
+  "label": "virgil",
+  "desc": ""
+ },
+ {
+  "repo": "tailrecursion/javastar",
+  "section": "Miscellaneous",
+  "label": "javastar",
+  "desc": ""
+ },
+ {
+  "repo": "ztellman/riddley",
+  "section": "Miscellaneous",
+  "label": "riddley",
+  "desc": ""
+ },
+ {
+  "repo": "ertugrulcetin/kezban",
+  "section": "Miscellaneous",
+  "label": "kezban",
+  "desc": ""
+ },
+ {
+  "repo": "otwieracz/clj-grpc",
+  "section": "Miscellaneous",
+  "label": "clj-grpc",
+  "desc": ""
+ },
+ {
+  "repo": "flow-storm/flow-storm-debugger",
+  "section": "Debugging",
+  "label": "flow-storm-debugger",
+  "desc": ""
+ },
+ {
+  "repo": "gnl/playback",
+  "section": "Debugging",
+  "label": "playback",
+  "desc": ""
+ },
+ {
+  "repo": "clojure/tools.trace",
+  "section": "Debugging",
+  "label": "tools.trace",
+  "desc": ""
+ },
+ {
+  "repo": "razum2um/clj-debugger",
+  "section": "Debugging",
+  "label": "debugger",
+  "desc": ""
+ },
+ {
+  "repo": "GeorgeJahad/debug-repl",
+  "section": "Debugging",
+  "label": "debug-repl",
+  "desc": ""
+ },
+ {
+  "repo": "pallet/ritz",
+  "section": "Debugging",
+  "label": "ritz",
+  "desc": ""
+ },
+ {
+  "repo": "dgrnbrg/redl",
+  "section": "Debugging",
+  "label": "redl",
+  "desc": ""
+ },
+ {
+  "repo": "technomancy/limit-break",
+  "section": "Debugging",
+  "label": "limit-break",
+  "desc": ""
+ },
+ {
+  "repo": "dgrnbrg/spyscope",
+  "section": "Debugging",
+  "label": "spyscope",
+  "desc": ""
+ },
+ {
+  "repo": "razum2um/aprint",
+  "section": "Debugging",
+  "label": "aprint",
+  "desc": ""
+ },
+ {
+  "repo": "cgrand/packed-printer",
+  "section": "Debugging",
+  "label": "packed-printer",
+  "desc": ""
+ },
+ {
+  "repo": "AvisoNovate/pretty",
+  "section": "Debugging",
+  "label": "pretty",
+  "desc": ""
+ },
+ {
+  "repo": "magnars/prone",
+  "section": "Debugging",
+  "label": "prone",
+  "desc": ""
+ },
+ {
+  "repo": "bhauman/lein-figwheel",
+  "section": "Debugging",
+  "label": "figwheel",
+  "desc": ""
+ },
+ {
+  "repo": "venantius/ultra",
+  "section": "Debugging",
+  "label": "ultra",
+  "desc": ""
+ },
+ {
+  "repo": "AppsFlyer/mate-clj",
+  "section": "Debugging",
+  "label": "mate-clj",
+  "desc": ""
+ },
+ {
+  "repo": "vvvvalvalval/scope-capture",
+  "section": "Debugging",
+  "label": "scope-capture",
+  "desc": ""
+ },
+ {
+  "repo": "flosell/lambdacd",
+  "section": "CI",
+  "label": "lambdacd",
+  "desc": ""
+ },
+ {
+  "repo": "turbopape/milestones",
+  "section": "Project Management",
+  "label": "milestones",
+  "desc": ""
+ },
+ {
+  "repo": "MultiMUD/clojure-lanterna",
+  "section": "Terminal UI",
+  "label": "clojure-lanterna",
+  "desc": ""
+ },
+ {
+  "repo": "aaron-santos/zaffre",
+  "section": "Terminal UI",
+  "label": "zaffre",
+  "desc": ""
+ },
+ {
+  "repo": "dundalek/closh",
+  "section": "Terminal UI",
+  "label": "closh",
+  "desc": ""
+ },
+ {
+  "repo": "piotr-yuxuan/malli-cli",
+  "section": "Terminal UI",
+  "label": "piotr-yuxuan/malli-cli",
+  "desc": ""
+ },
+ {
+  "repo": "lambdaisland/zipper-viz",
+  "section": "Graphviz",
+  "label": "zipper-viz",
+  "desc": ""
+ },
+ {
+  "repo": "daveray/dorothy",
+  "section": "Graphviz",
+  "label": "dorothy",
+  "desc": ""
+ },
+ {
+  "repo": "jebberjeb/viz.cljc",
+  "section": "Graphviz",
+  "label": "viz.cljc",
+  "desc": ""
+ },
+ {
+  "repo": "jebberjeb/fsmviz",
+  "section": "Graphviz",
+  "label": "fsmviz",
+  "desc": ""
+ },
+ {
+  "repo": "ztellman/rhizome",
+  "section": "Graphviz",
+  "label": "rhizome",
+  "desc": ""
+ },
+ {
+  "repo": "ertugrulcetin/re-frame-flow",
+  "section": "Graphviz",
+  "label": "re-frame-flow",
+  "desc": "Graph based visualization tool for re-frame event chains (ClojureScript)"
+ },
+ {
+  "repo": "ertugrulcetin/jme-clj",
+  "section": "Game Development",
+  "label": "jme-clj",
+  "desc": "A Clojure 3D Game Engine (Wrapper), Powered by jMonkeyEngine"
+ },
+ {
+  "repo": "oakes/play-cljc",
+  "section": "Game Development",
+  "label": "play-cljc",
+  "desc": "A Clojure and ClojureScript game library"
+ }
+]

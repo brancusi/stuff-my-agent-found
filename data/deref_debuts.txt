@@ -1,0 +1,260 @@
+2025/11/06 damn/moon - RPG Maker & Engine
+2025/11/06 borkdude/reagami - A minimal zero-deps Reagent-like for Squint and CLJS
+2025/11/06 lukaszkorecki/aero-1p - Bridge between Aero and 1Password
+2025/11/06 unravel-team/litellm-clj - A universal translator for LLM models
+2025/11/06 eerohele/muutos - Muutos is a zero-dependency Clojure library for reacting to changes in a PostgreSQL database.
+2025/11/06 okilimnik/webserial-starter - WebSerial API starter with Clojurescript and Replicant
+2025/11/06 * https://repo.prod.meissa.de/meissa/clj-threats[clj-threats] - Clojure implementation of Threagile
+2025/11/06 lsolbach/qclojure-ml - Quantum Machine Learning based on QClojure
+2025/11/06 unravel-team/DSCloj - Structured LLM prompts in Clojure
+2025/11/06 bhauman/clojure-mcp-light - Experimental Clojure tooling for Claude Code - automatic delimiter fixing via hooks and parinfer
+2025/12/03 clojure/java.doc - Javadocs in your REPL
+2025/12/03 latacora/mcp-sdk - A clojure/ring adapter for the official modelcontextprotocol Java SDK
+2025/12/03 scicloj/llm - GitHub - scicloj/llm
+2025/12/03 fulcrologic/clojure-claude-sandbox - Docker setup and run script for starting a sandboxed environment where you can let Claude run without prompts more safely.
+2025/12/03 JulesGosnell/claij - Clojure / AI / MCP Integration
+2025/12/03 nandoolle/langchain4clj - Pure Clojure wrapper for LangChain4j. Idiomatic, data-driven access to multiple LLM providers with zero opinions.
+2025/12/03 potetm/lightweaver - A Next Gen Clojure Component Library
+2025/12/03 lukaszkorecki/oreo - Aero 🤝 Component = Oreo
+2025/12/03 borkdude/parmezan - Parmezan fixes unbalanced or unexpected parens or other delimiters in Clojure files
+2025/12/03 behrica/calva-javadoc - A tiny library to support Calva's custom snippet to show javadoc
+2025/12/03 DotFox/edn.c - A fast, zero-copy EDN (Extensible Data Notation) reader written in C11 with SIMD acceleration.
+2025/12/03 maxweber/dbval - A Datomic-like database library on top of Sqlite
+2025/12/03 behrica/dual - example of a 2 component microservices tools combining Basilisp and Clojure
+2025/12/03 kushidesign/domo - A ClojureScript DOM utility library.
+2025/12/03 julienba/clj-dot-prompt - GitHub - julienba/clj-dot-prompt
+2025/12/10 phronmophobic/quineize - Turn any namespace into a quine
+2025/12/10 donut-party/compose - little lib for data composition, like a combination of deep-merge and update-in
+2025/12/16 tonsky/clj-simple-stats - Simple statistics for Clojure/Ring webapps
+2025/12/16 robinlahtinen/clj-artnet - A fully spec-compliant, idiomatic Clojure implementation of Art-Net 4, providing correct DMX512 over IP with deterministic behavior, predictable timing, and clean
+2025/12/23 Sleepful/cljs-uix-electron - Uix + Electron starter
+2025/12/23 Sleepful/cljs-uix-wails - Wails + ClojureScript starter
+2025/12/23 * https://git.gaiwan.co/gaiwan/Oak[Oak] - Oak is a Free and Open Source Identity Provider that you can host yourself
+2025/12/23 ertugrulcetin/immersa - Open Source Web-based 3D Presentation Tool
+2025/12/23 teodorlu/bb-timemachine - Run code back in Git-time.
+2025/12/23 roman01la/solid-cljs - ClojureScript bindings to Solid
+2025/12/23 PEZ/clojars-download-stats - An always up-to-date, complete SQL export of artifacts daily downloads since November 2012
+2025/12/23 julienvincent/malt - Malli-Typed interfaces for Clojure
+2025/12/23 simm-is/distributed-scope - Run one lexical scope across distributed peers.
+2025/12/30 ribelo/crabjure - A fast static analyzer for Clojure and ClojureScript, written in Rust.
+2025/12/30 PEZ/browser-jack-in - A web browser extension that let's you inject a Scittle REPL server into any browser page.
+2025/12/30 damesek/clamav-clj - An idiomatic, modern Clojure wrapper for ClamAV.
+2025/12/30 parenstech/heretic - Mutation testing for Clojure - fast, practical, and integrated
+2026/01/07 multiplyco/quiescent - A Clojure library for composable async tasks with automatic parallelization, structured concurrency, and parent-child and chain cancellation
+2026/01/07 multiplyco/machine-latch - Low-level synchronization primitive with state machine semantics
+2026/01/07 multiplyco/scoped - ScopedValue in Clojure, with fallback to ThreadLocal
+2026/01/07 multiplyco/pathling - Utilities for scanning and updating data structures
+2026/01/07 helsingin/clj-physics - Multi-domain physics modeling in Clojure: frames, environments, dynamics, EM, and reduced-order CFD helpers.
+2026/01/13 maxweber/todo-dbval-event-sourcing - Todo example that uses dbval and event sourcing
+2026/01/13 sstraust/deft - A collection of macros designed to address issues with objects in Clojure.
+2026/01/13 ertugrulcetin/raylib-clojure-playground - A collection of game development experiments using Raylib in Clojure.
+2026/01/13 ertugrulcetin/clojure-100k-cubes-lwjgl - A GPU stress test written in Clojure using LWJGL 3. Renders 100,000 animated cubes with instanced rendering.
+2026/01/13 bolasblack/shadow-cljs-vite-plugin - A robust Vite plugin for seamless integration with shadow-cljs
+2026/01/20 lukaszkorecki/fusion-http - Ring adapter for FusionAuth's HTTP server
+2026/01/20 semantic-namespace/atlas - Atlas rethinks how we describe software architecture. Query, validate, and visualize your system semantics as a single queryable graph.
+2026/01/20 michaelwhitford/nucleus - An AI prompting framework
+2026/01/20 gchape/opusdb - A lightweight, in-memory database written in Clojure for functional data.
+2026/01/20 henryw374/chronos - dependency-free clojure(script) time library
+2026/01/20 LeveringIT/missionary-testkit - deterministic scheduler to test concurrency in missionary tasks and flows
+2026/01/20 rururu/ClojureMiniIDE - A minimalistic integrated development environment for the Clojure programming language.
+2026/01/20 plexus/supersonic-cljs-demo - Demo of how to use supersonic with clojurescript
+2026/01/20 replikativ/proximum - A fast vector search on immutable storage
+2026/01/20 hive-agi/hive-mcp - MCP server for hive-framework development, highly integrated to emacs
+2026/01/27 pb-/gmail-mbox-codec/ - A tiny script to enable efficient incremental file-based backups from Gmail takeouts.
+2026/01/27 jeremykross/spacegolfbang - Game engine source for Spacegolf
+2026/01/27 filipesilva/invoker - Zero config CLI, HTTP, and REPL interface for Clojure.
+2026/01/27 * https://codeberg.org/technomancy/lein-unused-deps[lein-unused-deps] - A Leiningen plugin to detect unused dependencies
+2026/01/27 santiagocabrera96/game-of-life-joy-of-data - Adding visualization to Alex Miller joy of data talk with the game of life
+2026/01/27 scicloj/glance - A Clojure library for getting a plot on the screen with minimal ceremony
+2026/01/27 xlfe/radiale - What if home automation was homoiconic? Just transformations of data? No more YAML!
+2026/01/27 * https://codeberg.org/timokramer/charm.clj[charm.clj] - A Clojure TUI (Terminal User Interface) library inspired by Bubble Tea
+2026/01/27 avelino/jbundle - Package JVM applications (Clojure, Java) into self-contained binaries. No JVM installation required to run the output.
+2026/01/27 tobias/datastar-pedestal-adapter - This provides a SSE Datastar adapter that uses Pedestal's SSE abstractions.
+2026/02/03 BuddhiLW/clojure-elisp - A Clojure dialect that compiles to Emacs Lisp
+2026/02/03 yaml/yamlstar - A YAML framwork for all programming languages
+2026/02/03 replikativ/yggdrasil - Git-like, causal space-time lattice abstraction over systems supporting this memory model.
+2026/02/03 avelino/chrondb - Chronological key/value Database built on Git architecture with complete version history
+2026/02/03 pruner-formatter/pruner - A TreeSitter-powered formatter orchestrator
+2026/02/03 michaelwhitford/ouroboros - An AI vibe-coding game using babashka
+2026/02/03 vipenzo/ridley - A turtle graphics-based 3D modeling tool for 3D printing. Write Clojure scripts, see real-time 3D preview, export STL. WebXR support for VR/AR visualization.
+2026/02/03 tailrecursion/restructure - Rewrite nested Clojure data with a declared shape.
+2026/02/03 NyanCAD/hipflask - Offline-first, real-time collaboration for ClojureScript
+2026/02/03 plumce/plumcp - Clojure/ClojureScript library for making MCP server and client
+2026/02/10 replikativ/scriptum - Lucene with git-like semantics and Clojure integration.
+2026/02/10 scicloj/dataset-io - Enable tech.ml.dataset + tablecloth reading of Arrow, Parquet and Excel files with a single dependency
+2026/02/10 behrica/libpython-clj-uv - Deep integration of libpython-clj and the uv python venv manager
+2026/02/10 scicloj/pocket - filesystem-based caching of expensive computations
+2026/02/10 Schroedingberg/progressive - A simple, local first, workout tracker.
+2026/02/10 hulunote/hulunote - An open-source outliner note-taking application with bidirectional linking.
+2026/02/10 tesujimath/limabean - A new implementation of Beancount using Rust and Clojure and the Lima parser
+2026/02/10 lukaszkorecki/mcp2000xl - A clojure/ring adapter for the official modelcontextprotocol Java SDK
+2026/02/10 ianffcs/cljd-video-player - A reusable ClojureDart video player package with optional background audio service
+2026/02/10 cyberdesignfactory/startribes - Star Tribes is a space combat game, written in Clojure
+2026/03/10 clojure/tools.deps.edn - Reader for deps.edn files
+2026/03/10 borkdude/cream - Fast starting Clojure runtime built with GraalVM native-image + Crema
+2026/03/10 gloathub/gloat - Glojure AOT Tool
+2026/03/10 gersak/patcho - Patching micro lib for Clojure
+2026/03/10 esuomi/coll-tracker - Track which keys and indices of a deep data structures are accessed.
+2026/03/10 filipesilva/inst - Clojure time library that always returns a #inst.
+2026/03/10 dazld/r11y - CLI tool for extracting URLs as Markdown
+2026/03/10 shipclojure/leinpad - launchpad for leiningen
+2026/03/10 hive-agi/bb-depsolve - Generic monorepo dependency sync, upgrade & reporting for babashka/Clojure
+2026/03/10 filipesilva/sqlatom - Clojure library that stores atoms in a SQLite database
+2026/03/10 * https://git.nmm.ee/asko/ruuter[ruuter] - A zero-dependency, runtime-agnostic router.
+2026/03/10 replikativ/briefkasten - A mail client that can sync and index with Datahike and Scriptum (Lucene).
+2026/03/10 hatappo/zsh-clj-shell - Clojure (Babashka) shell integration for Zsh
+2026/03/10 davidplumpton/icehouse - Icehouse tabletop game
+2026/03/10 leafclick/neanderthal-blas-like - BLAS-like Extensions for Neanderthal, Fast Clojure Matrix Library
+2026/03/10 avidrucker/avatar-maker - GitHub - avidrucker/avatar-maker
+2026/03/10 quoll/icd11-export - Turtle export of ICD-11
+2026/03/10 yogthos/mycelium - Mycelium uses Maestro state machines and Malli contracts to define "The Law of the Graph," providing a high-integrity environment where humans architect and AI agents imp
+2026/03/10 dynamic-alpha/hyper - Reactive server-rendered web framework for Clojure
+2026/03/10 iwillig/awesome-clojure-llm - Concise, curated resources for working with the Clojure Programming and LLM base coding agents
+2026/03/10 replikativ/stratum - Versioned, fast and scalable columnar database.
+2026/03/10 igrishaev/any - Objects for smart comparison in tests.
+2026/03/10 keychera/sankyuu-template-clj - A clojure project utilizing lwjgl + assimp + opengl + imgui to render glTF models and MMD models.
+2026/03/10 PEZ/epupp - A web browser extension that lets you tamper with web pages, live and/or with userscripts.
+2026/03/10 clojure-finance/clj-yfinance - Fetch prices, historical OHLCV, dividends, splits, earnings dates, fundamentals, analyst estimates and options from Yahoo Finance. Pure Clojure + built-in Jav
+2026/03/10 clojure-finance/ecbjure - Access ECB financial data from Clojure — FX conversion, EURIBOR, €STR, HICP, and the full SDMX catalogue
+2026/03/10 alekseysotnikov/brepl-opencode-plugin - brepl integration for OpenCode - automatic Clojure syntax validation, auto-fix brackets, and REPL evaluation.
+2026/03/10 scicloj/lalinea - linear algebra with dtype-next tensors
+2026/03/10 replikativ/superficie - Surface syntax for Clojure to help exposition/onboarding.
+2026/03/10 kepler16/kaven - A Clojure API for interacting with Maven respositories
+2026/03/10 routaverra/igor - Constraint Programming for Clojure
+2026/03/18 Blockether/spel - Idiomatic Clojure wrapper for Playwright. Browser automation, API testing, Allure reporting, and native CLI - for Chromium, Firefox, and WebKit
+2026/03/18 enragedginger/pants_backend_clojure - Pants build tool backend for Clojure
+2026/03/18 clojure-finance/edgarjure - Clojure library for accessing SEC EDGAR filings — company lookup, filing content, XBRL financials, and NLP item extraction via SEC's public APIs
+2026/03/18 jhancock/aimee - Aimee is a Clojure library for streaming and non-streaming OpenAI compatible Chat Completions over core.async channels.
+2026/03/18 borkdude/text-diff - Line-level text diffing for Clojure, ClojureScript and babashka
+2026/03/18 brdloush/livewire - Embedded nREPL wire into a running Spring Boot app — giving AI agents and humans a live probe into the JVM. Inspect beans, trace SQL, detect N+1s, and hot-swap `@Query` 
+2026/03/18 ericdallo/rewrite-json - A Clojure library for format-preserving JSON and JSONC editing
+2026/03/18 danlentz/clj-figlet - A native Clojure re-implementation of FIGlet — the classic ASCII art text renderer.
+2026/04/07 clj-android - A modernization of the clojure-android project.
+2026/04/07 cljfx/plorer - cljfx/plorer helps you (or your coding agent) explore JavaFX application state in the REPL
+2026/04/07 codeboost/xitdb-tsclj - Clojure flavored javascript using xitdb database
+2026/04/07 grid-coordination/clj-mdns - Clojure wrapper around jmdns for mDNS service discovery
+2026/04/07 grid-coordination/clj-oa3 - Clojure client library for OpenADR 3 (Martian HTTP, entity coercion, Malli schemas)
+2026/04/07 grid-coordination/clj-oa3-client - Component lifecycle wrapper for clj-oa3 (MQTT, VEN registration, API delegation)
+2026/04/07 grid-coordination/clj-gridx - Clojure client library for the GridX Pricing API
+2026/04/07 grid-coordination/clj-midas - Clojure client library for the California Energy Commission's MIDAS API
+2026/04/07 mpenet/flux - Clojure wrapper for Netflix concurrency-limits — adaptive concurrency control based on TCP congestion algorithms.
+2026/04/07 rururu/ClojureProtegeIDE - GitHub - rururu/ClojureProtegeIDE
+2026/04/07 shipclojure/re-frame-query - Declarative data fetching and caching for re-frame inspired by tanstack query and redux toolkit query
+2026/04/07 dcj/codox-md - Codox writer that generates Markdown documentation for embedding in Clojure JARs
+2026/04/07 dcj/clj-doc-browse - Runtime classpath-based Markdown documentation browser for Clojure libraries
+2026/04/07 dcj/clj-doc-browse-el - Emacs package for browsing Clojure library docs from classpath JARs via CIDER
+2026/04/07 outskirtslabs/llx - Unified LLM API and agent runtime for Clojure, ClojureScript (and soon Clojure Dart)
+2026/04/07 avanelsas/baredom - BareDOM: Lightweight CLJS UI components built on web standards (Custom Elements, Shadow DOM, ES modules). No framework, just the DOM
+2026/04/07 gersak/ty-pocketledger - Demo app for ty web components over datastar that can be installed on mobile device
+2026/04/07 leifericf/noumenon - Queryable knowledge graph for codebases — turns git history and LLM-analyzed source into a Datomic database that AI agents can query with Datalog.
+2026/04/07 flybot-sg/lasagna-pattern - Match data with your pattern
+2026/04/07 Shtanglitza/rama-sail-graph - Demonstration of Rama and RDF4J SAIL API integration
+2026/04/07 galatyn/clua - Sandboxed Lua 5.5 interpreter for Clojure/JVM
+2026/04/07 BetterThanTomorrow/awesome-backseat-driver - Plugin marketplace for Clojure AI context in GitHub Copilot: agents, skills, and workflows for REPL-first interactive programming with Calva Bac
+2026/04/07 hlship/dexter - Dexter - Graphical Dependency Explorer
+2026/04/07 xpojure-lang/meme-clj - meme-clj — M-Expressions with Macro Expansion
+2026/04/07 wedesoft/xor-clj - Train neural network to imitate XOR operator using Clojure libpython-clj and Pytorch
+2026/04/07 PEZ/my-bbg/tree/master/scripts/mdq - A faithful port of Rust mdq, jq for markdown to Babashka.
+2026/04/07 amiorin/once - BigConfig and ONCE
+2026/04/07 danlentz/clj-format - A Clojure DSL for cl-format inspired by Hiccup. No dependencies. Drop-in compatibility. The power of FORMAT made easy.
+2026/04/07 Flexiana/infix - Readable Math and Data Processing for Clojure
+2026/04/07 replikativ/ansatz - Dependently typed Clojure DSL with a Lean4 compatible kernel.
+2026/04/07 mpenet/k7 - A high-performance disk-backed queue for Clojure
+2026/04/07 leifericf/eido - Data-driven 2D & 3D graphics for Clojure — shapes, animation, lighting, and compositing from pure data
+2026/04/07 * https://wbsemple.github.io/html2helix/[html2helix] - Convert raw HTML to ClojureScript Helix syntax
+2026/04/14 yogthos/tree-sitter-clojure - a wasm version of tree-sitter-clojure
+2026/04/14 fgasperino/csp-clj - Communicating Sequential Processes for Clojure on JDK 24+ Virtual Threads
+2026/04/14 grid-coordination/clj-oa3-vtn - OpenADR 3.1.0 VTN server in Clojure
+2026/04/14 grid-coordination/price-server-user-guide - User guide for the Grid Coordination price server — California electricity prices via OpenADR 3.1.0
+2026/04/14 replikativ/raster - Fast, functional numerical computing for Clojure/JVM.
+2026/04/14 danlentz/clj-xref - LLM-friendly cross-reference database for Clojure code. Query who-calls, calls-who, who-implements, ns-deps to feed        precise dependency neighborhoods to AI assista
+2026/04/14 mattlianje/layoutz/tree/master/layoutz-clj - Simple, beautiful CLI output
+2026/04/14 miniforge-ai/miniforge - miniforge is an autonomous software development system designed to behave like a factory, not a chatbot
+2026/04/21 hectorqlucero/webgen - Parameter driven web app generator
+2026/04/21 RegiByte/cljam - Clojure interpreter with a tokenizer, reader, macro expander, evaluator, incremental compiler, vite plugin, nREPL server compatible with calva on vscode, embedded browser R
+2026/04/21 hatappo/bisql - Keep SQL executable, call it as Clojure functions 🚲️
+2026/04/21 miniforge-ai/miniforge-standards - Shared engineering standards for all miniforge.ai repositories
+2026/04/21 WBSemple/cljs-mjml - Write MJML email templates with Hiccup syntax in ClojureScript (or Node Babashka)
+2026/04/28 rafaeldelboni/feles-tales - A game about a cat sneaking and stealing stuff
+2026/04/28 editor-code-assistant/eca-desktop - ECA Desktop - Use ECA from any machine
+2026/04/28 Blockether/svar - Type‑safe LLM output for Clojure. Works with any text‑only model.
+2026/04/28 replikativ/pg-datahike - Postgres compatibility layer for Datahike.
+2026/04/28 samhedin/disorganized-notes - Tables, lists, reminders, real-time sync, multiplatform. Written in ClojureDart.
+2026/04/28 avanelsas/bareforge - Companion visual builder for BareDOM web components. Drag components, declare reactive state, export fully interactive CLJS or JS project
+2026/05/05 scicloj/janqua - Jank notebooks using Quarto
+2026/05/05 scicloj/babqua - Babashka notebooks using Quarto
+2026/05/05 scicloj/plotje - simple and easy plotting
+2026/05/05 rcarmo/go-joker - A personal twist on the original Clojure interpreter and linter, slightly mad, Go-ing places
+2026/05/05 day8/re-frame-pair - A Skill for pair-programing with Claude Code on a re-frame app.
+2026/05/05 day8/re-frame-pair-improver - A skill which analyses the use of another skill (re-frame-pair sessions) and proposes improvements
+2026/05/05 igrishaev/alike - A simple matching library
+2026/05/19 nooga/let-go - Almost Clojure written in Go.
+2026/05/19 leifericf/mino - A tiny, embeddable, REPL-friendly Lisp implemented in pure ANSI C.
+2026/05/19 leifericf/clj-p4 - Read-only Perforce-to-Git bridge in Clojure, with stream and classic-depot support.
+2026/05/19 gloathub/gloat-demo-fiber - A JSON REST API built with Fiber and Gloat, demonstrating Go/Clojure interoperability for web applications.
+2026/05/19 scicloj/zulipdata - A Clojure library to fetch and analyse data from the Clojurians Zulip chat
+2026/05/19 replikativ/rechentafel - A spreadsheet evaluator for Clojure/Script.
+2026/05/19 day8/re-frame2 - The AI first-born of re-frame
+2026/05/19 infiniteNIL/ifgame - An interactive fiction game written in Clojure
+2026/05/19 mpenet/drip - Drip is a transactional job queue for MariaDB, PostgreSQL, and SQLite
+2026/05/19 clojure-emacs/port - A minimalist Clojure interactive programming environment for Emacs, built on prepl
+2026/05/19 donut-party/generate - code generation for Clojure projects
+2026/05/19 * https://codeberg.org/baraba/bara-lang[bara-lang] - Clojure for nim language
+2026/05/19 mlimotte/gsheetplus - Low-level and high-level wrapper to work with Google Sheets.  Reading, writing and sheet management.
+2026/05/19 coconutpalm/winze - An agentic AI memory system (mcp server) with semantic search and GUI search/edit tool for Markdown knowledge bases
+2026/05/19 vlaaad/ghosttyfx - JavaFX terminal that uses libghostty
+2026/05/19 cljfx/ghosttyfx - Cljfx wrapper of GhosttyFX
+2026/05/19 tompassarelli/beagle - a typed Lisp authoring surface for agent-written dynamic code.
+2026/05/19 dynamic-alpha/ducktape - Connect tech.v3.dataset to DuckDB
+2026/05/19 phel-lang/phel-log - Data-driven logging library for Phel. Levels, namespace filtering, pluggable appenders, PSR-3 adapter, Monolog handler bridge. Inspired by Timbre + Monolog.
+2026/05/19 Chemaclass/phel-symfony-demo - Symfony + Phel demo: Ring-style handlers over plain maps, no ORM
+2026/05/19 zekzekus/stube - Web framework inspired by Seaside and UnCommonWeb
+2026/05/19 humorless/clj-native-agent - Structural, semantic, and surgical skills for Clojure AI agents. Mimics expert practitioner workflows for code discovery, debugging, and editing using Babashka 
+2026/05/19 quadracollision/llmisp - JSON AST > Clojure
+2026/05/19 replikativ/spindel - Cross-platform FRP runtime with a git-like memory model.
+2026/05/19 seancorfield/rephrase - Rephrase exceptions to be more beginner-friendly
+2026/05/26 lambdaisland/ring-node-adapter - Ring adapter for Node.js
+2026/05/26 nrepl/neat - A small, language-agnostic nREPL client for Emacs
+2026/05/26 ertugrulcetin/code-bubble - A Clojure dev-time UI inspired by Code Bubbles
+2026/05/26 awkay/clj-code-search - Per-function semantic index for Clojure/CLJS, exposed as a code-search CLI for AI coding agents.
+2026/05/26 Chemaclass/phel-doom - Terminal DOOM-lite raycaster built in Phel (Lisp on PHP). 256-color ANSI, 5 procedural levels — a real-world Phel showcase app.
+2026/05/26 gloathub/gojava - A Go reimplementation of selected parts of the Java standard library
+2026/05/26 xlisp/clojure-android - The Clojure programming language for Android
+2026/05/26 xlisp/clojure-android-demo - Clojure Android Demo
+2026/05/26 replikativ/muschel - Bash interpreter with git-like memory and fine grained access control.
+2026/05/26 fulcrologic/fulcro-tui - A JLine-base TUI wrapper, allowing you to write TUI projects in CLJ or Babashka via Fulcro
+2026/06/02 lipchanskiy/repl-agent - An MCP server that gives AI agents direct access to a live Clojure nREPL session
+2026/06/02 danieltanfh95/continuity-auth - Respect-weighted rate limits for the open web
+2026/06/02 cloudkj/lambda-sketch - Probabilistic data structures and sketching algorithms in Clojure
+2026/06/02 babashka/pod-babashka-gozxing - A babashka pod for reading and writing QR codes, backed by the Go library gozxing (a port of ZXing).
+2026/06/02 * https://codeberg.org/nathell/edsger[edsger] - A reMarkable handwritten almost-Clojure REPL
+2026/06/02 replikativ/katzen - Generalized algebraic theories and categorical programming for Clojure.
+2026/06/09 jolt-lang/jolt - A Clojure interpreter running on Janet
+2026/06/09 wedesoft/sfsim - Space flight simulator (under development)
+2026/06/09 rschmukler/magit-difftastic - Integrate difftastic into magit
+2026/06/09 kpassapk/atomstream - Cross-render TUIs to the Web
+2026/06/09 DotFox/transit.c - A data interchange format and set of libraries for conveying values between applications written in different programming languages.
+2026/06/09 replikativ/kontor - A trans-national accounting kernel with modules for all business aspects.
+2026/06/09 mapidentity/parens-to-production - How to build your next Clojure application with SSR with Datomic
+2026/06/09 jramosg/jon-nested-menu - Nested MUI menus for Reagent/ClojureScript and React: a dropdown, a right-click context menu, per-item icons, custom labels and keyboard navigation.
+2026/06/09 jacobobryant/biff/tree/v2.x/libs/core - Defines the interfaces and code that connect all the other Biff libs
+2026/06/16 yogthos/flatiron - A columnar database for analytics
+2026/06/16 * https://codeberg.org/timokramer/weowe[weowe] - A native Android app (ClojureDart/Flutter) for tracking shared expenses between people. Local-first.
+2026/06/16 replikativ/dvergr - FRP-based LLM agent framework with git-like memory model.
+2026/06/16 TheFakeLorLyons/clj-colors - A color palette utility intended for generative art with clojure.
+2026/06/16 epiccastle/clojuressh - A Clojure library for using SSH in Clojure that is API compatible with bbssh
+2026/06/16 * https://codeberg.org/liblin/url_redirect[libl.in] - A URL redirect app for all Codeberg users
+2026/06/16 simplemono/eventstore - A minimal, production-oriented append-only event log, backed by S3-compatible object storage.
+2026/06/16 maxweber/todo-sqlite-eventstore - A basic todo app that stores events in Tigris Data and uses SQLite for the projected todos read model. Events are the source of truth; the todos table is r
+2026/06/16 jacobobryant/biff/tree/v2.x/libs/fx - Turn your functions into pure state machines.
+2026/06/16 jacobobryant/biff/tree/v2.x/libs/config - A light Biff wrapper around Aero.
+2026/06/16 yogthos/stepvine - form building platform
+2026/06/23 plexus/awesome-creative-clojure - A list of creative coding resources for Clojure and its dialects
+2026/06/23 replikativ/umap-rstr - UMAP (Uniform Manifold Approximation and Projection) for Clojure — a port of umap-learn on the raster typed-dispatch compiler.
+2026/06/23 replikativ/evoc-rstr - EVoC (Embedding Vector Oriented Clustering) for Clojure — a port of the Tutte Institute's evoc on raster + umap-rstr.
+2026/06/23 jaketothepast/codetutor - An AI Pair Programmer, that teaches you to code as you write, for Emacs
+2026/06/23 lispyclouds/claxon - Minimal, pure clojure, data-driven NATS client
+2026/06/23 SamuelCarriles/ehr-adapter - Simplify EHR integrations by defining and validating your entire provider connection pipeline using native Clojure data structures.
+2026/06/23 rthadani/clj-pytorch - A Clojure wrapper around PyTorch with libpython-clj
+2026/06/23 netb258/huffman-tree - A small Huffman tree implementation in Clojure
+2026/06/23 frankadrian314159/fol - A Clojure dialect that combines persistent data structures (from Clojure), CLOS-style object orientation with persistent objects, and array programming capabilities 

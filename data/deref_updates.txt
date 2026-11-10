@@ -1,0 +1,633 @@
+2025/11/06 clojure/tools.build 0.10.11 - Clojure builds as Clojure programs
+2025/11/06 fulcrologic/statecharts 1.2.24 - A Statechart library for CLJ(S)
+2025/11/06 fulcrologic/fulcro-inspect 4.1.0 - A tool for inspecting and debugging Fulcro applications during development.
+2025/11/06 * https://github.com/fulcrologic/fulcro-devtools-remote[fulcro-devtools-remote] 0.2.8 - An adapter for writing development tooling that runs as a Chrome extens
+2025/11/06 * https://github.com/fulcrologic/test-filter[test-filter] 1.0.6 - A tool for reducing CI times by finding minimal test set based on code analysis.
+2025/11/06 cjohansen/nexus 2025.10.1 - Data-driven action dispatch for Clojure(Script): Build systems that are easier to test, observe, and extend
+2025/11/06 cjohansen/powerpack 2025.10.22 - A batteries-included static web site toolkit for Clojure
+2025/11/06 clj-kondo/clj-kondo 2025.10.23 - Static analyzer and linter for Clojure code that sparks joy
+2025/11/06 stuartsierra/component 1.2.0 - Managed lifecycle of stateful objects in Clojure
+2025/11/06 practicalli/spacemacs-config 2025-10-25 - rich Clojure & LSP config for Spacemacs
+2025/11/06 askonomm/dompa 1.1.0 - A zero-dependency, runtime-agnostic HTML parser and builder.
+2025/11/06 nextjournal/markdown 0.7.196 - A cross-platform clojure/script parser for Markdown
+2025/11/06 pedestal/pedestal 0.8.1 - The Pedestal Server-side Libraries
+2025/11/06 lambdaisland/cli 1.27.121 - Opinionated command line argument handling, with excellent support for subcommands
+2025/11/06 borkdude/edamame 1.5.33 - Configurable EDN/Clojure parser with location metadata
+2025/11/06 fogus/thneed 1.1.4 - An eclectic set of Clojure utilities that I've found useful enough to keep around.
+2025/11/06 BetterThanTomorrow/calva-backseat-driver 0.0.24 - VS Code AI Agent Interactive Programming. Tools for CoPIlot and other assistants. Can also be used as an MCP 
+2025/11/06 lsolbach/qclojure 0.23.0 - A functional quantum computer programming library for Clojure with backend protocols, simulation backends and visualizations.
+2025/11/06 metosin/malli 0.20.0-alpha3 - High-performance data-driven data specification library for Clojure/Script.
+2025/11/06 scicloj/clay 2.0.2 - A REPL-friendly Clojure tool for notebooks and datavis
+2025/11/06 scicloj/kindly 4-beta21 - A small library for defining how different kinds of things should be rendered
+2025/11/06 clj-commons/durable-queue 0.2.0 - a disk-backed queue for clojure
+2025/11/06 BetterThanTomorrow/joyride 0.0.71 - Making VS Code Hackable like Emacs since 2022
+2025/11/06 reagent-project/reagent 2.0.1 - A minimalistic ClojureScript interface to React.js
+2025/11/06 taoensso/sente 1.21.0 - Realtime web comms library for Clojure/Script
+2025/11/06 http-kit/http-kit 2.9.0-beta3 - Simple, high-performance event-driven HTTP client+server for Clojure
+2025/11/06 clojure-emacs/cider 1.20.0 - The Clojure Interactive Development Environment that Rocks for Emacs
+2025/11/06 taoensso/tempel 1.0.0 - Data security framework for Clojure
+2025/11/06 editor-code-assistant/eca 0.77.1 - Editor Code Assistant (ECA) - AI pair programming capabilities agnostic of editor
+2025/11/06 taoensso/carmine 3.5.0 - Redis client + message queue for Clojure
+2025/11/06 bhauman/clojure-mcp 0.1.12 - Clojure MCP
+2025/11/06 clj-commons/manifold 0.4.4 - A compatibility layer for event-driven abstractions
+2025/11/06 squint-cljs/squint 0.9.178 - Light-weight ClojureScript dialect
+2025/11/06 BetterThanTomorrow/calva 2.0.540 - Clojure & ClojureScript Interactive Programming for VS Code
+2025/11/06 cursive-ide/cursive 2025.2.1-eap4 - Cursive: The IDE for beautiful Clojure code
+2025/12/03 clojure/clojurescript 1.12.116 - Clojure to JS compiler
+2025/12/03 clojure/clojure-clr clojure-1.12.3-alpha4 - A port of Clojure to the CLR, part of the Clojure project
+2025/12/03 clojure/test.check 1.1.2 - QuickCheck for Clojure
+2025/12/03 clojure/clr.core.async 1.7.701 - Port of Clojure core.async to the CLR
+2025/12/03 scicloj/noj 2-beta19.1 - A clojure framework for data science
+2025/12/03 borkdude/edamame 1.5.35 - Configurable EDN/Clojure parser with location metadata
+2025/12/03 cjohansen/portfolio 2025.11.2 - Component-driven development for Clojure
+2025/12/03 fulcrologic/fulcro 3.9.0-rc13 - A library for development of single-page full-stack web applications in clj/cljs
+2025/12/03 mpenet/ok-http 1.0.0-alpha17 - OkHttp clojure wrapper
+2025/12/03 nextjournal/clerk 0.18.1158 - ⚡️ Moldable Live Programming for Clojure
+2025/12/03 polyfy/polylith 0.3.31 - A tool used to develop Polylith based architectures in Clojure.
+2025/12/03 metosin/malli 0.20.0 - High-performance data-driven data specification library for Clojure/Script.
+2025/12/03 NoahTheDuke/splint 1.22.0 - A Clojure linter focused on style and code shape.
+2025/12/03 cjohansen/nexus 2025.11.1 - Data-driven action dispatch for Clojure(Script): Build systems that are easier to test, observe, and extend
+2025/12/03 pitch-io/uix 1.4.8 - Idiomatic ClojureScript interface to modern React.js
+2025/12/03 darkleaf/di 3.6.0 - DI is a dependency injection framework that allows you to define dependencies as cheaply as defining function arguments.
+2025/12/03 lispyclouds/navi 0.1.5 - A tiny, data-driven library converting OpenAPI spec to Reitit routes enabling spec-first practices.
+2025/12/03 babashka/cli 0.8.67 - Turn Clojure functions into CLIs!
+2025/12/03 hlship/cli-tools 0.16.0-beta-3 - CLIs and subcommands for Clojure or Babashka
+2025/12/03 scicloj/clay 2.0.3 - A REPL-friendly Clojure tool for notebooks and datavis
+2025/12/03 babashka/babashka 1.12.212 - Native, fast starting Clojure interpreter for scripting
+2025/12/03 babashka/fs 0.5.30 - File system utility library for Clojure
+2025/12/03 squint-cljs/squint 0.9.182 - Light-weight ClojureScript dialect
+2025/12/03 pedestal/pedestal 0.6.5 - The Pedestal Server-side Libraries
+2025/12/03 seancorfield/deps-new 0.10.2 - Create new projects for the Clojure CLI / deps.edn
+2025/12/03 bhauman/clojure-mcp-light 0.2.1 - Simple Clojure tooling for AI coding assistants
+2025/12/03 seancorfield/honeysql 2.7.1364 - Turn Clojure data structures into SQL
+2025/12/03 squint-cljs/cherry 0.5.33 - Experimental ClojureScript to ES6 module compiler
+2025/12/03 clojure-lsp/clojure-lsp 2025.11.28-12.47.43 - Clojure & ClojureScript Language Server (LSP) implementation
+2025/12/03 lambdaisland/makina 0.7.32 - Clojure System/component lifecycle management
+2025/12/03 sn0wF1eld/sn0wt3ch 1.0.2 - A repo that contains all the information regarding technology at Sn0wf1eld, Lda and how to use it
+2025/12/03 mpenet/legba 1.0.0-alpha133 - Clojure library for building OpenAPI services
+2025/12/03 mpenet/appia 1.0.0-alpha8 - Simple router library for clojure
+2025/12/03 paintparty/fireworks 0.16.1 - Fireworks is a themeable tapping library for Clojure, ClojureScript, and Babashka.
+2025/12/03 mpenet/spandex 1.0.315 - Elasticsearch client for Clojure (built on new ES 9.x java client)
+2025/12/03 editor-code-assistant/eca 0.85.1 - Editor Code Assistant (ECA) - AI pair programming capabilities agnostic of editor
+2025/12/03 nextjournal/markdown 0.7.222 - A cross-platform Clojure/Script parser for Markdown
+2025/12/03 xtdb/xtdb 2.1.0 - An immutable SQL database for application development, time-travel reporting and data compliance. Developed by @juxt
+2025/12/03 narimiran/aoc-utils 0.9.1 - Helper functions for Advent of Code
+2025/12/03 jramosg/color-tools 1.1.0 - A complete toolkit for working with colors in Clojure and Clojurescript applications
+2025/12/03 monkey-projects/monkeyci 0.21.3 - Next-generation CI/CD tool that uses the full power of Clojure!
+2025/12/03 fulcrologic/guardrails 1.2.14 - Efficient, hassle-free function call validation with a concise inline syntax for clojure.spec and Malli
+2025/12/03 fulcrologic/fulcro-spec 3.2.0 - A library that wraps clojure.test for a better BDD testing experience.
+2025/12/03 replikativ/konserve 0.8.324 - A clojuresque key-value/document store protocol with core.async.
+2025/12/10 clojure/clojurescript 1.12.134 - Clojure to JS compiler
+2025/12/10 clojure/clojure 1.12.4 - The Clojure programming language
+2025/12/10 * https://clojure.org/reference/clojure_cli[clojure_cli] https://clojure.org/releases/tools#v1.12.4.1582[1.12.4.1582] - Clojure CLI
+2025/12/10 cursive-ide/cursive 2025.2.1 - Cursive: The IDE for beautiful Clojure code
+2025/12/10 * https://github.com/uncomplicate/diamond-onnxrt[diamond-onnxrt] 0.21.0 - Fast Clojure Machine Learning Model Integration
+2025/12/10 borkdude/edamame 1.5.37 - Configurable EDN/Clojure parser with location metadata
+2025/12/10 willcohen/clj-proj 0.1.0-alpha4 - A native (or transpiled) version of PROJ for both the JVM and JS ecosystems.
+2025/12/10 babashka/babashka 1.12.213 - Native, fast starting Clojure interpreter for scripting
+2025/12/10 cjohansen/lookup 2025.12.1 - Find content of interest in hiccup data
+2025/12/10 askonomm/dompa 1.2.0 - A zero-dependency, runtime-agnostic HTML parser and builder.
+2025/12/10 msolli/proletarian 1.0.109-alpha - A durable job queuing and worker system for Clojure backed by PostgreSQL or MySQL.
+2025/12/10 hugoduncan/criterium 0.5.153-ALPHA - Benchmarking library for clojure
+2025/12/10 jacobemcken/aws-simple-sign 2.2.0 - A Clojure library for pre-signing S3 URLs and signing HTTP requests for AWS.
+2025/12/10 paintparty/fireworks 0.17.0 - Fireworks is a themeable tapping library for Clojure, ClojureScript, and Babashka.
+2025/12/10 BetterThanTomorrow/calva 2.0.541 - Clojure & ClojureScript Interactive Programming for VS Code
+2025/12/10 paintparty/bling 0.9.0 - Rich text console printing for Clojure, ClojureScript, and Babashka.
+2025/12/10 phronmophobic/llama.clj 0.9.0 - Run LLMs locally. A clojure wrapper for llama.cpp.
+2025/12/10 taoensso/truss 2.3.0 - Micro toolkit for Clojure/Script errors
+2025/12/10 taoensso/telemere 1.2.0 - Structured logs and telemetry for Clojure/Script
+2025/12/10 taoensso/tempel 1.1.0 - Data security framework for Clojure
+2025/12/16 BrunoBonacci/mulog 0.10.0 - μ/log is a micro-logging library that logs events and data, not words!
+2025/12/16 borkdude/deps.clj 1.12.4.1582 - A faithful port of the clojure CLI bash script to Clojure
+2025/12/16 seancorfield/deps-new 0.10.3 - Create new projects for the Clojure CLI / deps.edn
+2025/12/16 paintparty/fireworks 0.18.0 - Fireworks is a themeable tapping library for Clojure, ClojureScript, and Babashka.
+2025/12/16 paintparty/bling 0.9.1 - Rich text console printing for Clojure, ClojureScript, and Babashka.
+2025/12/16 brettatoms/zodiac 0.8.89 - A simple web framework for Clojure
+2025/12/16 roman01la/uix.css 0.4.0 - CSS-in-CLJS
+2025/12/16 * https://repo.prod.meissa.de/meissa/clj-threats[clj-threats] https://repo.prod.meissa.de/meissa/clj-threats/src/tag/0.1.0[0.1.0] - Clojure implementation of T
+2025/12/16 replikativ/konserve 0.8.327 - A clojuresque key-value/document store protocol with core.async.
+2025/12/16 BetterThanTomorrow/calva-backseat-driver 0.0.25 - VS Code AI Agent Interactive Programming. Tools for CoPIlot and other assistants. Can also be used as an MCP 
+2025/12/16 babashka/neil 0.3.69 - A CLI to add common aliases and features to deps.edn-based projects
+2025/12/16 seancorfield/next-jdbc 1.3.1086 - A modern low-level Clojure wrapper for JDBC-based access to databases.
+2025/12/16 seancorfield/logging4j2 1.0.6 - A Clojure wrapper for log4j2
+2025/12/16 seancorfield/build-uber-log4j2-handler 2.25.3 - A conflict handler for log4j2 plugins cache files for the tools.build uber task.
+2025/12/23 repath-studio/repath-studio 0.4.11 - A local web-based vector graphics editor that combines procedural tooling with traditional design workflows.
+2025/12/23 cnuernber/dtype-next 10.000-beta-11 - A Clojure library designed to aid in the implementation of high performance algorithms and systems.
+2025/12/23 simm-is/repl-mcp d00f661 - Model Context Protocol Clojure support including REPL integration with development tools.
+2025/12/23 igrishaev/virtuoso 0.1.2 - A number of trivial wrappers on top of virtual threads
+2025/12/23 babashka/bbin 0.2.5 - Install any Babashka script or project with one command
+2025/12/23 yonureker/stripe-clojure 2.1.0 - Clojure SDK for the Stripe API.
+2025/12/23 eerohele/muutos 2025-12-18 - Muutos is a zero-dependency Clojure library for reacting to changes in a PostgreSQL database.
+2025/12/23 squint-cljs/cherry 0.5.34 - Experimental ClojureScript to ES6 module compiler
+2025/12/23 babashka/nbb 1.3.205 - Scripting in Clojure on Node.js using SCI
+2025/12/23 cjohansen/replicant 2025.12.1 - A data-driven rendering library for Clojure(Script) that renders hiccup to DOM or to strings.
+2025/12/23 BetterThanTomorrow/joyride 0.0.72 - Making VS Code Hackable like Emacs since 2022
+2025/12/23 babashka/process 0.6.25 - Clojure library for shelling out / spawning sub-processes
+2025/12/23 paintparty/fireworks 0.19.0 - Fireworks is a themeable tapping library for Clojure, ClojureScript, and Babashka.
+2025/12/23 paintparty/bling 0.9.2 - Rich text console printing for Clojure, ClojureScript, and Babashka.
+2025/12/23 clj-kondo/clj-kondo 2025.12.23 - Static analyzer and linter for Clojure code that sparks joy
+2025/12/23 BetterThanTomorrow/calva 2.0.543 - Clojure & ClojureScript Interactive Programming for VS Code
+2025/12/23 babashka/sci 0.11.50 - Configurable Clojure/Script interpreter suitable for scripting and Clojure DSLs
+2025/12/23 babashka/scittle 0.7.30 - Execute Clojure(Script) directly from browser script tags via SCI
+2025/12/23 * https://github.com/simm-is/partial-cps[partial-cps] 0.1.42 - A lean and efficient continuation passing style transform, includes async-await support.
+2025/12/30 * Many Clojure contrib libs were updated to move the Clojure dependency to 1.11.4, which is past the CVE fixed in 1.11.2.
+2025/12/30 * https://github.com/simm-is/partial-cps[partial-cps] 0.1.50 - A lean and efficient continuation passing style transform, includes async-await support.
+2025/12/30 oneness/csvx 68fd22c - A zero dependencies tool that enables you to control how to tokenize, transform and handle files with char(s) separated values in Clojur
+2025/12/30 pfeodrippe/recife 0.22.0 - A Clojure model checker (using the TLA+/TLC engine)
+2025/12/30 polyfy/polylith 0.3.32 - A tool used to develop Polylith based architectures in Clojure.
+2025/12/30 nrepl/nrepl 1.5.2 - A Clojure network REPL that provides a server and client, along with some common APIs of use to IDEs and other tools that may need to evalu
+2025/12/30 clj-commons/manifold 0.5.0 - A compatibility layer for event-driven abstractions
+2026/01/07 * Many Clojure contrib libs were updated to move the Clojure dependency to 1.11.4, which is past the CVE fixed in 1.11.2.
+2026/01/07 clj-commons/rewrite-clj 1.2.51 - Rewrite Clojure code and edn
+2026/01/07 flow-storm/clojurescript 1.12.134-3 - A fork of the official ClojureScript compiler with extra code to make it a dev compiler
+2026/01/07 PEZ/browser-jack-in 0.0.6 - A web browser extension that let's you inject a Scittle REPL server into any browser page.
+2026/01/07 cjohansen/m1p 2026.01.1 - Map interpolation and DIY i18n/theming toolkit
+2026/01/07 day8/re-frame 1.4.4 - A ClojureScript framework for building user interfaces, leveraging React
+2026/01/07 day8/re-frame-10x 1.11.0 - A debugging dashboard for re-frame.  X-ray vision as tooling.
+2026/01/07 tomekw/hikari-cp 4.0.0 - A Clojure wrapper to HikariCP JDBC connection pool
+2026/01/07 cjohansen/powerpack 2026.01.1 - A batteries-included static web site toolkit for Clojure
+2026/01/07 bhauman/clojure-mcp 0.2.2 - Clojure MCP
+2026/01/07 borkdude/rewrite-edn 0.5.0 - Utility lib on top of rewrite-clj with common operations to update EDN while preserving whitespace and comments.
+2026/01/13 clojure-goes-fast/clj-async-profiler 2.0.0-beta1 - Embedded high-precision Clojure profiler
+2026/01/13 metosin/reitit 0.10.0 - A fast data-driven routing library for Clojure/Script
+2026/01/13 lsolbach/qclojure 0.24.0 - A functional quantum computer programming library for Clojure with backend protocols, simulation backends and visualizations.
+2026/01/13 * https://repo.prod.meissa.de/meissa/clj-threats[clj-threats] https://repo.prod.meissa.de/meissa/clj-threats/src/tag/1.0.0[1.0.0] - Clojure implementation of T
+2026/01/13 oneness/csvx 973ab7f - A zero dependencies tool that enables you to control how to tokenize, transform and handle files with char(s) separated values in Clojur
+2026/01/13 askonomm/dompa 1.2.2 - A zero-dependency, runtime-agnostic HTML parser and builder.
+2026/01/13 scicloj/clay 2.0.5 - A REPL-friendly Clojure tool for notebooks and datavis
+2026/01/13 cjohansen/dataspex 2026.01.1 - See the shape of your data: point-and-click Clojure(Script) data browser
+2026/01/13 clj-kondo/clj-kondo 2026.01.12 - Static analyzer and linter for Clojure code that sparks joy
+2026/01/13 multiplyco/quiescent 0.1.10 - A Clojure library for composable async tasks with automatic parallelization, structured concurrency, and parent-child and chain c
+2026/01/13 editor-code-assistant/eca 0.91.1 - Editor Code Assistant (ECA) - AI pair programming capabilities agnostic of editor
+2026/01/13 babashka/babashka 1.12.214 - Native, fast starting Clojure interpreter for scripting
+2026/01/13 juji-io/editscript 0.7.0 - A library to diff and patch Clojure/ClojureScript data structures
+2026/01/20 lukaszkorecki/omega-red 2.6.0 - Idiomatic Redis client for Clojure
+2026/01/20 abogoyavlensky/manifest-edn 0.1.2 - A small Clojure/Babashka library for hashing static assets
+2026/01/20 clj-commons/pretty 3.6.8 - Library for helping print things prettily, in Clojure - ANSI fonts, formatted exceptions
+2026/01/20 monkey-projects/monkeyci 0.23.0 - Next-generation CI/CD tool that uses the full power of Clojure!
+2026/01/20 BetterThanTomorrow/calva 2.0.545 - Clojure & ClojureScript Interactive Programming for VS Code
+2026/01/20 clj-kondo/clj-kondo 2026.01.19 - Static analyzer and linter for Clojure code that sparks joy
+2026/01/20 fulcrologic/fulcro-spec fulcro-spec-3.2.4 - A library that wraps clojure.test for a better BDD testing experience.
+2026/01/20 clj-commons/aleph 0.9.5 - Asynchronous streaming communication for Clojure - web server, web client, and raw TCP/UDP
+2026/01/20 rm-hull/nvd-clojure 5.3.0 - National Vulnerability Database dependency checker for Clojure projects
+2026/01/27 * https://clojure.org/reference/clojure_cli[clojure_cli] https://clojure.org/releases/tools#v1.12.4.1602[1.12.4.1602] - Clojure CLI
+2026/01/27 fogus/thneed 1.1.6 - An eclectic set of Clojure utilities that I've found useful enough to keep around.
+2026/01/27 fogus/rv 0.0.11 - A Clojure library exploring the application of pure reasoning algorithms.
+2026/01/27 seancorfield/honeysql 2.7.1368 - Turn Clojure data structures into SQL
+2026/01/27 bolasblack/shadow-cljs-vite-plugin 0.0.6 - A robust Vite plugin for seamless integration with shadow-cljs
+2026/01/27 coconutpalm/clojure-desktop-toolkit 0.4.4 - Create native state-of-the-art desktop applications in Clojure using Eclipse's SWT graphics toolkit.
+2026/01/27 datalevin/datalevin 0.10.2 - A simple, fast and versatile Datalog database
+2026/01/27 basilisp-lang/basilisp 0.5.0 - A Clojure-compatible(-ish) Lisp dialect hosted on Python 3 with seamless Python interop
+2026/01/27 scicloj/clay 2.0.6 - A REPL-friendly Clojure tool for notebooks and datavis
+2026/01/27 squint-cljs/squint 0.10.185 - Light-weight ClojureScript dialect
+2026/01/27 fulcrologic/fulcro-rad 1.6.20 - Fulcro Rapid Application Development
+2026/01/27 fulcrologic/statecharts 1.2.25 - A Statechart library for CLJ(S)
+2026/01/27 editor-code-assistant/eca 0.97.0 - Editor Code Assistant (ECA) - AI pair programming capabilities agnostic of editor
+2026/01/27 redplanetlabs/agent-o-rama release/0.8.0 - End-to-end LLM agent platform for Java and Clojure for building, tracing, testing, and monitoring agents with integr
+2026/02/03 eraserhd/clara-eql 0.2.1 - Generate Clara rules to collect data from EDN Query Language queries
+2026/02/03 monkey-projects/monkeyci 0.23.1 - Next-generation CI/CD tool that uses the full power of Clojure!
+2026/02/03 imrekoszo/unlazy 1.1.0 - Configuration for clj-kondo, discouraging lazy processing
+2026/02/03 seancorfield/next-jdbc 1.3.1093 - A modern low-level Clojure wrapper for JDBC-based access to databases.
+2026/02/03 cursive-ide/cursive 2026.1-eap1 - Cursive: The IDE for beautiful Clojure code
+2026/02/03 hive-agi/hive-mcp 0.11.0 - MCP server for hive-framework development, highly integrated to emacs
+2026/02/03 scicloj/clay 2.0.9 - A REPL-friendly Clojure tool for notebooks and datavis
+2026/02/03 scicloj/kindly 4-beta23 - A small library for defining how different kinds of things should be rendered
+2026/02/03 BetterThanTomorrow/calva 2.0.547 - Clojure & ClojureScript Interactive Programming for VS Code
+2026/02/03 borkdude/html 0.2.3 - Html generation library inspired by squint's html tag
+2026/02/03 randomseed-io/bankster 2.1.1 - Money as data, done right.
+2026/02/03 cognitect-labs/aws-api 0.8.800 - AWS, data driven
+2026/02/03 datalevin/datalevin 0.10.4 - A simple, fast and versatile Datalog database
+2026/02/10 cognitect/transit-java 1.1.389 - transit-format implementation for Java
+2026/02/10 cognitect/transit-clj 1.1.347 - transit-format implementation for Clojure
+2026/02/10 babashka/sci 0.11.51 - Configurable Clojure/Script interpreter suitable for scripting and Clojure DSLs
+2026/02/10 tonsky/clj-simple-stats 1.2.0 - Simple statistics for Clojure/Ring webapps
+2026/02/10 uncomplicate/clojurecuda 0.26.0 - Clojure library for CUDA development
+2026/02/10 seancorfield/ring-data-json 0.5.3 - Ring middleware for handling JSON, using clojure.data.json
+2026/02/10 danlentz/clj-uuid 0.2.5 - RFC9562 Unique Identifiers (v1,v3,v4,v5,v6,v7,v8,squuid) for Clojure
+2026/02/10 practicalli/clojure-cli-config 2026-02-05 - User aliases and Clojure CLI configuration for deps.edn based projects
+2026/02/10 practicalli/project-templates 2026-02-05 - Clojure CLI Production level templates for seancorfield/deps-new
+2026/02/10 babashka/fs 0.5.31 - File system utility library for Clojure
+2026/02/10 yogthos/Selmer 1.13.0 - A fast, Django inspired template system in Clojure.
+2026/02/10 BetterThanTomorrow/calva 2.0.549 - Clojure & ClojureScript Interactive Programming for VS Code
+2026/02/10 ilmoraunio/conjtest 0.3.1 - Run tests against common configuration file formats using Clojure!
+2026/02/10 babashka/nbb 1.4.206 - Scripting in Clojure on Node.js using SCI
+2026/02/10 clojure-emacs/cider 1.21.0 - The Clojure Interactive Development Environment that Rocks for Emacs
+2026/02/10 randomseed-io/bankster 2.2.4 - Money as data, done right.
+2026/02/10 yonureker/stripe-clojure 2.2.0 - Clojure SDK for the Stripe API.
+2026/02/10 robinlahtinen/clj-artnet 0.2.0 - A fully spec-compliant, idiomatic Clojure implementation of Art-Net 4, providing correct DMX512 over IP with deterministic beh
+2026/02/10 tatut/ripley 2026-02-07 - Server rendered UIs over WebSockets
+2026/02/10 * https://shipclojure.com/[Ship Clojure] https://shipclojure.com/changelogs/datom/[1.0.0] - A production-ready Clojure web stack built on pure functions and da
+2026/02/10 datalevin/datalevin 0.10.5 - A simple, fast and versatile Datalog database
+2026/02/10 replikativ/hasch 0.4.98 - Cross-platform (JVM and JS atm.) edn data structure hashing for Clojure.
+2026/02/10 hive-agi/hive-mcp 0.12.4 - MCP server for hive-framework development. A memory and agentic coordination solution.
+2026/02/10 mpenet/hirundo 1.0.0-alpha199 - Helidon 4.x - RING clojure adapter
+2026/02/10 mpenet/ok-http 1.0.0-alpha20 - OkHttp clojure wrapper
+2026/02/10 babashka/scittle 0.8.31 - Execute Clojure(Script) directly from browser script tags via SCI
+2026/02/10 multiplyco/quiescent 0.2.4 - A Clojure library for composable async tasks with automatic parallelization, structured concurrency, and parent-child and chain ca
+2026/02/10 scicloj/tableplot 1-beta15 - Easy layered graphics with Hanami & Tablecloth
+2026/02/10 scicloj/clay 2.0.10 - A REPL-friendly Clojure tool for notebooks and datavis
+2026/03/10 clojure/tools.deps 0.29.1598 - Deps as data and classpath generation
+2026/03/10 * https://clojure.org/reference/clojure_cli[clojure_cli] https://clojure.org/releases/tools#v1.12.4.1618[1.12.4.1618] - Clojure CLI
+2026/03/10 clojure/core.cache 1.2.263 - A caching library for Clojure implementing various cache strategies
+2026/03/10 clojure/core.memoize 1.2.281 - A manipulable, pluggable, memoization framework for Clojure
+2026/03/10 clojure/tools.cli 1.4.256 - Command-line processing
+2026/03/10 multiplyco/pathling 0.2.1 - Utilities for scanning and updating data structures
+2026/03/10 multiplyco/scoped 0.1.16 - ScopedValue in Clojure, with fallback to ThreadLocal
+2026/03/10 * https://git.nmm.ee/asko/dompa[dompa] 1.2.3 - A zero-dependency, runtime-agnostic HTML parser and builder.
+2026/03/10 weavejester/cljfmt 0.16.0 - A tool for formatting Clojure code
+2026/03/10 replikativ/persistent-sorted-set 0.4.119 - Fast B-tree based persistent sorted set for Clojure/Script
+2026/03/10 scicloj/pocket 0.2.4 - filesystem-based caching of expensive computations
+2026/03/10 lispyclouds/contajners 1.0.8 - An idiomatic, data-driven, REPL friendly clojure client for OCI container engines
+2026/03/10 hive-agi/hive-mcp 0.13.0 - MCP server for hive-framework development. A memory and agentic coordination solution.
+2026/03/10 hive-agi/basic-tools-mcp 0.2.1 - Standalone babashka MCP server wrapping clojure-mcp-light — delimiter repair, nREPL eval, cljfmt formatting as IAddon tools
+2026/03/10 hive-agi/bb-mcp 0.4.0 - Lightweight MCP server in Babashka (~50MB vs ~500MB JVM)
+2026/03/10 hive-agi/clj-kondo-mcp 0.1.1 - Standalone MCP server for clj-kondo static analysis (Babashka + JVM)
+2026/03/10 hive-agi/lsp-mcp 0.2.1 - Clojure LSP analysis MCP server — standalone babashka or JVM addon for hive-mcp
+2026/03/10 hive-agi/scc-mcp 0.1.1 - Standalone MCP server for scc code metrics
+2026/03/10 lsolbach/qclojure-braket 0.3.0 - AWS Braket backend for QClojure
+2026/03/10 fulcrologic/statecharts 1.3.0 - A Statechart library for CLJ(S)
+2026/03/10 fulcrologic/fulcro 3.9.3 - A library for development of single-page full-stack web applications in clj/cljs
+2026/03/10 scicloj/tableplot 1-beta16 - Easy layered graphics with Hanami & Tablecloth
+2026/03/10 scicloj/noj 2-beta21 - A clojure framework for data science
+2026/03/10 ianffcs/cljd-video-player 1.3 - A reusable ClojureDart video player package with optional background audio service
+2026/03/10 fulcrologic/fulcro-spec 3.2.8 - A library that wraps clojure.test for a better BDD testing experience.
+2026/03/10 nrepl/drawbridge 0.3.0 - An HTTP/HTTPS nREPL transport, implemented as a Ring handler.
+2026/03/10 replikativ/yggdrasil 0.2.20 - Git-like, causal space-time lattice abstraction over systems supporting this memory model.
+2026/03/10 mpenet/hirundo 1.0.0-alpha211 - Helidon 4.x - RING clojure adapter
+2026/03/10 kit-clj/kit 2026-02-18 - Lightweight, modular framework for scalable web development in Clojure
+2026/03/10 gersak/ty 0.3.3 - Clojurescript WebComponents library
+2026/03/10 clojure-lsp/clojure-lsp 2026.02.20-16.08.58 - Clojure & ClojureScript Language Server (LSP) implementation
+2026/03/10 uncomplicate/neanderthal 0.61.0 - Fast Clojure Matrix Library
+2026/03/10 uncomplicate/diamond-onnxrt 0.24.0 - Fast Clojure Machine Learning Model Integration
+2026/03/10 NoahTheDuke/splint 1.23.1 - A Clojure linter focused on style and code shape.
+2026/03/10 scicloj/metamorph.ml 1.3.0 - Machine learning functions based on metamorph and  machine learning pipelines
+2026/03/10 jacobemcken/aws-simple-sign 2.3.1 - A Clojure library for pre-signing S3 URLs and signing HTTP requests for AWS.
+2026/03/10 * https://github.com/uncomplicate/clojurecuda[clojurecuda] 0.27.0 - Clojure library for CUDA development
+2026/03/10 nrepl/nrepl 1.6.0 - A Clojure network REPL that provides a server and client, along with some common APIs of use to IDEs and other tools that may need to evalu
+2026/03/10 clojure-emacs/inf-clojure 3.4.0 - Basic interaction with a Clojure subprocess from Emacs
+2026/03/10 BetterThanTomorrow/calva 2.0.563 - Clojure & ClojureScript Interactive Programming for VS Code
+2026/03/10 scicloj/clay 2.0.12 - A REPL-friendly Clojure tool for notebooks and datavis
+2026/03/10 phronmophobic/clj-media 3.0-alpha.3 - Read, write, and transform audio and video with Clojure.
+2026/03/10 eerohele/pp 2026-03-01.107 - Peppy pretty-printer for Clojure data.
+2026/03/10 clj-commons/rewrite-clj 1.2.52 - Rewrite Clojure code and edn
+2026/03/10 cjohansen/portfolio 2026.03.1 - Component-driven development for Clojure
+2026/03/10 cognitect/transit-java 1.1.401-alpha - transit-format implementation for Java
+2026/03/10 cognitect/transit-clj 1.1.354-alpha - transit-format implementation for Clojure
+2026/03/10 babashka/babashka 1.12.216 - Native, fast starting Clojure interpreter for scripting
+2026/03/10 babashka/babashka-sql-pods 0.1.5 - Babashka pods for SQL databases
+2026/03/10 clojure-emacs/clojure-mode 5.22.0 - Emacs support for the Clojure(Script) programming language
+2026/03/10 datalevin/datalevin 0.10.7 - A simple, fast and versatile Datalog database
+2026/03/10 vipenzo/ridley 1.8.0 - A turtle graphics-based 3D modeling tool for 3D printing. Write Clojure scripts, see real-time 3D preview, export STL. WebXR support for
+2026/03/10 seancorfield/deps-new 0.11.1 - Create new projects for the Clojure CLI / deps.edn
+2026/03/10 metosin/malli 0.20.1 - High-performance data-driven data specification library for Clojure/Script.
+2026/03/10 babashka/instaparse-bb 0.0.7 - Use instaparse from babashka
+2026/03/10 yogthos/clojure.jdbc 0.9.2 - JDBC library for Clojure
+2026/03/10 prestancedesign/get-port 0.2.0 - Find available TCP ports for your Clojure apps and tests.
+2026/03/10 plumce/plumcp 0.2.0-beta2 - Clojure/ClojureScript library for making MCP server and client
+2026/03/10 * https://github.com/kepler16/kmono[kmono] 4.11.1 - The missing workspace tool for clojure tools.deps projects
+2026/03/10 msolli/proletarian 1.0.115 - A durable job queuing and worker system for Clojure backed by PostgreSQL or MySQL.
+2026/03/10 monkey-projects/monkeyci 0.24.2 - Next-generation CI/CD tool that uses the full power of Clojure!
+2026/03/10 hulunote/hulunote 1.1.0 - An open-source outliner note-taking application with bidirectional linking.
+2026/03/10 replikativ/beichte 0.2.6 - Static purity and effect analysis for Clojure.
+2026/03/10 metosin/reitit 0.10.1 - A fast data-driven routing library for Clojure/Script
+2026/03/10 fogus/thneed 1.1.8 - An eclectic set of Clojure utilities that I've found useful enough to keep around.
+2026/03/10 editor-code-assistant/eca 0.112.0 - Editor Code Assistant (ECA) - AI pair programming capabilities agnostic of editor
+2026/03/18 clojure/core.async 1.9.859-alpha4 - Facilities for async programming and communication in Clojure
+2026/03/18 clojure/tools.build 0.10.13 - Clojure builds as Clojure programs
+2026/03/18 cognitect/transit-clj 1.1.357 - transit-format implementation for Clojure
+2026/03/18 cognitect/transit-java 1.1.403 - transit-format implementation for Java
+2026/03/18 jacobemcken/aws-simple-sign 2.3.2 - A Clojure library for pre-signing S3 URLs and signing HTTP requests for AWS.
+2026/03/18 scicloj/scicloj.ml.xgboost 6.5.0 - A xgboost plugin for scicloj.ml
+2026/03/18 scicloj/sklearn-clj 0.6 - Plugin to use sklearn models in metamorph.ml
+2026/03/18 mpenet/legba 1.0.0-alpha147 - Clojure library for building OpenAPI services
+2026/03/18 mpenet/appia 1.0.0-alpha12 - A fast Clojure router for Ring-style HTTP requests.
+2026/03/18 scicloj/scicloj.ml.smile 7.6.0 - A Smile models plugin for metamorph.ml
+2026/03/18 mpenet/hirundo 1.0.0-alpha212 - Helidon 4.x - RING clojure adapter
+2026/03/18 babashka/babashka 1.12.217 - Native, fast starting Clojure interpreter for scripting
+2026/03/18 babashka/fs 0.5.32 - File system utility library for Clojure
+2026/03/18 clj-commons/rewrite-clj 1.2.54 - Rewrite Clojure code and edn
+2026/03/18 cjohansen/lookup 2026.03.1 - Find content of interest in hiccup data
+2026/03/18 gersak/timing 0.8.2 - Time computation library with CRON scheduling capability
+2026/03/18 scicloj/clay 2.0.14 - A REPL-friendly Clojure tool for notebooks and datavis
+2026/03/18 scicloj/noj 2-beta24 - A clojure framework for data science
+2026/03/18 plumce/plumcp 0.2.0-beta4 - Clojure/ClojureScript library for making MCP server and client
+2026/03/18 fulcrologic/fulcro 3.9.4 - A library for development of single-page full-stack web applications in clj/cljs
+2026/03/18 editor-code-assistant/eca 0.115.2 - Editor Code Assistant (ECA) - AI pair programming capabilities agnostic of editor
+2026/03/18 weavejester/cljfmt 0.16.3 - A tool for formatting Clojure code
+2026/03/18 BetterThanTomorrow/calva 2.0.566 - Clojure & ClojureScript Interactive Programming for VS Code
+2026/03/18 PEZ/epupp 0.0.13 - A web browser extension that lets you tamper with web pages, live and/or with userscripts.
+2026/04/07 clojure/clojure 1.12.5-alpha1 - The Clojure programming language
+2026/04/07 clojure/core.async 1.9.865 - Facilities for async programming and communication in Clojure
+2026/04/07 clojure/core.async 1.10.870-alpha2 - Facilities for async programming and communication in Clojure
+2026/04/07 metosin/ring-swagger 1.1.0 - Swagger Spec for Clojure Web Apps
+2026/04/07 paintparty/bling 0.10.0 - Rich text console printing for Clojure, ClojureScript, and Babashka.
+2026/04/07 paintparty/fireworks 0.20.0 - Fireworks is a themeable tapping library for Clojure, ClojureScript, and Babashka.
+2026/04/07 paintparty/lasertag 0.12.0 - Lasertag is a utility library for categorizing values in Clojure, ClojureScript, and Babashka
+2026/04/07 dazld/r11y 1.0.5 - CLI tool for extracting URLs as Markdown
+2026/04/07 gloathub/gloat 0.1.23 - Glojure AOT Tool
+2026/04/07 gloathub/glojure 0.6.5-rc15 - Clojure interpreter hosted on Go, with extensible interop support.
+2026/04/07 clj-commons/humanize 1.2 - Produce human readable strings in clojure
+2026/04/07 cognitect-labs/aws-api 0.8.812 - AWS, data driven
+2026/04/07 seancorfield/polylith-external-test-runner 0.8.0 - An external (subprocess) test runner for Polylith
+2026/04/07 brettatoms/zodiac-assets 0.6.48 - A Zodiac extension to help manage static assets with vite
+2026/04/07 danlentz/clj-figlet 0.1.4 - A native Clojure re-implementation of FIGlet — the classic ASCII art text renderer.
+2026/04/07 cursive-ide/cursive 2026.1 - Cursive: The IDE for beautiful Clojure code
+2026/04/07 gersak/ty 1.0.0-RC4 - Clojurescript WebComponents library
+2026/04/07 clojure-emacs/clojure-mode 5.23.0 - Emacs support for the Clojure(Script) programming language
+2026/04/07 borkdude/quickdoc 0.2.6 - Quick and minimal API doc generation for Clojure
+2026/04/07 metosin/jsonista 1.0.0 - Clojure library for fast JSON encoding and decoding.
+2026/04/07 igrishaev/pg2 0.1.48 - A fast PostgreSQL driver for Clojure
+2026/04/07 enragedginger/pants_backend_clojure 0.2.1 - Pants build tool backend for Clojure
+2026/04/07 johnmn3/injest 0.1.0-beta.9 - +>, +>>, x>>, =>>: Auto-transducifying, auto-parallelizing path thread macros
+2026/04/07 seancorfield/build-uber-log4j2-handler 2.25.4 - A conflict handler for log4j2 plugins cache files for the tools.build uber task.
+2026/04/07 weavejester/medley 1.10.0 - A lightweight library of useful Clojure functions
+2026/04/07 NoahTheDuke/lazytest 2.0.0 - A standalone BDD test framework for Clojure
+2026/04/07 cjohansen/lookup 2026.03.4 - Find content of interest in hiccup data
+2026/04/07 practicalli/nvim-astro5 2026-03-31 - Neovim 0.11 config for Clojure development, based on AstroNvim v5
+2026/04/07 * https://github.com/thomascothran/pavlov[pavlov] beta - Behavioral Programming for Clojure
+2026/04/07 brettatoms/ring-hot-reload 0.2.9 - A Clojure Ring middleware for hot loading changes into the browser
+2026/04/07 scicloj/tablecloth 8.0.16 - Dataset manipulation library built on the top of tech.ml.dataset
+2026/04/07 mpenet/tape 1.0.0-alpha47 - Chronicle Queue library for Clojure
+2026/04/07 bolasblack/shadow-cljs-vite-plugin 0.0.9 - A robust Vite plugin for seamless integration with shadow-cljs
+2026/04/07 BetterThanTomorrow/calva 2.0.570 - Clojure & ClojureScript Interactive Programming for VS Code
+2026/04/07 BetterThanTomorrow/calva-backseat-driver 0.0.28 - VS Code AI Agent Interactive Programming. Tools for CoPIlot and other assistants. Can also be used as an MCP 
+2026/04/07 borkdude/edamame 1.5.39 - Configurable EDN/Clojure parser with location metadata
+2026/04/07 nextjournal/markdown 0.7.225 - A cross-platform Clojure/Script parser for Markdown
+2026/04/07 babashka/babashka-sql-pods 0.1.6 - Babashka pods for SQL databases
+2026/04/07 NoahTheDuke/splint 1.24.0 - A Clojure linter focused on style and code shape.
+2026/04/07 borkdude/grasp 0.2.5 - Grep Clojure code using clojure.spec regexes
+2026/04/07 replikativ/superficie 0.2.28 - Surface syntax for Clojure to help exposition/onboarding.
+2026/04/07 brdloush/livewire 0.11.0 - Embedded nREPL wire into a running Spring Boot app — giving AI agents and humans a live probe into the JVM. Inspect beans, trace SQL
+2026/04/07 scicloj/clojisr 1.1.0 - Clojure speaks statistics - a bridge between Clojure to R
+2026/04/07 replikativ/stratum 0.2.51 - Versioned, fast and scalable columnar database.
+2026/04/07 filipesilva/datomic-pro-manager 1.1.0 - Download, setup, and run Datomic Pro backed by SQLite in a single command.
+2026/04/07 plumce/plumcp 0.2.0-rc1 - Clojure/ClojureScript library for making MCP server and client
+2026/04/07 fulcrologic/statecharts 1.4.0-RC10 - A Statechart library for CLJ(S)
+2026/04/14 clojure/data.xml 0.2.0-alpha11 - GitHub - clojure/data.xml
+2026/04/14 seancorfield/logging4j2 1.0.7 - A Clojure wrapper for log4j2
+2026/04/14 PEZ/epupp 0.0.16 - A web browser extension that lets you tamper with web pages, live and/or with userscripts.
+2026/04/14 practicalli/nvim-astro 2026-04-08 - Neovim 0.11 config for Clojure development, based on AstroNvim v5
+2026/04/14 clj-commons/pomegranate 1.3.26 - A sane Clojure API for Maven Artifact Resolver + dynamic runtime modification of the classpath
+2026/04/14 dco-dev/ordered-collections 0.2.0 - Fast, modern, ropes and ordered collections that do more than sort.
+2026/04/14 clj-commons/aleph 0.9.7 - Asynchronous streaming communication for Clojure - web server, web client, and raw TCP/UDP
+2026/04/14 babashka/nbb 1.4.207 - Scripting in Clojure on Node.js using SCI
+2026/04/14 wardle/hermes 1.4.1585 - A library and microservice implementing the health and care terminology SNOMED CT with support for cross-maps, inference, fast full-te
+2026/04/14 magnars/datomic-type-extensions 2026.04.10 - A Clojure library that wraps Datomic API functions to add type extensions.
+2026/04/14 lambdaisland/cli 1.29.127 - Opinionated command line argument handling, with excellent support for subcommands
+2026/04/14 * https://github.com/danielsz/beeld[beeld] 1.1.5 - Get the metadata associated with an image. Also contains image utilities: filesize, scale, etc.
+2026/04/14 scicloj/tableplot 1-beta17 - Easy layered graphics with Hanami & Tablecloth
+2026/04/14 scicloj/clay 2.0.15 - A REPL-friendly Clojure tool for notebooks and datavis
+2026/04/14 BetterThanTomorrow/calva 2.0.573 - Clojure & ClojureScript Interactive Programming for VS Code
+2026/04/14 ring-clojure/ring 1.15.4 - Clojure HTTP server abstraction
+2026/04/14 weavejester/cljfmt 0.16.4 - A tool for formatting Clojure code
+2026/04/14 editor-code-assistant/eca 0.126.0 - Editor Code Assistant (ECA) - AI pair programming capabilities agnostic of editor
+2026/04/14 avanelsas/baredom 2.1.1 - BareDOM: Lightweight CLJS UI components built on web standards (Custom Elements, Shadow DOM, ES modules). No framework, just the DOM
+2026/04/14 nrepl/nrepl 1.7.0 - A Clojure network REPL that provides a server and client, along with some common APIs of use to IDEs and other tools that may need to evalu
+2026/04/14 plumce/plumcp 0.2.0-rc2 - Clojure/ClojureScript library for making MCP server and client
+2026/04/14 RokLenarcic/memento 2.0.71 - Clojure Memoization project
+2026/04/14 cognitect-labs/aws-api 0.8.824 - AWS, data driven
+2026/04/14 clj-commons/pretty 3.7.0 - Library for helping print things prettily, in Clojure - ANSI fonts, formatted exceptions
+2026/04/14 thheller/shadow-cljs 3.4.2 - ClojureScript compilation made easy
+2026/04/21 clojure/clojure 1.12.5-rc1 - The Clojure programming language
+2026/04/21 clj-kondo/clj-kondo 2026.04.15 - Static analyzer and linter for Clojure code that sparks joy
+2026/04/21 avanelsas/baredom 2.2.0 - BareDOM: Lightweight CLJS UI components built on web standards (Custom Elements, Shadow DOM, ES modules). No framework, just the DOM
+2026/04/21 danlentz/clj-format 0.1.2 - A Clojure DSL for cl-format inspired by Hiccup. No dependencies. Drop-in compatibility. The power of FORMAT made easy.
+2026/04/21 igrishaev/any 0.1.1 - Objects for smart comparison in tests.
+2026/04/21 Blockether/spel 0.9.5 - Idiomatic Clojure wrapper for Playwright. Browser automation, API testing, Allure reporting, and native CLI - for Chromium, Firefox, an
+2026/04/21 dco-dev/ordered-collections 0.2.1 - Fast, modern, ropes and ordered collections that do more than sort.
+2026/04/21 hlship/dexter 0.1-alpha-6 - Dexter - Graphical Dependency Explorer
+2026/04/21 gloathub/gloat 0.1.26 - Glojure AOT Tool
+2026/04/21 * https://github.com/gloathub/glojure[glojure] 0.6.5-rc17 - Clojure interpreter hosted on Go, with extensible interop support.
+2026/04/21 squint-cljs/squint 0.11.188 - Light-weight ClojureScript dialect
+2026/04/21 cjohansen/dataspex 2026.04.1 - See the shape of your data: point-and-click Clojure(Script) data browser
+2026/04/21 xpojure-lang/meme-clj 5.0.0 - meme-clj — M-Expressions with Macro Expansion
+2026/04/21 TimoKramer/charm.clj 0.2.71 - A Clojure TUI (Terminal User Interface) library inspired by Bubble Tea
+2026/04/21 danlentz/clj-xref 0.1.1 - LLM-friendly cross-reference database for Clojure code. Query who-calls, calls-who, who-implements, ns-deps to feed        precise de
+2026/04/21 babashka/babashka 1.12.218 - Native, fast starting Clojure interpreter for scripting
+2026/04/21 babashka/fs 0.5.33 - File system utility library for Clojure
+2026/04/21 phel-lang/phel-lang 0.34.1 - A functional, Lisp-inspired language that compiles to PHP. Inspired by Clojure, Phel brings macros, persistent data structures, an
+2026/04/21 taoensso/nippy 3.7.0-beta1 - Fast serialization library for Clojure
+2026/04/21 fulcrologic/statecharts 1.4.0-RC11 - A Statechart library for CLJ(S)
+2026/04/21 clojure/clojure-clr clojure-1.12.3-alpha7 - A port of Clojure to the CLR, part of the Clojure project
+2026/04/28 yonureker/stripe-clojure 2.3.0 - Clojure SDK for the Stripe API.
+2026/04/28 BetterThanTomorrow/calva-backseat-driver 0.0.30 - VS Code AI Agent Interactive Programming. Tools for CoPIlot and other assistants. Can also be used as an MCP 
+2026/04/28 shipclojure/re-frame-query 0.9.0 - Declarative data fetching and caching for re-frame inspired by tanstack query and redux toolkit query
+2026/04/28 plumce/plumcp 0.2.0 - Clojure/ClojureScript library for making MCP server and client
+2026/04/28 clj-commons/pretty 3.8.0 - Library for helping print things prettily, in Clojure - ANSI fonts, formatted exceptions
+2026/04/28 scicloj/clay 2.0.16 - A REPL-friendly Clojure tool for notebooks and datavis
+2026/04/28 * https://github.com/filipesilva/sqlatom[sqlatom] 1.2.0 - Clojure library that stores atoms in a SQLite database
+2026/04/28 clojure/clojure-clr 1.12.3-alpha8 - A port of Clojure to the CLR, part of the Clojure project
+2026/04/28 avanelsas/baredom 2.4.1 - BareDOM: Lightweight CLJS UI components built on web standards (Custom Elements, Shadow DOM, ES modules). No framework, just the DOM
+2026/04/28 BetterThanTomorrow/calva 2.0.579 - Clojure & ClojureScript Interactive Programming for VS Code
+2026/04/28 * https://www.datomic.com/[datomic-pro] https://docs.datomic.com/changes/pro.html#1.0.7622[1.0.7622] - The fully transactional, cloud-ready, distributed databa
+2026/05/05 xtdb/xtdb 2.2.0-beta1 - An immutable SQL database for application development, time-travel reporting and data compliance. Developed by @juxt
+2026/05/05 day8/re-frame 1.4.7 - A ClojureScript framework for building user interfaces, leveraging React
+2026/05/05 BetterThanTomorrow/calva-backseat-driver 0.0.31 - VS Code AI Agent Interactive Programming. Tools for CoPIlot and other assistants. Can also be used as an MCP 
+2026/05/05 epiccastle/bbssh 0.7.0 - Babashka pod for SSH support.
+2026/05/05 fogus/lexical-chocolate 0.0.4 - Provides utilities for building lexical contours.
+2026/05/05 practicalli/clojure-cli-config 2026-05-01 - User aliases and Clojure CLI configuration for deps.edn based projects
+2026/05/05 BetterThanTomorrow/joyride 0.0.74 - Making VS Code Hackable like Emacs since 2022
+2026/05/05 avanelsas/baredom 2.7.0 - BareDOM: Lightweight CLJS UI components built on web standards (Custom Elements, Shadow DOM, ES modules). No framework, just the DOM
+2026/05/05 dazld/r11y 1.0.6 - CLI tool for extracting URLs as Markdown
+2026/05/05 phel-lang/phel-lang 0.35.0 - A functional, Lisp-inspired language that compiles to PHP. Inspired by Clojure, Phel brings macros, persistent data structures, an
+2026/05/05 scicloj/metamorph.ml 1.5.1 - Machine learning functions based on metamorph and  machine learning pipelines
+2026/05/05 PEZ/epupp 0.0.19 - A web browser extension that lets you tamper with web pages, live and/or with userscripts.
+2026/05/05 pilosus/kairos 0.2.62 - Crontab parser for Clojure with human-readable cron explanations
+2026/05/05 clojure-lsp/clojure-lsp 2026.05.05-12.58.26 - Clojure & ClojureScript Language Server (LSP) implementation
+2026/05/05 shipclojure/re-frame-query 0.10.0 - Declarative data fetching and caching for re-frame inspired by tanstack query and redux toolkit query
+2026/05/05 BetterThanTomorrow/calva 2.0.583 - Clojure & ClojureScript Interactive Programming for VS Code
+2026/05/19 clojure/clojure 1.12.5 - The Clojure programming language
+2026/05/19 * https://clojure.org/reference/clojure_cli[clojure_cli] https://clojure.org/releases/tools#v1.12.5.1645[1.12.5.1645] - Clojure CLI
+2026/05/19 clojure/clojurescript 1.12.145 - Clojure to JS compiler
+2026/05/19 clojure/core.unify 0.7.2 - Unification library
+2026/05/19 clj-holmes/clj-watson 6.1.0 - A Clojure tool that checks for vulnerable dependencies
+2026/05/19 clj-commons/aleph 0.9.8 - Asynchronous streaming communication for Clojure - web server, web client, and raw TCP/UDP
+2026/05/19 BetterThanTomorrow/awesome-backseat-driver 1.0.13 - Plugin marketplace for Clojure AI context in GitHub Copilot: agents, skills, and workflows for REPL-first i
+2026/05/19 seancorfield/logging4j2 1.0.8 - A Clojure wrapper for log4j2
+2026/05/19 clojure/core.async.flow-monitor 0.1.5 - A real-time monitoring and interaction tool for clojure.core.async.flow
+2026/05/19 monkey-projects/martian-aleph 0.1.4 - Martian plugin to use the Aleph http client
+2026/05/19 fogus/thneed 1.1.9 - An eclectic set of Clojure utilities that I've found useful enough to keep around.
+2026/05/19 fulcrologic/statecharts 1.4.0-RC13 - A Statechart library for CLJ(S)
+2026/05/19 BetterThanTomorrow/joyride 0.0.75 - Making VS Code Hackable like Emacs since 2022
+2026/05/19 replikativ/stratum 0.2.67 - Versioned, fast and scalable columnar database.
+2026/05/19 seancorfield/deps-new 0.12.1 - Create new projects for the Clojure CLI / deps.edn
+2026/05/19 avanelsas/bareforge 0.6.0 - Companion visual builder for BareDOM web components. Drag components, declare reactive state, export fully interactive CLJS or JS p
+2026/05/19 replikativ/pg-datahike 0.1.43 - Postgres compatibility layer for Datahike.
+2026/05/19 day8/de-dupe 0.3.0 - A ClojureScript library which "de-duplicates" Persistent Data Structures so they can be more efficiently serialised.
+2026/05/19 flow-storm/clojure 1.12.5 - A fork of the official Clojure compiler with extra code to make it a dev compiler
+2026/05/19 clj-easy/graal-build-time 1.0.6 - Initialize Clojure classes at build time with GraalVM native-image
+2026/05/19 gersak/tyrell 1.0.0-RC9 - Clojurescript WebComponents library
+2026/05/19 gloathub/gloat 0.1.41 - Glojure AOT Tool
+2026/05/19 scicloj/metamorph.ml 1.6.2 - Machine learning functions based on metamorph and  machine learning pipelines
+2026/05/19 metosin/oksa 1.2.1 - Generate GraphQL queries using Clojure data structures.
+2026/05/19 clj-commons/pomegranate 1.3.27 - A sane Clojure API for Maven Artifact Resolver + dynamic runtime modification of the classpath
+2026/05/19 BetterThanTomorrow/calva 2.0.588 - Clojure & ClojureScript Interactive Programming for VS Code
+2026/05/19 hlship/cli-tools 0.16.0-beta-7 - CLIs and subcommands for Clojure or Babashka
+2026/05/19 fulcrologic/fulcro-spec 3.2.9 - A library that wraps clojure.test for a better BDD testing experience.
+2026/05/19 avanelsas/baredom 3.1.0 - BareDOM: Lightweight CLJS UI components built on web standards (Custom Elements, Shadow DOM, ES modules). No framework, just the DOM
+2026/05/19 o11ylite/o11ylite 2026.5.16-1112955 - Free, open-source OpenTelemetry backend powered by DuckDB 🦆 and SQLite
+2026/05/19 BetterThanTomorrow/calva-backseat-driver 0.0.34 - VS Code AI Agent Interactive Programming. Tools for CoPIlot and other assistants. Can also be used as an MCP 
+2026/05/19 plumce/plumcp 0.2.1 - Clojure/ClojureScript library for making MCP server and client
+2026/05/19 weavejester/teensyp 0.5.0 - A small, zero-dependency Clojure TCP server that uses Java NIO
+2026/05/19 seancorfield/build-uber-log4j2-handler 2.26.0 - A conflict handler for log4j2 plugins cache files for the tools.build uber task.
+2026/05/19 phel-lang/phel-lang 0.39.0 - A functional, Lisp-inspired language that compiles to PHP. Inspired by Clojure, Phel brings macros, persistent data structures, an
+2026/05/19 hlship/dexter 0.1-beta-2 - Dexter - Graphical Dependency Explorer
+2026/05/19 scicloj/plotje 0.2.2 - simple and easy plotting
+2026/05/26 clojure/core.unify 0.7.3 - Unification library
+2026/05/26 clojure/tools.gitlibs 2.6.217 - API for retrieving, caching, and programatically accessing git libraries
+2026/05/26 lambdaisland/glogi 1.4.177 - A ClojureScript logging library based on goog.log
+2026/05/26 * https://git.sr.ht/~jomco/openapi-v3-validator[openapi-v3-validator] 0.2.7 - A pure-clojure library for validating ring requests & responses against OpenAPI v
+2026/05/26 monkey-projects/mailman 0.4.0 - Simple event routing library
+2026/05/26 clojure-emacs/refactor-nrepl 3.13.0 - nREPL middleware to support refactorings in an editor agnostic way
+2026/05/26 fulcrologic/fulcro-spec 3.2.10 - A library that wraps clojure.test for a better BDD testing experience.
+2026/05/26 mpenet/drip 1.0.0-alpha41 - Drip is a transactional job queue for MariaDB, PostgreSQL, and SQLite
+2026/05/26 cursive-ide/cursive 2026.2-eap1 - Cursive: The IDE for beautiful Clojure code
+2026/05/26 cnuernber/dtype-next 11.022 - A Clojure library designed to aid in the implementation of high performance algorithms and systems.
+2026/05/26 techascent/tech.ml.dataset 8.023 - A Clojure high performance data processing system
+2026/05/26 seancorfield/rephrase 1.0.2 - Rephrase exceptions to be more beginner-friendly
+2026/05/26 avanelsas/bareforge 0.7.0 - Companion visual builder for BareDOM web components. Drag components, declare reactive state, export fully interactive CLJS or JS p
+2026/05/26 fulcrologic/statecharts 1.4.0-RC16 - A Statechart library for CLJ(S)
+2026/05/26 replikativ/stratum 0.3.72 - Versioned, fast and scalable columnar database.
+2026/05/26 weavejester/teensyp 0.5.4 - A small, zero-dependency Clojure TCP server that uses Java NIO
+2026/05/26 donut-party/generate 1.0.57 - code generation for Clojure projects
+2026/05/26 dazld/r11y 1.0.7 - CLI tool for extracting URLs as Markdown
+2026/05/26 babashka/cli 0.9.68 - Turn Clojure functions into CLIs!
+2026/05/26 borkdude/html 0.2.4 - Html generation library inspired by squint's html tag
+2026/05/26 seancorfield/next-jdbc 1.3.1108 - A modern low-level Clojure wrapper for JDBC-based access to databases.
+2026/05/26 sunng87/ring-jetty9-adapter 0.39.4 - An enhanced version of jetty adapter for ring, with additional features like websockets, http/2 and http/3
+2026/05/26 Blockether/svar 0.5.9 - Type‑safe LLM output for Clojure. Works with any text‑only model.
+2026/05/26 babashka/neil 0.3.70 - A CLI to add common aliases and features to deps.edn-based projects
+2026/05/26 gloathub/gloat 0.1.44 - Glojure AOT Tool
+2026/05/26 taoensso/encore 3.161.0 - Core utils library for Clojure/Script
+2026/05/26 clj-kondo/clj-kondo 2026.05.25 - Static analyzer and linter for Clojure code that sparks joy
+2026/05/26 phel-lang/phel-lang 0.40.0 - A functional, Lisp-inspired language that compiles to PHP. Inspired by Clojure, Phel brings macros, persistent data structures, an
+2026/05/26 * https://github.com/replikativ/spindel[spindel] 0.1.13 - Cross-platform FRP runtime with a git-like memory model.
+2026/05/26 RokLenarcic/memento 2.1.74 - Clojure Memoization project
+2026/05/26 avanelsas/baredom 3.3.0 - BareDOM: Lightweight CLJS UI components built on web standards (Custom Elements, Shadow DOM, ES modules). No framework, just the DOM
+2026/05/26 fulcrologic/fulcro 3.10.0-RC1 - A library for development of single-page full-stack web applications in clj/cljs
+2026/06/02 clojure/tools.build 0.10.14 - Clojure builds as Clojure programs
+2026/06/02 * https://clojure.org/reference/clojure_cli[clojure_cli] https://clojure.org/releases/tools#v1.12.5.1654[1.12.5.1654] - Clojure CLI
+2026/06/02 clojure/tools.deps 0.31.1629 - Deps as data and classpath generation
+2026/06/02 borkdude/deps.clj 1.12.5.1654 - A faithful port of the clojure CLI bash script to Clojure
+2026/06/02 RokLenarcic/memento-redis 2.0.33 - Memento cache backed by Redis
+2026/06/02 * https://github.com/sstraust/deft[deft] 0.1.5 - A collection of macros designed to address issues with objects in Clojure.
+2026/06/02 multiplyco/quiescent 0.2.6 - A Clojure library for composable async tasks with automatic parallelization, structured concurrency, and parent-child and chain ca
+2026/06/02 weavejester/teensyp 0.5.5 - A small, zero-dependency Clojure TCP server that uses Java NIO
+2026/06/02 SURFnet/apie 1.0.2 - Apie 🙈 OpenAPI Service Validator
+2026/06/02 fulcrologic/fulcro-rad 1.6.24 - Fulcro Rapid Application Development
+2026/06/02 fulcrologic/statecharts 1.4.0-RC18 - A Statechart library for CLJ(S)
+2026/06/02 fulcrologic/guardrails 1.3.2 - Efficient, hassle-free function call validation with a concise inline syntax for clojure.spec and Malli
+2026/06/02 coconutpalm/clojure-desktop-toolkit 0.7.0 - Create native state-of-the-art desktop applications in Clojure using Eclipse's SWT graphics toolkit.
+2026/06/02 datalevin/datalevin 0.10.18 - A simple, fast and versatile Datalog database
+2026/06/02 magnars/optimus 2026.05.27 - A Ring middleware for frontend performance optimization.
+2026/06/02 lambdaisland/cli 1.30.130 - Opinionated command line argument handling, with excellent support for subcommands
+2026/06/02 grid-coordination/clj-oa3 0.4.0 - Clojure client library for OpenADR 3 (Martian HTTP, entity coercion, Malli schemas)
+2026/06/02 Blockether/svar 0.7.0 - Type‑safe LLM output for Clojure. Works with any text‑only model.
+2026/06/02 djblue/portal 0.65.0 - A clojure tool to navigate through your data.
+2026/06/02 * https://github.com/simm-is/partial-cps[partial-cps] 0.1.55 - A lean and efficient continuation passing style transform, includes async-await support.
+2026/06/02 replikativ/spindel 0.1.15 - Cross-platform FRP runtime with a git-like memory model.
+2026/06/02 JulianBirch/cljs-ajax 0.9.0-beta1 - simple asynchronous Ajax client for ClojureScript and Clojure
+2026/06/02 seancorfield/deps-new 0.12.2 - Create new projects for the Clojure CLI / deps.edn
+2026/06/02 * https://github.com/cljfx/ghosttyfx[ghosttyfx] 0.1.169.11 - Cljfx wrapper of GhosttyFX
+2026/06/02 igrishaev/pg2 0.1.49 - A fast PostgreSQL driver for Clojure
+2026/06/02 nooga/let-go 1.9.0 - Almost Clojure written in Go.
+2026/06/02 * https://github.com/mlimotte/gsheetplus[gsheetplus] 1.1.3 - Low-level and high-level wrapper to work with Google Sheets.  Reading, writing and sheet managemen
+2026/06/02 phel-lang/phel-lang 0.41.0 - A functional, Lisp-inspired language that compiles to PHP. Inspired by Clojure, Phel brings macros, persistent data structures, an
+2026/06/02 cryogen-project/cryogen 0.7.9 - A simple static site generator written in Clojure
+2026/06/02 yogthos/Selmer 1.13.4 - A fast, Django inspired template system in Clojure.
+2026/06/02 fulcrologic/fulcro-tui 1.0.2 - A JLine-base TUI wrapper, allowing you to write TUI projects in CLJ or Babashka via Fulcro
+2026/06/02 scicloj/plotje 0.3.1 - simple and easy plotting
+2026/06/02 squint-cljs/squint 0.12.193 - Light-weight ClojureScript dialect
+2026/06/02 * https://github.com/lukaszkorecki/mokujin[mokujin] 1.0.0.120 - 🪵 Structured logging for Clojure. Thin layer on top of clojure.tools.logging with MDC support
+2026/06/02 DotFox/edn.c 8c0869c - A fast, zero-copy EDN (Extensible Data Notation) reader written in C11 with SIMD acceleration.
+2026/06/02 taoensso/nippy 3.7.0-RC2 - Fast serialization library for Clojure
+2026/06/02 gersak/tyrell 1.0.0-RC10 - Clojurescript WebComponents library
+2026/06/02 walmartlabs/lacinia 1.3.0 - GraphQL implementation in pure Clojure
+2026/06/02 nnichols/clojure-lint-action 9 - A GitHub Action that lints clojure files with clj-kondo and generates comments with reviewdog on pull requests to improve the 
+2026/06/02 cjohansen/dataspex 2026.06.1 - See the shape of your data: point-and-click Clojure(Script) data browser
+2026/06/09 clojure/core.async 1.10.874-alpha3 - Facilities for async programming and communication in Clojure
+2026/06/09 clojure/tools.deps.edn 0.9.38 - Reader for deps.edn files
+2026/06/09 Blockether/spel 0.9.8 - Idiomatic Clojure wrapper for Playwright. Browser automation, API testing, Allure reporting, and native CLI - for Chromium, Firefox, an
+2026/06/09 replikativ/ansatz 0.1.22 - Dependently typed Clojure DSL with a Lean4 compatible kernel.
+2026/06/09 fulcrologic/guardrails 1.3.3 - Efficient, hassle-free function call validation with a concise inline syntax for clojure.spec and Malli
+2026/06/09 fulcrologic/fulcro-tui 1.0.2 - A JLine-base TUI wrapper, allowing you to write TUI projects in CLJ or Babashka via Fulcro
+2026/06/09 * https://github.com/fulcrologic/fulcro-rad-tui[fulcro-rad-tui] 1.0.0-RC2 - UI Plugin for Terminal UI support in Fulcro RAD (fulcro-rad-statecharts)
+2026/06/09 BetterThanTomorrow/calva 2.0.590 - Clojure & ClojureScript Interactive Programming for VS Code
+2026/06/09 * https://github.com/marksto/clj-tg-bot-api[clj-tg-bot-api] 1.2.266 - 🤖 The latest Telegram Bot API spec and client lib for Clojure-based apps
+2026/06/09 clj-commons/aleph 0.9.9 - Asynchronous streaming communication for Clojure - web server, web client, and raw TCP/UDP
+2026/06/09 seancorfield/rephrase 1.0.3 - Rephrase exceptions to be more beginner-friendly
+2026/06/09 * https://repo.prod.meissa.de/meissa/c4k-keycloak[c4k-keycloak] 2.1.0 - a kubernetes deployment for keycloak
+2026/06/09 phel-lang/phel-lang 0.42.0 - A functional, Lisp-inspired language that compiles to PHP. Inspired by Clojure, Phel brings macros, persistent data structures, an
+2026/06/09 BetterThanTomorrow/awesome-backseat-driver 1.0.15 - Plugin marketplace for Clojure AI context in GitHub Copilot: agents, skills, and workflows for REPL-first i
+2026/06/09 sunng87/diehard 0.12.1 - Clojure resilience library for flexible retry, circuit breaker and rate limiter
+2026/06/09 BetterThanTomorrow/calva-backseat-driver 0.0.35 - VS Code AI Agent Interactive Programming. Tools for CoPIlot and other assistants. Can also be used as an MCP 
+2026/06/09 weavejester/teensyp 0.6.0 - A small, zero-dependency Clojure TCP server that uses Java NIO
+2026/06/09 replikativ/pg-datahike 0.1.44 - Postgres compatibility layer for Datahike.
+2026/06/09 hlship/cli-tools 1.0.0 - CLIs and subcommands for Clojure or Babashka
+2026/06/09 Blockether/svar 0.7.11 - Type‑safe LLM output for Clojure. Works with any text‑only model.
+2026/06/09 seancorfield/honeysql 2.7.1388 - Turn Clojure data structures into SQL
+2026/06/09 babashka/cli 0.11.70 - Turn Clojure functions into CLIs!
+2026/06/09 replikativ/yggdrasil 0.2.28 - Git-like, causal space-time lattice abstraction over systems supporting this memory model.
+2026/06/09 replikativ/spindel 0.1.18 - Cross-platform FRP runtime with a git-like memory model.
+2026/06/16 babashka/sci 0.13.52 - Configurable Clojure/Script interpreter suitable for scripting and Clojure DSLs
+2026/06/16 babashka/nbb 1.4.208 - Scripting in Clojure on Node.js using SCI
+2026/06/16 phel-lang/phel-lang 0.44.0 - A functional, Lisp-inspired language that compiles to PHP. Inspired by Clojure, Phel brings macros, persistent data structures, an
+2026/06/16 flow-storm/flow-storm-debugger 4.6.0 - A debugger for Clojure and ClojureScript with some unique features.
+2026/06/16 avanelsas/bareforge 0.7.1 - Companion visual builder for BareDOM web components. Drag components, declare reactive state, export fully interactive CLJS or JS p
+2026/06/16 tolitius/mount 0.1.24 - managing Clojure and ClojureScript app state since (reset)
+2026/06/16 multiplyco/quiescent 0.3.0 - A Clojure library for composable async tasks with automatic parallelization, structured concurrency, and parent-child and chain ca
+2026/06/16 funcool/promesa 12.0.0 - A promise library & concurrency toolkit for Clojure and ClojureScript.
+2026/06/16 weavejester/teensyp 0.6.4 - A small, zero-dependency Clojure TCP server that uses Java NIO
+2026/06/16 babashka/cli 0.11.72 - Turn Clojure functions into CLIs!
+2026/06/16 replikativ/yggdrasil 0.2.29 - Git-like, causal space-time lattice abstraction over systems supporting this memory model.
+2026/06/16 * https://github.com/metabase/hawk[hawk] 1.0.14 - It watches your code like a hawk! You like tests, right? Then run them with our state-of-the-art Clojure test
+2026/06/16 replikativ/spindel 0.1.23 - Cross-platform FRP runtime with a git-like memory model.
+2026/06/16 replikativ/pg-datahike 0.1.45 - Postgres compatibility layer for Datahike.
+2026/06/16 flow-storm/clojurescript 1.12.145-1 - A fork of the official ClojureScript compiler with extra code to make it a dev compiler
+2026/06/16 cnuernber/charred 1.039 - zero dependency efficient read/write of json and csv data.
+2026/06/16 vipenzo/ridley 3.1.0 - A turtle graphics-based 3D modeling tool for 3D printing. Write Clojure scripts, see real-time 3D preview, export STL. WebXR support for
+2026/06/16 replikativ/raster 0.1.3 - Fast, functional numerical computing for Clojure/JVM.
+2026/06/16 borkdude/html 0.2.5 - Html generation library inspired by squint's html tag
+2026/06/16 taoensso/encore 3.165.0 - Core utils library for Clojure/Script
+2026/06/16 cjohansen/dataspex 2026.06.3 - See the shape of your data: point-and-click Clojure(Script) data browser
+2026/06/16 replikativ/stratum 0.3.75 - Versioned, fast and scalable columnar database.
+2026/06/16 liwp/again 2.0.0 - A retry library for Clojure
+2026/06/16 * https://github.com/marksto/clj-tg-bot-api[clj-tg-bot-api] 1.2.270 - 🤖 The latest Telegram Bot API spec and client lib for Clojure-based apps
+2026/06/16 Blockether/svar 0.7.29 - Type‑safe LLM output for Clojure. Works with any text‑only model.
+2026/06/16 replikativ/ansatz 0.1.58 - Dependently typed Clojure DSL with a Lean4 compatible kernel.
+2026/06/16 clojure-emacs/cider 1.22.0 - The Clojure Interactive Development Environment that Rocks for Emacs
+2026/06/16 * https://github.com/sstraust/deft[deft] 0.2.0 - A collection of macros designed to address issues with objects in Clojure.
+2026/06/23 * https://github.com/simm-is/partial-cps[partial-cps] 0.1.58 - A lean and efficient continuation passing style transform, includes async-await support.
+2026/06/23 gojek/ziggurat 4.12.1 - A stream processing framework to build stateless applications on Kafka
+2026/06/23 tomekw/hikari-cp 4.1.0 - A Clojure wrapper to HikariCP JDBC connection pool
+2026/06/23 luposlip/json-schema 0.4.8 - Clojure library JSON Schema validation and generation - Draft-07 compatible
+2026/06/23 * https://github.com/metabase/hawk[hawk] 1.0.15 - It watches your code like a hawk! You like tests, right? Then run them with our state-of-the-art Clojure test
+2026/06/23 epiccastle/clojuressh 1.0.0 - A Clojure library for using SSH in Clojure that is API compatible with bbssh
+2026/06/23 taoensso/sente 1.22.0-RC1 - Realtime web comms library for Clojure/Script
+2026/06/23 * https://codeberg.org/meissa/dda-tara[dda-tara] 3.0.2 - Threat modeling toolkit based on threagile
+2026/06/23 clj-commons/rewrite-clj 1.2.55 - Rewrite Clojure code and edn
+2026/06/23 * https://github.com/marksto/clj-tg-bot-api[clj-tg-bot-api] 1.2.271 - 🤖 The latest Telegram Bot API spec and client lib for Clojure-based apps
+2026/06/23 weavejester/teensyp 0.7.2 - A small, zero-dependency Clojure TCP server that uses Java NIO
+2026/06/23 babashka/sci 0.13.53 - Configurable Clojure/Script interpreter suitable for scripting and Clojure DSLs
+2026/06/23 phel-lang/phel-lang 0.45.1 - A functional, Lisp-inspired language that compiles to PHP. Inspired by Clojure, Phel brings macros, persistent data structures, an
+2026/06/23 seancorfield/next-jdbc 1.3.1118 - A modern low-level Clojure wrapper for JDBC-based access to databases.
+2026/06/23 manetu/temporal-clojure-sdk 2.1.0 - A Temporal SDK for Clojure
+2026/06/23 cjohansen/replicant 2026.06.1 - A data-driven rendering library for Clojure(Script) that renders hiccup to DOM or to strings.
+2026/06/23 replikativ/raster 0.1.15 - Fast, functional numerical computing for Clojure/JVM.
+2026/06/23 RokLenarcic/mcp-server 0.3.50 - MCP Server library
+2026/06/23 clojurewasm/ClojureWasm 1.0.0-alpha.1 - A lightweight Clojure runtime in Zig — call WebAssembly from Clojure to tap libraries written in any language.
+2026/06/23 BetterThanTomorrow/calva-backseat-driver 0.0.37 - VS Code AI Agent Interactive Programming. Tools for CoPIlot and other assistants. Can also be used as an MCP 
+2026/06/23 cjohansen/nexus 2026.06.2 - Data-driven action dispatch for Clojure(Script): Build systems that are easier to test, observe, and extend
+2026/06/23 BetterThanTomorrow/calva 2.0.593 - Clojure & ClojureScript Interactive Programming for VS Code
+2026/06/23 replikativ/persistent-sorted-set 0.4.124 - Fast B-tree based persistent sorted set for Clojure/Script
+2026/06/23 plumce/plumcp 0.2.2 - Clojure/ClojureScript library for making MCP server and client
+2026/06/23 yaml/yamlstar 0.1.9 - A YAML framework for all programming languages
+2026/06/23 benedekfazekas/mranderson 0.6.0 - Dependency inlining and shadowing
+2026/06/23 taoensso/encore 3.167.0 - Core utils library for Clojure/Script
+2026/06/23 Blockether/svar 0.7.33 - Type‑safe LLM output for Clojure. Works with any text‑only model.
+2026/06/23 replikativ/ansatz 0.1.64 - Dependently typed Clojure DSL with a Lean4 compatible kernel.
+2026/06/23 grid-coordination/clj-midas 1.0.0 - Clojure client library for the California Energy Commission's MIDAS API
+2026/06/23 babashka/cli 0.11.74 - Turn Clojure functions into CLIs!
+2026/06/23 squint-cljs/squint 0.13.195 - Light-weight ClojureScript dialect
+2026/06/23 ring-clojure/ring 1.15.5 - Clojure HTTP server abstraction
+2026/06/23 donut-party/generate 1.0.69 - code generation for Clojure projects

@@ -1,0 +1,722 @@
+[
+ [
+  "reagent-project/reagent",
+  "React wrapper",
+  "The default React interface for ClojureScript: hiccup + ratoms. Huge installed base; maintenance mode with React 18/19 compatibility work."
+ ],
+ [
+  "day8/re-frame",
+  "State management",
+  "Event/subscription/effect architecture on top of Reagent. The best-known CLJS app framework; stable and slow-moving by design."
+ ],
+ [
+  "lilactown/helix",
+  "React wrapper",
+  "Thin, idiomatic macros over modern React (hooks, $ elements). Closest to raw React with minimal runtime overhead."
+ ],
+ [
+  "pitch-io/uix",
+  "React wrapper",
+  "Modern React wrapper (UIx v2) from Pitch: hooks-first, fast hiccup-like $ macro, SSR, React 19 support. Main alternative to Reagent for new apps."
+ ],
+ [
+  "tonsky/rum",
+  "React wrapper",
+  "Mixin-based React wrapper with SSR on the JVM. Mature and mostly finished."
+ ],
+ [
+  "fulcrologic/fulcro",
+  "Full-stack framework",
+  "Full-stack framework with normalized client DB, EQL queries co-located with components, and Pathom-backed server. Includes its own data-sync model."
+ ],
+ [
+  "fulcrologic/fulcro-rad",
+  "Full-stack framework",
+  "Rapid Application Development layer on Fulcro: attribute-driven forms, reports and DB adapters."
+ ],
+ [
+  "fulcrologic/statecharts",
+  "State management",
+  "SCXML-style statecharts for Clojure(Script), used with Fulcro and standalone."
+ ],
+ [
+  "hoplon/hoplon",
+  "Non-React UI",
+  "Spreadsheet-style reactive UI with Javelin cells, direct DOM, no React."
+ ],
+ [
+  "hoplon/javelin",
+  "Reactive",
+  "Spreadsheet-like dataflow cells for ClojureScript (powers Hoplon)."
+ ],
+ [
+  "keechma/keechma-next",
+  "Full-stack framework",
+  "Keechma 'next': controller-based app framework with pipelines, built on Reagent."
+ ],
+ [
+  "cjohansen/replicant",
+  "Non-React UI",
+  "Data-driven rendering: pure functions return hiccup, Replicant diffs it to the DOM. No React, no component state; very active and influential since 2024."
+ ],
+ [
+  "cjohansen/nexus",
+  "State management",
+  "Data-driven action dispatch (actions as data, effects as functions); designed to pair with Replicant."
+ ],
+ [
+  "cjohansen/dumdom",
+  "Non-React UI",
+  "Predecessor to Replicant: Quiescent-compatible virtual DOM on Snabbdom."
+ ],
+ [
+  "thheller/shadow-grove",
+  "Non-React UI",
+  "Thomas Heller's own UI framework: fragments compiled at build time + a normalized DB + event system. No React."
+ ],
+ [
+  "thheller/shadow-cljs",
+  "Build tooling",
+  "The dominant ClojureScript build tool with npm integration; essential to virtually every CLJS front end."
+ ],
+ [
+  "thheller/shadow-css",
+  "CSS",
+  "CSS-in-CLJS with compile-time extraction, from the shadow-cljs author."
+ ],
+ [
+  "lambdaisland/ornament",
+  "CSS",
+  "Styled-components style CSS-in-Clojure using Garden + Girouette (Tailwind-like tokens)."
+ ],
+ [
+  "noprompt/garden",
+  "CSS",
+  "Write CSS as Clojure data. Long-lived, low maintenance."
+ ],
+ [
+  "borkdude/reagami",
+  "Non-React UI",
+  "Tiny Reagent-like library without React; works with Squint/ClojureScript. Created 2025."
+ ],
+ [
+  "chr15m/eucalypt",
+  "Non-React UI",
+  "Reagent-compatible API without React, small bundles; usable from Squint."
+ ],
+ [
+  "squint-cljs/squint",
+  "Runtime / compiler",
+  "Light ClojureScript dialect compiling to modern JS (JSX support, native JS data). Very small outputs; strong for front-end and Node."
+ ],
+ [
+  "squint-cljs/cherry",
+  "Runtime / compiler",
+  "ClojureScript to ES6 compiler keeping CLJS semantics (persistent data) without the Closure compiler."
+ ],
+ [
+  "babashka/scittle",
+  "Runtime / compiler",
+  "SCI-based ClojureScript interpreter in a <script> tag. No build step; plugins for Reagent, re-frame, Replicant, etc."
+ ],
+ [
+  "babashka/nbb",
+  "Runtime / compiler",
+  "Scripting ClojureScript on Node.js with SCI; ad-hoc scripting with npm."
+ ],
+ [
+  "day8/re-frame-10x",
+  "Dev tooling",
+  "Debugging dashboard for re-frame apps (event/sub tracing, time travel)."
+ ],
+ [
+  "day8/re-com",
+  "Component library",
+  "Re-frame/Reagent component library for desktop-style web apps."
+ ],
+ [
+  "ingesolvoll/kee-frame",
+  "State management",
+  "Re-frame + routing + controllers glue."
+ ],
+ [
+  "ferdinand-beyer/refx",
+  "State management",
+  "re-frame API ported to modern React hooks without Reagent (pairs with Helix/UIx)."
+ ],
+ [
+  "metosin/reitit",
+  "Routing",
+  "Fast data-driven router for Clojure and ClojureScript; used front and back end."
+ ],
+ [
+  "funcool/rumext",
+  "React wrapper",
+  "Penpot's React wrapper: rum-like macros on modern React with JSX-style compile-time templates."
+ ],
+ [
+  "penpot/penpot",
+  "Application",
+  "Open-source design tool (Figma alternative) written in Clojure/ClojureScript; the largest active CLJS front-end codebase."
+ ],
+ [
+  "logseq/logseq",
+  "Application",
+  "Privacy-first knowledge base; large ClojureScript app on Rum + DataScript; DB-version rewrite underway."
+ ],
+ [
+  "weavejester/hiccup",
+  "HTML",
+  "Represent HTML as Clojure data on the server; 2.0 line in progress."
+ ],
+ [
+  "onionpancakes/chassis",
+  "HTML",
+  "Fast HTML5 serialization of hiccup-style data for the JVM."
+ ],
+ [
+  "hyperfiddle/electric",
+  "Novel / reactive",
+  "Electric Clojure: one reactive program spanning client and server; the compiler splits it and streams only diffs. v3 is the current line (source-available license)."
+ ],
+ [
+  "leonoel/missionary",
+  "Reactive",
+  "Functional effect + streaming system (tasks and flows); the runtime under Electric."
+ ],
+ [
+  "hyperfiddle/rcf",
+  "Dev tooling",
+  "Rich Comment Forms: REPL-first tests inside (comment ...) blocks."
+ ],
+ [
+  "tonsky/datascript",
+  "Data sync / DB",
+  "Immutable in-memory Datalog DB for browser & JVM; the foundation of most CLJS client-side DBs (Logseq, Athens, posh)."
+ ],
+ [
+  "replikativ/datahike",
+  "Data sync / DB",
+  "Durable Datalog DB (Datomic-like API) with pluggable storage; active work on distribution and browser."
+ ],
+ [
+  "replikativ/konserve",
+  "Data sync / DB",
+  "Async durable key-value store protocol across JVM, browser IndexedDB, S3, etc.; storage layer for Datahike."
+ ],
+ [
+  "juji-io/datalevin",
+  "Data sync / DB",
+  "Fast Datalog DB on LMDB with full-text search, vector search, and a cost-based query planner."
+ ],
+ [
+  "xtdb/xtdb",
+  "Data sync / DB",
+  "Bitemporal SQL + Datalog database (v2: columnar, Arrow-based, SQL-first)."
+ ],
+ [
+  "instantdb/instant",
+  "Data sync / DB",
+  "Instant: real-time, local-first backend (Firebase-like) whose server is written in Clojure; clients sync via a Datalog-like query language."
+ ],
+ [
+  "wilkerlucio/pathom3",
+  "Data sync / DB",
+  "Attribute-graph resolver engine for EQL; data integration layer for Fulcro and others."
+ ],
+ [
+  "taoensso/sente",
+  "Data sync / DB",
+  "Realtime bidirectional WebSockets/Ajax for Clojure(Script)."
+ ],
+ [
+  "denistakeda/posh",
+  "Data sync / DB",
+  "Reactive DataScript queries for Reagent."
+ ],
+ [
+  "denistakeda/re-posh",
+  "Data sync / DB",
+  "re-frame + DataScript via posh."
+ ],
+ [
+  "andersmurphy/hyperlith",
+  "Novel / reactive",
+  "Hypermedia framework for real-time multiplayer apps using Datastar + SSE; server-rendered, near-zero JS."
+ ],
+ [
+  "starfederation/datastar",
+  "Novel / reactive",
+  "Hypermedia framework (SSE + signals); official SDKs include Clojure \u2014 a popular 2025-26 alternative to SPA front ends in Clojure."
+ ],
+ [
+  "jacobobryant/biff",
+  "Full-stack framework",
+  "Batteries-included web framework for solo devs: XTDB, htmx, Rum, auth, deploy."
+ ],
+ [
+  "kit-clj/kit",
+  "Full-stack framework",
+  "Modular web framework template (successor to Luminus)."
+ ],
+ [
+  "chr15m/sitefox",
+  "Full-stack framework",
+  "Node.js backend web framework for ClojureScript."
+ ],
+ [
+  "nextjournal/clerk",
+  "Novel / reactive",
+  "Moldable live notebooks from plain Clojure namespaces."
+ ],
+ [
+  "djblue/portal",
+  "Dev tooling",
+  "Data inspector/REPL value viewer for Clojure, CLJS, babashka, nbb."
+ ],
+ [
+  "HumbleUI/HumbleUI",
+  "Desktop UI",
+  "Clojure desktop UI framework on Skia (no web view), by Nikita Prokopov."
+ ],
+ [
+  "cljfx/cljfx",
+  "Desktop UI",
+  "Declarative, functional JavaFX wrapper (React-like)."
+ ],
+ [
+  "phronmophobic/membrane",
+  "Desktop UI",
+  "Platform-agnostic functional UI library (desktop, terminal, web)."
+ ],
+ [
+  "Tensegritics/ClojureDart",
+  "Novel / runtime",
+  "Clojure compiling to Dart: native mobile/desktop apps with Flutter."
+ ],
+ [
+  "jank-lang/jank",
+  "Novel / runtime",
+  "Native Clojure dialect on LLVM with C++ interop; full-time development since 2025."
+ ],
+ [
+  "basilisp-lang/basilisp",
+  "Novel / runtime",
+  "Clojure-compatible Lisp hosted on Python."
+ ],
+ [
+  "glojurelang/glojure",
+  "Novel / runtime",
+  "Clojure interpreter hosted on Go."
+ ],
+ [
+  "redplanetlabs/rama-demo-gallery",
+  "Novel / reactive",
+  "Rama examples (Java/Clojure API) from Red Planet Labs: the integrated backend platform (dataflow + indexed 'PStates')."
+ ],
+ [
+  "babashka/babashka",
+  "Novel / runtime",
+  "Fast-starting native Clojure scripting runtime (GraalVM)."
+ ],
+ [
+  "clj-commons/secretary",
+  "Routing",
+  "Client-side router (legacy, widely used)."
+ ],
+ [
+  "clj-kondo/clj-kondo",
+  "Dev tooling",
+  "Linter for Clojure/CLJS/EDN; underpins clojure-lsp."
+ ],
+ [
+  "athensresearch/athens",
+  "Application",
+  "Open-source networked-thought tool on re-frame + DataScript (archived)."
+ ],
+ [
+  "metosin/malli",
+  "Data",
+  "Data-driven schemas; heavily used across front and back ends."
+ ],
+ [
+  "roman01la/uix",
+  "React wrapper",
+  "Original UIx v1 by Roman Liutikov (superseded by pitch-io/uix)."
+ ],
+ [
+  "omcljs/om",
+  "React wrapper",
+  "The original React wrapper for CLJS (2014); historical."
+ ],
+ [
+  "mhuebert/yawn",
+  "React wrapper",
+  "Hiccup-to-React compiler, fast compile-time conversion; used with re-db."
+ ],
+ [
+  "mhuebert/re-db",
+  "Data sync / DB",
+  "Reactive client DB + 'reactions' with sync story; pairs with yawn."
+ ],
+ [
+  "ribelo/doxa",
+  "Data sync / DB",
+  "Lightweight in-memory DB with datalog-ish queries for CLJS."
+ ],
+ [
+  "borkdude/quickblog",
+  "Other",
+  "Light static blog engine on babashka."
+ ],
+ [
+  "lambdaisland/regal",
+  "Data",
+  "Regex as data."
+ ],
+ [
+  "clojure/clojurescript",
+  "Runtime / compiler",
+  "The ClojureScript compiler itself."
+ ],
+ [
+  "day8/re-frame2",
+  "State management",
+  "re-frame redesigned from the same team, described as 'the AI first-born of re-frame'. Created May 2026."
+ ],
+ [
+  "borkdude/buzz",
+  "Novel / reactive",
+  "Experimental cross client-server framework: component HTML, browser code (Squint + Reagami) and server state defined together. Created Aug 2026."
+ ],
+ [
+  "roman01la/solid-cljs",
+  "Non-React UI",
+  "ClojureScript bindings for Solid.js keeping fine-grained reactivity. Relaunched Dec 2025."
+ ],
+ [
+  "roman01la/cljs-static-hermes",
+  "Mobile",
+  "ClojureScript + React + Skia + Yoga compiled with Static Hermes: native UI without a browser. Experimental, Nov 2025."
+ ],
+ [
+  "roman01la/uix.css",
+  "CSS",
+  "CSS-in-CLJS companion to UIx."
+ ],
+ [
+  "WhimsicalCode/uni.style",
+  "CSS",
+  "Compile-time CSS for Clojure/ClojureScript from Whimsical. Created Nov 2026."
+ ],
+ [
+  "avanelsas/baredom",
+  "Component library",
+  "UI components on Custom Elements + Shadow DOM: no framework, just the DOM. Debuted Apr 2026."
+ ],
+ [
+  "avanelsas/bareforge",
+  "Component library",
+  "Drag-and-drop visual builder for BareDOM that exports CLJS/JS projects."
+ ],
+ [
+  "gersak/tyrell",
+  "Component library",
+  "ClojureScript web-components library (formerly gersak/ty); demoed over Datastar."
+ ],
+ [
+  "cjohansen/portfolio",
+  "Dev tooling",
+  "Storybook-like component workbench for Replicant, Reagent, UIx, Helix and more."
+ ],
+ [
+  "shipclojure/re-frame-query",
+  "State management",
+  "TanStack-Query-style declarative data fetching and caching for re-frame. Apr 2026."
+ ],
+ [
+  "metosin/signaali",
+  "Reactive",
+  "Small portable CLJC lazy-signals implementation from Metosin."
+ ],
+ [
+  "kushidesign/domo",
+  "Non-React UI",
+  "ClojureScript DOM utility library."
+ ],
+ [
+  "bolasblack/shadow-cljs-vite-plugin",
+  "Build tooling",
+  "Vite plugin integrating shadow-cljs."
+ ],
+ [
+  "hyperfiddle/hyperfiddle",
+  "Novel / reactive",
+  "Electric-based automatic enterprise front end for any backend function or object."
+ ],
+ [
+  "day8/re-frame-pair",
+  "Agent tooling",
+  "Claude Code skill for pair-programming on a live re-frame app. May 2026."
+ ],
+ [
+  "dynamic-alpha/hyper",
+  "Hypermedia / server-driven",
+  "Reactive server-rendered web framework for Clojure. Created Feb 2026."
+ ],
+ [
+  "starfederation/datastar-clojure",
+  "Hypermedia / server-driven",
+  "Official Datastar Clojure SDK (SSE + signals)."
+ ],
+ [
+  "outskirtslabs/datastar-expressions",
+  "Hypermedia / server-driven",
+  "Write Datastar expressions as Clojure instead of strings."
+ ],
+ [
+  "zekzekus/stube",
+  "Hypermedia / server-driven",
+  "Seaside-style component web framework using Datastar as the wire. May 2026."
+ ],
+ [
+  "tatut/ripley",
+  "Hypermedia / server-driven",
+  "Server-rendered UIs with live components over WebSockets."
+ ],
+ [
+  "brettatoms/zodiac",
+  "Full-stack framework",
+  "Simple Clojure web framework."
+ ],
+ [
+  "weavejester/capra",
+  "Web server",
+  "New Ring adapter from the author of Ring. May 2026."
+ ],
+ [
+  "TimoKramer/charm.clj",
+  "Desktop UI",
+  "Bubble Tea-inspired TUI library; babashka now bundles JLine for it. Jan 2026."
+ ],
+ [
+  "fulcrologic/fulcro-tui",
+  "Desktop UI",
+  "Fulcro for JLine terminal UIs in CLJ or babashka. May 2026."
+ ],
+ [
+  "kpassapk/atomstream",
+  "Desktop UI",
+  "charm.clj-compatible TUI that also renders to the web via hyperlith."
+ ],
+ [
+  "coconutpalm/clojure-desktop-toolkit",
+  "Desktop UI",
+  "Native desktop apps on Eclipse SWT."
+ ],
+ [
+  "cljfx/plorer",
+  "Agent tooling",
+  "Explore a running cljfx app's state from the REPL or a coding agent."
+ ],
+ [
+  "htihospitality/re-dash",
+  "Mobile",
+  "re-frame-style framework for ClojureDart/Flutter."
+ ],
+ [
+  "samhedin/disorganized-notes",
+  "Mobile",
+  "Multiplatform ClojureDart app with real-time sync."
+ ],
+ [
+  "replikativ/spindel",
+  "Reactive",
+  "Cross-platform FRP runtime with O(1) forkable execution context. Apr 2026."
+ ],
+ [
+  "NyanCAD/hipflask",
+  "Data sync / DB",
+  "ClojureScript atom over PouchDB/CouchDB for offline-first collaborative apps."
+ ],
+ [
+  "eerohele/muutos",
+  "Data sync / DB",
+  "Zero-dependency library for reacting to PostgreSQL changes (logical replication)."
+ ],
+ [
+  "simm-is/distributed-scope",
+  "Data sync / DB",
+  "Run one lexical scope across distributed peers."
+ ],
+ [
+  "replikativ/yggdrasil",
+  "Data sync / DB",
+  "Git-like causal space-time lattice over storage systems."
+ ],
+ [
+  "LeveringIT/missionary-testkit",
+  "Reactive",
+  "Deterministic scheduler for testing missionary tasks and flows."
+ ],
+ [
+  "multiplyco/quiescent",
+  "Reactive",
+  "Composable async tasks with structured concurrency and cancellation."
+ ],
+ [
+  "maxweber/dbval",
+  "Data sync / DB",
+  "Datomic-like database on SQLite."
+ ],
+ [
+  "filipesilva/sqlatom",
+  "Data sync / DB",
+  "Clojure atoms persisted in SQLite."
+ ],
+ [
+  "andersmurphy/sqlite4clj",
+  "Data sync / DB",
+  "SQLite via coffi (JDK 22 FFI); backend of the hyperlith stack."
+ ],
+ [
+  "replikativ/stratum",
+  "Data sync / DB",
+  "Versioned, scalable columnar database."
+ ],
+ [
+  "replikativ/pg-datahike",
+  "Data sync / DB",
+  "Postgres wire compatibility for Datahike."
+ ],
+ [
+  "replikativ/geschichte",
+  "Data sync / DB",
+  "Queryable, Datahike-backed, Git-compatible version control."
+ ],
+ [
+  "jolt-lang/jolt",
+  "Novel / runtime",
+  "Clojure on Chez Scheme. Created Jun 2026."
+ ],
+ [
+  "clojurewasm/ClojureWasm",
+  "Novel / runtime",
+  "JVM-free Clojure runtime in Zig that calls WebAssembly libraries."
+ ],
+ [
+  "borkdude/cream",
+  "Novel / runtime",
+  "Fast-starting Clojure with GraalVM native-image + Crema (runtime class loading)."
+ ],
+ [
+  "gloathub/gloat",
+  "Novel / runtime",
+  "Compiles Clojure to Go binaries via Glojure; Clojurists Together funded."
+ ],
+ [
+  "nooga/let-go",
+  "Novel / runtime",
+  "'Almost Clojure' written in Go."
+ ],
+ [
+  "squint-cljs/choq",
+  "Novel / runtime",
+  "Cherry compiler inside embedded QuickJS, ~5MB binary."
+ ],
+ [
+  "RegiByte/cljam",
+  "Novel / runtime",
+  "Clojure interpreter with Vite plugin and nREPL."
+ ],
+ [
+  "clojurewasm/Kiso",
+  "Novel / runtime",
+  "ClojureScript-to-JS compiler written in TypeScript, zero dependencies."
+ ],
+ [
+  "PEZ/epupp",
+  "Dev tooling",
+  "Browser extension for live page tampering/userscripts with Scittle."
+ ],
+ [
+  "bhauman/clojure-mcp",
+  "Agent tooling",
+  "MCP server connecting coding agents to a live nREPL: eval, paren repair, and (now legacy) structural editors. The reference tool for REPL-driven agents."
+ ],
+ [
+  "bhauman/clojure-mcp-light",
+  "Agent tooling",
+  "Minimal CLI tools for Claude Code/Codex: clj-nrepl-eval plus parinfer-based paren-repair hooks (35/35 delimiter errors fixed across 829 edits in the author's log)."
+ ],
+ [
+  "BetterThanTomorrow/calva-backseat-driver",
+  "Agent tooling",
+  "Gives Copilot, Cursor or any MCP client REPL eval across Calva and shadow-cljs sessions, structural form editing, and a bracket balancer."
+ ],
+ [
+  "editor-code-assistant/eca",
+  "Agent tooling",
+  "Editor Code Assistant: editor-agnostic AI pair-programming server written in Clojure, modelled on LSP, with Emacs/VS Code/IntelliJ/Neovim clients."
+ ],
+ [
+  "unclebob/swarm-forge",
+  "Agent tooling",
+  "Robert C. Martin's multi-agent orchestration (specifier, coder, cleaner, architect, hardener roles) in tmux + git worktrees."
+ ],
+ [
+  "unclebob/empire-2025",
+  "Agent tooling",
+  "Case study: a full Empire wargame built in Clojure with Claude across ~1,300 commits, using role-signed agent commits and CRAP/mutation-testing guardrails."
+ ],
+ [
+  "unclebob/crap4clj",
+  "Agent tooling",
+  "Claude Code skill computing the CRAP metric for Clojure as an agent guardrail."
+ ],
+ [
+  "iwillig/clojure-system-prompt",
+  "Agent tooling",
+  "Shortcut's REPL-first system prompt for Clojure agents."
+ ],
+ [
+  "iwillig/clojure-skills",
+  "Agent tooling",
+  "Companion agent skills for Clojure from Ivan Willig."
+ ],
+ [
+  "ctford/mcp-nrepl",
+  "Agent tooling",
+  "MCP server exposing an nREPL to agents."
+ ],
+ [
+  "marlonjsilva/clj-agents",
+  "Agent tooling",
+  "Examples from Nubank's 'Building AI agents in practice with Clojure' talk."
+ ],
+ [
+  "redplanetlabs/agent-o-rama",
+  "Agent tooling",
+  "Nathan Marz's library for building and running LLM agents on Rama (Clojure/Java)."
+ ],
+ [
+  "Cyrik/rule-fairy",
+  "Agent tooling",
+  "Just-in-time context rules for agents (Conj 2026 showcase)."
+ ],
+ [
+  "Cyrik/clojure-lsp-proxy",
+  "Agent tooling",
+  "clojure-lsp proxy for agents (Conj 2026 showcase)."
+ ],
+ [
+  "mlimotte/monocle",
+  "Agent tooling",
+  "Conj 2026 AI showcase project by Marc Limotte."
+ ],
+ [
+  "eraserhd/parinfer-rust",
+  "Agent tooling",
+  "Parinfer in Rust; the engine behind most agent paren-repair hooks."
+ ]
+]
