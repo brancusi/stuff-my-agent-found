@@ -254,3 +254,43 @@ footer.foot .wrap{display:grid;gap:8px}
   nav.primary{order:3;flex-basis:100%;padding-block:6px 8px;mask-image:linear-gradient(90deg,#000 85%,transparent)}
   html{scroll-padding-top:120px}
 }
+
+/* stability: reserve scrollbar space so pages of different length never shift sideways */
+html{scrollbar-gutter:stable}
+#theme{min-width:10ch;text-align:center}
+.tools{flex-shrink:0}
+.search-btn{display:inline-flex;align-items:center;gap:8px;min-width:15ch}
+.search-btn .kbd{border-bottom-width:1px}
+@media (max-width:760px){ .search-btn{min-width:0} .search-btn .kbd{display:none} }
+
+/* search palette + help (native <dialog>) */
+dialog.palette{width:min(720px,calc(100% - 24px));max-height:min(640px,calc(100dvh - 80px));margin:10vh auto auto;padding:0;border:1px solid var(--signal);background:var(--paper);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.45);font-family:var(--mono);flex-direction:column}
+dialog.palette[open]{display:flex}
+dialog.palette::backdrop{background:rgba(0,0,0,.5)}
+.phead{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--rule)}
+.phead .prompt{color:var(--signal);font-weight:700}
+.phead h2{margin:0;font-size:14px;letter-spacing:.06em;flex:1}
+.pin{flex:1;font:inherit;font-size:16px;background:transparent;border:0;color:var(--ink);outline:none;min-width:0}
+.pin::-webkit-search-cancel-button{display:none}
+.plist{overflow-y:auto;padding:6px 0;flex:1;overscroll-behavior:contain}
+.pgrp{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);padding:10px 14px 4px}
+.pitem{display:grid;grid-template-columns:11ch minmax(0,1fr) auto;gap:12px;align-items:baseline;padding:7px 14px;cursor:pointer;font-size:13.5px;border-left:2px solid transparent}
+.pitem.on{background:var(--rule-2);border-left-color:var(--signal)}
+.pitem .pk{font-size:11.5px;color:var(--ink-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pitem .pt{color:var(--ink);font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pitem .pd{font-size:12px;color:var(--ink-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:32ch}
+.pitem mark{background:transparent;color:var(--signal);font-weight:700;padding:0}
+.phint{padding:12px 14px;font-size:12.5px;color:var(--ink-3);margin:0}
+.pfoot{display:flex;justify-content:space-between;gap:10px;padding:8px 14px;border-top:1px solid var(--rule);font-size:11.5px;color:var(--ink-3)}
+table.keys{width:100%;font-size:13px} table.keys td{border-bottom:1px solid var(--rule-2);padding:7px 14px}
+table.keys td:first-child{white-space:nowrap;width:1%;color:var(--ink-3)}
+@media (max-width:640px){ dialog.palette{margin-top:12px;max-height:calc(100dvh - 24px)} .pitem{grid-template-columns:minmax(0,1fr)} .pitem .pk,.pitem .pd{max-width:none} }
+pre.code{background:var(--bg);border:1px solid var(--rule);padding:10px 12px;overflow-x:auto;font-size:13px;line-height:1.5;margin:8px 0 14px}
+pre.code code{background:none;padding:0;white-space:pre}
+
+/* header: brand + tools on row one, full-width section nav on row two (no sideways jump between pages) */
+.bar .wrap{flex-wrap:wrap;gap:0 14px;min-height:0;padding-block:8px 0}
+.bar .logo{flex:1;min-height:40px}
+nav.primary{order:3;flex-basis:100%;flex:1 1 100%;padding-block:2px 6px;margin-inline:-9px;mask-image:none}
+@media (max-width:1060px){ nav.primary{mask-image:linear-gradient(90deg,#000 88%,transparent)} }
+html{scroll-padding-top:110px}

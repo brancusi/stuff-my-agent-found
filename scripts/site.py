@@ -1,6 +1,6 @@
 """Build the Clojure Radar static site into dist/.  usage: python3 scripts/site.py"""
-import json, os, shutil, html, datetime
-from content import posts, sources, why_clojure, SECTORS
+import json, os, re, shutil, html, datetime
+from content import posts, sources, why_clojure, SECTORS, finding
 
 B = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 DIST = os.path.join(B, 'dist')
@@ -14,7 +14,7 @@ DOC = 'CLJ-RDR-' + SNAP[:7].replace('-', '')
 esc = html.escape
 
 NAV = [('/', 'brief'), ('/frontend/', 'front-end'), ('/sync/', 'data-sync'), ('/novel/', 'novel'), ('/runtimes/', 'runtimes'),
-       ('/why-clojure/', 'why-clojure'), ('/blog/', 'blog'), ('/sources/', 'sources'), ('/explore/', 'explore'), ('/method/', 'method')]
+       ('/why-clojure/', 'why-clojure'), ('/blog/', 'blog'), ('/sources/', 'sources'), ('/explore/', 'explore'), ('/for-agents/', 'for-agents'), ('/method/', 'method')]
 
 def page(path, title, desc, body, crumb=None, active=None):
     active = active or path
@@ -34,9 +34,12 @@ def page(path, title, desc, body, crumb=None, active=None):
 <meta name="twitter:card" content="summary">
 <link rel="canonical" href="{SITE_URL}{path}">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<link rel="preload" href="/assets/fonts/plex-mono-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/plex-mono-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/plex-mono-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
 <link rel="stylesheet" href="/assets/radar.css">
+<link rel="alternate" type="text/plain" title="LLM index" href="/llms.txt">
 <link rel="alternate" type="application/atom+xml" title="Clojure Radar blog" href="/blog/feed.xml">
 <script>try{{var t=localStorage.getItem('radar-theme');if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
 </head>
@@ -46,7 +49,7 @@ def page(path, title, desc, body, crumb=None, active=None):
 <div class="bar"><div class="wrap">
   <a class="logo" href="/" aria-label="Clojure Radar home"><span class="mark" aria-hidden="true"></span>CLOJURE_RADAR</a>
   <nav class="primary" aria-label="Sections">{nav}</nav>
-  <div class="tools"><span class="kbd" title="Press / to search">/</span><button class="ghost" id="theme" type="button">[ theme ]</button></div>
+  <div class="tools"><button class="ghost search-btn" id="search-open" type="button" aria-label="Search (Ctrl K or /)" aria-keyshortcuts="Control+K Meta+K /"><span aria-hidden="true">⌕</span> search <span class="kbd" aria-hidden="true">⌘K</span></button><button class="ghost" id="help-open" type="button" aria-label="Keyboard shortcuts (?)" aria-keyshortcuts="?">?</button><button class="ghost" id="theme" type="button">[ theme ]</button></div>
 </div></div>
 <div class="wrap"><div class="crumb">{trail}</div></div>
 <main id="main" class="wrap"><div class="stack">
@@ -54,8 +57,9 @@ def page(path, title, desc, body, crumb=None, active=None):
 </div></main>
 <footer class="foot"><div class="wrap">
   <div>CLOJURE RADAR <span>//</span> an open dossier on the Clojure ecosystem, rebuilt from the GitHub API. Snapshot {SNAP}. Analyst: <span class="redact" tabindex="0">a REPL and a lot of coffee</span>.</div>
-  <div><a href="{REPO_URL}">source &amp; data on GitHub</a> · <a href="/method/">method</a> · <a href="/sources/">sources</a> · <a href="/blog/feed.xml">atom feed</a> · Not affiliated with Clojure, Cognitect or Nubank.</div>
+  <div><a href="{REPO_URL}">source &amp; data on GitHub</a> · <a href="/method/">method</a> · <a href="/sources/">sources</a> · <a href="/blog/feed.xml">atom feed</a> · <a href="/llms.txt">llms.txt</a> · <a href="/api">api</a> · Not affiliated with Clojure, Cognitect or Nubank.</div>
 </div></footer>
+<script src="/assets/search-core.js" defer></script>
 <script src="/assets/radar.js" defer></script>
 </body>
 </html>'''
@@ -172,6 +176,105 @@ write('/method/', page('/method/', 'Method', 'How the Clojure Radar finds reposi
 # ---------------- 404
 open(os.path.join(DIST, '404.html'), 'w').write(page('/404', 'Not found', 'Page not found.', f'''{memo('404 // no such file', 'The page you asked for is not in this dossier', 'Not found')}
 <div class="prose"><p>Try the <a href="/">brief</a>, the <a href="/blog/">blog</a> or <a href="/explore/">search every repo</a>.</p></div>''', active='none'))
+
+# ---------------- agent-friendly catalogs: llms.txt, TSVs, /for-agents/
+AREA = {'frontend': 'front-end', 'sync': 'data-sync', 'novel': 'novel', 'runtimes': 'runtimes', 'agents': 'agentic-coding'}
+clean = lambda t, n=100: re.sub(r'\s+', ' ', (t or '')).strip()[:n]
+COLS = '# repo\tcategory\tarea\tstars\tcommits_12mo\tlast_commit\tstatus\thealth\tdescription'
+row = lambda r: '\t'.join(str(x) for x in [r['n'], r['cat'], AREA.get(r['fa'], '-'), r['s'], r['c12'], r['lc'] or '-', r['st'], r['hs'] if r['hs'] is not None else '-', clean(r['d'])])
+os.makedirs(os.path.join(DIST, 'catalog'), exist_ok=True)
+by_stars = sorted(d['repos'], key=lambda r: -r['s'])
+cur_rows = sorted(curated, key=lambda r: (AREA.get(r['fa'], 'z'), r['cat'], -r['s']))
+cat_tsv = '# repo\tarea\tcategory\tstars\tcommits_12mo\tlast_commit\tstatus\thealth\tnote\n' + '\n'.join('\t'.join(str(x) for x in [r['n'], AREA.get(r['fa'], '-'), r['cat'], r['s'], r['c12'], r['lc'] or '-', r['st'], r['hs'] if r['hs'] is not None else '-', clean(r['note'] or r['d'], 260)]) for r in cur_rows) + '\n'
+act_tsv = COLS + '\n' + '\n'.join(row(r) for r in by_stars if r['ld'] is not None and r['ld'] <= 365 and not r['ar']) + '\n'
+all_tsv = COLS + '\n' + '\n'.join(row(r) for r in by_stars) + '\n'
+from collections import defaultdict
+cg = defaultdict(list)
+for r in d['repos']: cg[r['cat']].append(r)
+cats_tsv = '# category\trepos\tactive_12mo\ttop_repos_by_health\n' + '\n'.join(f"{c}\t{len(rs)}\t{sum(1 for r in rs if r['ld'] is not None and r['ld'] <= 365)}\t{', '.join(r['n'] for r in sorted([r for r in rs if r['hs'] is not None], key=lambda r: (-r['hs'], -r['s']))[:8])}" for c, rs in sorted(cg.items(), key=lambda kv: -len(kv[1]))) + '\n'
+files = {'curated.tsv': cat_tsv, 'active.tsv': act_tsv, 'all.tsv': all_tsv, 'categories.tsv': cats_tsv}
+for f, t in files.items(): open(os.path.join(DIST, 'catalog', f), 'w').write(t)
+tok = lambda t: f'~{round(len(t) / 3.6 / 1000)}k tokens' if len(t) > 3600 else f'~{round(len(t) / 3.6)} tokens'
+findings = '\n'.join(f"- {re.sub(r'<[^>]+>', '', p['kj'] or p['title'])} ({p['conf'][1].lower()}): {SITE_URL}/blog/{p['slug']}/" for p in POSTS)
+LLMS = f'''# Clojure Radar
+
+> An open dossier on the Clojure/ClojureScript ecosystem, snapshot {SNAP}: {len(d['repos']):,} GitHub repositories with stars, commits, issues, recency and a health score calibrated to Clojure norms. It focuses on front-end frameworks, data sync, novel frameworks, runtimes and agentic coding.
+
+Use this file to find Clojure libraries without searching the web. Pick the smallest source that answers the question:
+
+1. Search API (best for a specific need): {SITE_URL}/api/search?q=<words>&limit=10
+   Fuzzy over names, owners, categories, topics and descriptions. Category words work: ui, frontend, react, db, datalog, sql, sync, realtime, reactive, runtime, compiler, agent, mcp, css, routing, state, tui, desktop, mobile, test, web, http, hypermedia, validation.
+   Add &format=tsv for a compact table. Per repo: {SITE_URL}/api/repo/<owner>/<name> (adds monthly commits, issues, release, license).
+2. Curated catalog ({len(curated)} hand-picked projects with notes, {tok(cat_tsv)}): {SITE_URL}/catalog/curated.tsv
+3. Category index ({len(cg)} categories with top repos, {tok(cats_tsv)}): {SITE_URL}/catalog/categories.tsv
+4. Active repos (commit in last 12 months, {sum(1 for r in d['repos'] if r['ld'] is not None and r['ld'] <= 365 and not r['ar']):,} rows, {tok(act_tsv)}): {SITE_URL}/catalog/active.tsv
+5. Everything ({len(d['repos']):,} rows, {tok(all_tsv)}): {SITE_URL}/catalog/all.tsv  (also {SITE_URL}/llms-full.txt)
+6. Raw JSON (all fields, ~1.6 MB): {SITE_URL}/data/radar.json
+
+## Fields
+- status: thriving (commit <90 days and top-quartile activity) | active (<90 days) | maintained (<1 year) | stable (1-3 years quiet, few open issues: normal for finished Clojure libraries) | slowing (1-3 years quiet, issues piling up) | dormant (3+ years) | moved (development left GitHub) | archived
+- health: 0-100 blend of percentiles against {BL['n']:,} established Clojure repos (activity 30%, recency 25%, issue closure 15%, issue load 10%, release 10%, stars 10%).
+- area: front-end | data-sync | novel | runtimes | agentic-coding (curated projects only; '-' otherwise).
+
+## How to judge a match
+- Quiet is normal in Clojure: only {pct(BL['shareAct'])} of established repos had a commit this year, and the median has been silent {round(BL['ldMed']/365, 1)} years. Prefer status over recency alone. A 'stable' library with few open issues is usually fine to depend on.
+- An actively maintained Clojure library makes about {round(BL['c12']['0.5'])} commits a year (middle half {round(BL['c12']['0.25'])}-{round(BL['c12']['0.75'])}).
+- Replicant and Nexus moved to Codeberg (status 'moved'). re-frame2's commit count is inflated by imported history.
+
+## Findings
+{findings}
+
+## Pages
+- Brief and radar: {SITE_URL}/
+- Why Clojure for agentic coding: {SITE_URL}/why-clojure/
+- Sources (49 articles, talks, papers): {SITE_URL}/sources/
+- Method: {SITE_URL}/method/
+- Source code and data: {REPO_URL}
+'''
+open(os.path.join(DIST, 'llms.txt'), 'w').write(LLMS)
+open(os.path.join(DIST, 'llms-full.txt'), 'w').write(LLMS + '\n## Full catalog (tab-separated)\n' + all_tsv)
+sizes = {f: tok(t) for f, t in files.items()}
+ex = lambda u: f'<pre class="code"><code>{esc(u)}</code></pre>'
+fa_body = f'''{memo('Clojure Radar for agents', 'Let coding agents find the right Clojure library without crawling the web', eyebrow='Interface // machine-readable')}
+<div class="bluf"><p>Point your agent at <a href="/llms.txt">/llms.txt</a>. It explains the data in about a thousand tokens and links to a search API and compact catalogs, so the agent can pull exactly as much context as it needs: one search call, the curated list, or the full table.</p></div>
+<div class="prose">
+<h2>1. Search API</h2>
+<p>The same fuzzy and category-aware search as the site's <span class="kbd">⌘K</span> box, returned as compact JSON or TSV. Works with <code>curl</code>, WebFetch or any HTTP tool. Open CORS, no key.</p>
+{ex(f'curl "{SITE_URL}/api/search?q=datalog+sync&limit=5&format=tsv"')}
+{ex(f'curl "{SITE_URL}/api/repo/pitch-io/uix"')}
+{ex(f'curl "{SITE_URL}/api/categories"')}
+<p>Category words map to groups of categories, so <code>q=ui</code>, <code>q=db</code> or <code>q=runtime</code> return the strongest projects in that space, ranked by health and stars. Names tolerate typos: <code>reagnet</code> finds Reagent.</p>
+<h2>2. Context files</h2>
+<p>Tab-separated, one repo per line, sorted by stars. Sizes are approximate token counts.</p>
+<ul>
+<li><a href="/catalog/curated.tsv">/catalog/curated.tsv</a>: {len(curated)} hand-picked projects with notes, {sizes['curated.tsv']}. <strong>Best default to load.</strong></li>
+<li><a href="/catalog/categories.tsv">/catalog/categories.tsv</a>: every category with counts and its top repos, {sizes['categories.tsv']}.</li>
+<li><a href="/catalog/active.tsv">/catalog/active.tsv</a>: every repo with a commit in the last 12 months, {sizes['active.tsv']}.</li>
+<li><a href="/catalog/all.tsv">/catalog/all.tsv</a> and <a href="/llms-full.txt">/llms-full.txt</a>: everything, {sizes['all.tsv']}. For large context windows or grep.</li>
+<li><a href="/data/radar.json">/data/radar.json</a>: raw data with every field, including monthly commits.</li>
+</ul>
+<h2>3. In your repo</h2>
+<p>Add this to <code>AGENTS.md</code> or <code>CLAUDE.md</code> in a Clojure project:</p>
+{ex(f"""## Choosing Clojure libraries
+Before adding a dependency, check Clojure Radar instead of searching the web:
+- Search: {SITE_URL}/api/search?q=<need>&format=tsv
+- Curated shortlist with notes: {SITE_URL}/catalog/curated.tsv
+Status 'stable' is normal for finished Clojure libraries. Avoid 'slowing', 'dormant' and 'archived' unless there is no alternative.""")}
+<p>Using Claude Code? Install the skill in the repo: copy <a href="{REPO_URL}/tree/main/skills/clojure-radar">skills/clojure-radar</a> into <code>.claude/skills/</code>, and Claude will query the radar whenever you ask it to pick or compare Clojure libraries.</p>
+{finding('Why this matters', '<p>The <a href="/why-clojure/">why-clojure brief</a> found that agents do best in Clojure when they check facts against something real instead of guessing. The REPL does that for code. This does it for the ecosystem: the agent asks the radar which library is alive before it writes the dependency.</p>')}
+</div>'''
+write('/for-agents/', page('/for-agents/', 'Clojure Radar for agents', 'llms.txt, a search API and compact catalogs so coding agents can discover Clojure libraries without crawling the web.', fa_body))
+
+# search index of pages
+PIDX = [dict(t='Brief', u='/', k='page', d='Radar, key judgments and baseline')] + \
+  [dict(t=s['title'], u=s['href'], k='sector', d=s['blurb']) for s in SECTORS] + \
+  [dict(t='Why Clojure for agentic coding', u='/why-clojure/', k='page', d='REPL-connected agents, evidence, wins and counterpoints'),
+   dict(t='Blog', u='/blog/', k='page', d='All dispatches'), dict(t='Sources', u='/sources/', k='page', d='Every article, talk and paper'),
+   dict(t='Explore every repo', u='/explore/', k='page', d='Search and sort all repositories'), dict(t='Method', u='/method/', k='page', d='How repos are found and scored'), dict(t='Clojure Radar for agents', u='/for-agents/', k='page', d='llms.txt, search API and compact catalogs for coding agents')] + \
+  [dict(t=p['title'], u=f"/blog/{p['slug']}/", k='dispatch', d='DSP-' + p['no'] + ' · ' + re.sub(r'<[^>]+>', '', p['dek'])) for p in POSTS] + \
+  [dict(t=x['title'], u=x['url'], k='source', d=x['who']) for x in S]
+json.dump(PIDX, open(os.path.join(DIST, 'data', 'pages.json'), 'w'), separators=(',', ':'))
+open(os.path.join(DIST, '_headers'), 'w').write("/assets/fonts/*\n  Cache-Control: public, max-age=31536000, immutable\n/data/*\n  Cache-Control: public, max-age=3600\n")
 
 # sitemap + robots
 urls = ['/'] + [h for h, _ in NAV if h != '/'] + [f'/blog/{p["slug"]}/' for p in POSTS]

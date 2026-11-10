@@ -34,16 +34,18 @@
   const showTip = (e, t) => { tip.textContent = t; tip.hidden = false; tip.style.left = Math.min(e.clientX + 12, innerWidth - tip.offsetWidth - 8) + 'px'; tip.style.top = (e.clientY - 30) + 'px'; };
   const hideTip = () => { tip.hidden = true; };
 
-  // ---------- data
-  let DATA = null, BY = null;
-  const need = $$('[data-table],[data-radar],[data-hist],[data-kv],[data-explorer],a[data-repo]').length || new URLSearchParams(location.search).get('repo');
+  // ---------- data (lazy; shared by tables, drawer and search)
+  let DATA = null, BY = null, dataP = null;
+  const getData = () => dataP || (dataP = fetch('/data/radar.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(d => { DATA = d; BY = new Map(d.repos.map(r => [r.n.toLowerCase(), r])); return d; }));
   // sources filter (no data needed)
   $$('[data-src-filter]').forEach(bar => { const list = $(bar.dataset.srcFilter); const btns = $$('button', bar);
     btns.forEach(b => b.addEventListener('click', () => { btns.forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false')); const k = b.dataset.k;
       $$('li', list).forEach(li => { li.hidden = k !== 'all' && !li.dataset.k.split(' ').includes(k); }); })); });
-  document.addEventListener('keydown', e => { if (e.key === '/' && !$('#f-q') && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) { e.preventDefault(); location.href = '/explore/'; } });
-  if (!need) return;
-  fetch('/data/radar.json').then(r => r.json()).then(d => { DATA = d; BY = new Map(d.repos.map(r => [r.n.toLowerCase(), r])); boot(); }).catch(() => {
+  // keep the active nav item visible without moving the page
+  const navEl = $('nav.primary'), cur = navEl && $('[aria-current="page"]', navEl);
+  if (cur && cur.offsetLeft + cur.offsetWidth > navEl.clientWidth) navEl.scrollLeft = cur.offsetLeft - 12;
+  const need = $$('[data-table],[data-radar],[data-hist],[data-kv],[data-explorer],a[data-repo]').length || new URLSearchParams(location.search).get('repo');
+  if (need) getData().then(boot).catch(() => {
     $$('[data-table],[data-explorer],[data-radar]').forEach(n => n.append(el('p', { class: 'dim', style: 'padding:12px 14px' }, 'Data failed to load. Refresh the page to try again.')));
   });
 
@@ -89,7 +91,9 @@
     return { el: tbl, rows(n) { rows = n; render(); }, limit(n) { limit = n; render(); } };
   }
 
+  let booted = false;
   function boot() {
+    booted = true;
     const R = DATA.repos, BL = DATA.baseline;
     // tables
     $$('[data-table]').forEach(host => {
@@ -165,7 +169,7 @@
     [q, cat, st, stars, act, nw, aw].forEach(n => n.addEventListener('input', apply));
     more.addEventListener('click', () => { lim += 100; t.limit(lim); });
     host.replaceChildren(el('div', { class: 'panel' }, el('div', { class: 'filters' }, q, cat, st, stars, el('label', {}, act, 'active in last 12 mo'), el('label', {}, nw, 'created in last 12 mo'), el('label', {}, aw, 'in awesome-clojure')),
-      el('header', {}, count, el('p', {}, 'press / to search')), el('div', { class: 'scroll' }, t.el), el('div', { class: 'more' }, more)));
+      el('header', {}, count, el('p', {}, 'press / or ⌘K to search everything')), el('div', { class: 'scroll' }, t.el), el('div', { class: 'more' }, more)));
     apply();
   }
 
@@ -196,8 +200,75 @@
   }
   function closeDrawer() { dr.hidden = true; scrim.hidden = true; if (last && last.focus) last.focus(); }
   scrim.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !dr.hidden) closeDrawer(); });
+
+  // ---------- global search (fuzzy) + shortcuts
+  const { synFor, fz } = globalThis.RadarSearch; const search = q => globalThis.RadarSearch.search(DATA, PAGES, q);
+  function hl(text, idx) { const f = document.createDocumentFragment(); if (!idx || !idx.length) { f.append(text); return f; } const set = new Set(idx); let buf = '', on = false;
+    for (let i = 0; i < text.length; i++) { const m = set.has(i); if (m !== on) { if (buf) f.append(on ? el('mark', {}, buf) : buf); buf = ''; on = m; } buf += text[i]; } if (buf) f.append(on ? el('mark', {}, buf) : buf); return f; }
+
+  let PAGES = null; const getPages = () => PAGES ? Promise.resolve(PAGES) : fetch('/data/pages.json').then(r => r.json()).then(p => (PAGES = p));
+  const pal = el('dialog', { class: 'palette', 'aria-label': 'Search Clojure Radar' });
+  const pin = el('input', { type: 'search', class: 'pin', placeholder: 'search projects, categories, pages… try “ui”, “db”, “datalog”, “uix”', 'aria-label': 'Search', autocomplete: 'off', spellcheck: 'false', role: 'combobox', 'aria-expanded': 'true', 'aria-controls': 'pal-list' });
+  const plist = el('div', { class: 'plist', id: 'pal-list', role: 'listbox' });
+  const pstat = el('div', { class: 'pfoot' }, el('span', {}, el('span', { class: 'kbd' }, '↑↓'), ' move  ', el('span', { class: 'kbd' }, '↵'), ' open  ', el('span', { class: 'kbd' }, 'esc'), ' close'), el('span', { class: 'pcount' }, ''));
+  pal.append(el('div', { class: 'phead' }, el('span', { class: 'prompt', 'aria-hidden': 'true' }, '>'), pin), plist, pstat);
+  document.body.append(pal);
+  let items = [], sel = 0;
+  function renderPal() {
+    const q = pin.value; const res = search(q); plist.replaceChildren(); items = [];
+    const add = (node, go) => { const i = items.length; node.id = 'pal-' + i; node.setAttribute('role', 'option'); node.addEventListener('mousemove', () => { if (sel !== i) { sel = i; mark(); } }); node.addEventListener('click', e => go(e)); items.push({ node, go }); plist.append(node); };
+    const head = t => plist.append(el('div', { class: 'pgrp', role: 'presentation' }, t));
+    if (!q.trim()) {
+      head('Jump to'); (PAGES || []).filter(p => p.k !== 'source').slice(0, 10).forEach(p => add(el('div', { class: 'pitem' }, el('span', { class: 'pk' }, p.k), el('span', { class: 'pt' }, p.t), el('span', { class: 'pd' }, p.d)), () => { location.href = p.u; }));
+      plist.append(el('div', { class: 'phint' }, 'Fuzzy search across ' + (DATA ? DATA.repos.length.toLocaleString('en-US') : '3,000+') + ' repos, every category and every page. Category words work too: ui, frontend, db, datalog, sync, runtime, agent, css, tui, test…'));
+    } else {
+      const synQ = q.trim().toLowerCase().split(/\s+/).every(t => synFor(t));
+      const GRP = {
+        cats: () => { if (!res.cats.length) return; head('Categories'); res.cats.forEach(c => add(el('div', { class: 'pitem' }, el('span', { class: 'pk' }, 'cat'), el('span', { class: 'pt' }, hl(c.c, c.idx)), el('span', { class: 'pd' }, c.n + ' repos →')), () => { location.href = '/explore/?all=1&cat=' + encodeURIComponent(c.c); })); },
+        pages: () => { if (!res.pages.length) return; head('Pages'); res.pages.forEach(({ p, idx }) => add(el('div', { class: 'pitem' }, el('span', { class: 'pk' }, p.k), el('span', { class: 'pt' }, hl(p.t, idx)), el('span', { class: 'pd' }, p.d)), e => { if (p.k === 'source' || e.metaKey || e.ctrlKey) window.open(p.u, '_blank', 'noopener'); else location.href = p.u; })); },
+        repos: () => { if (!res.repos.length) return; head(synQ ? 'Top repositories' : 'Repositories'); res.repos.forEach(({ r, idx }) => add(el('div', { class: 'pitem' }, el('span', { class: 'pk st-' + r.st }, ':' + r.st), el('span', { class: 'pt' }, hl(r.n, idx)), el('span', { class: 'pd' }, fmt(r.s) + '★ · ' + r.cat)), () => { closePal(); openDrawer(r); })); },
+      };
+      const top = { cats: res.cats[0] ? res.cats[0].s : 0, pages: res.pages[0] ? res.pages[0].s : 0, repos: res.repos[0] ? res.repos[0].s * .55 : 0 };
+      (synQ ? ['cats', 'repos', 'pages'] : Object.keys(top).sort((x, y) => top[y] - top[x])).forEach(g => GRP[g]());
+      if (!items.length) plist.append(el('div', { class: 'phint' }, DATA ? 'No matches. Try fewer letters, a category word (ui, db, sync, runtime, agent) or an owner name.' : 'Loading the index…'));
+    }
+    pstat.querySelector('.pcount').textContent = q.trim() ? `${items.length} result${items.length === 1 ? '' : 's'}` : '';
+    sel = 0; mark();
+  }
+  function mark() { items.forEach((it, i) => it.node.classList.toggle('on', i === sel)); const it = items[sel]; if (it) { pin.setAttribute('aria-activedescendant', it.node.id); it.node.scrollIntoView({ block: 'nearest' }); } }
+  pin.addEventListener('input', renderPal);
+  pin.addEventListener('keydown', e => {
+    if (e.key === 'ArrowDown' || (e.ctrlKey && e.key === 'n')) { e.preventDefault(); sel = Math.min(items.length - 1, sel + 1); mark(); }
+    else if (e.key === 'ArrowUp' || (e.ctrlKey && e.key === 'p')) { e.preventDefault(); sel = Math.max(0, sel - 1); mark(); }
+    else if (e.key === 'Enter') { e.preventDefault(); const it = items[sel]; if (it) it.go(e); }
+  });
+  pal.addEventListener('click', e => { if (e.target === pal) closePal(); });
+  function openPal(prefill) { if (help.open) help.close(); if (!pal.open) pal.showModal(); if (prefill != null) pin.value = prefill; pin.select(); renderPal(); Promise.all([getData(), getPages()]).then(renderPal).catch(() => {}); }
+  function closePal() { if (pal.open) pal.close(); }
+
+  const KEYS = [['⌘K / Ctrl K', 'open search'], ['/', 'open search'], ['?', 'show this help'], ['t', 'toggle light / dark'], ['esc', 'close search, help or a project file'],
+    ['g b', 'go to brief'], ['g f', 'go to front-end'], ['g d', 'go to data-sync'], ['g n', 'go to novel'], ['g r', 'go to runtimes'], ['g w', 'go to why-clojure'], ['g l', 'go to blog'], ['g s', 'go to sources'], ['g e', 'go to explore'], ['g m', 'go to method'],
+    ['↑ ↓ / Ctrl N P', 'move through search results'], ['↵', 'open the selected result']];
+  const GO = { b: '/', f: '/frontend/', d: '/sync/', n: '/novel/', r: '/runtimes/', w: '/why-clojure/', l: '/blog/', s: '/sources/', e: '/explore/', m: '/method/' };
+  const help = el('dialog', { class: 'palette help', 'aria-labelledby': 'help-t' },
+    el('div', { class: 'phead' }, el('span', { class: 'prompt', 'aria-hidden': 'true' }, '$'), el('h2', { id: 'help-t' }, 'man clojure-radar'), el('button', { class: 'ghost', type: 'button', onclick: () => help.close() }, '[ esc ]')),
+    el('div', { class: 'plist' }, el('p', { class: 'phint', style: 'padding-top:4px' }, 'KEYBOARD SHORTCUTS. These work anywhere except while typing in a text field.'),
+      el('table', { class: 'keys' }, el('tbody', {}, KEYS.map(([k, d]) => el('tr', {}, el('td', {}, k.split(' / ').map((x, i) => [i ? ' or ' : '', ...x.split(' ').map((y, j) => [j ? ' ' : '', el('span', { class: 'kbd' }, y)])])), el('td', {}, d)))))));
+  document.body.append(help);
+  help.addEventListener('click', e => { if (e.target === help) help.close(); });
+  $('#search-open') && $('#search-open').addEventListener('click', () => openPal(''));
+  $('#help-open') && $('#help-open').addEventListener('click', () => { closePal(); help.showModal(); });
+  let gPending = 0;
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && !dr.hidden) closeDrawer();
-    if (e.key === '/' && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) { const f = $('#f-q'); e.preventDefault(); if (f) f.focus(); else location.href = '/explore/'; }
+    const typing = /INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName) || document.activeElement.isContentEditable;
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); pal.open ? closePal() : openPal(''); return; }
+    if (e.key === '?' && pal.open && !pin.value) { e.preventDefault(); closePal(); help.showModal(); return; }
+    if (typing || e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.key === '/') { e.preventDefault(); openPal(''); }
+    else if (e.key === '?') { e.preventDefault(); closePal(); help.open ? help.close() : help.showModal(); }
+    else if (e.key === 't' && !pal.open && !help.open) { tbtn && tbtn.click(); }
+    else if (e.key === 'g') { gPending = Date.now(); }
+    else if (gPending && Date.now() - gPending < 1200 && GO[e.key]) { gPending = 0; location.href = GO[e.key]; }
   });
 })();

@@ -9,6 +9,9 @@ An open dossier on the Clojure ecosystem: front-end frameworks, data sync, novel
 - **Why Clojure for agentic coding:** the arguments, evidence, real-world wins and counterpoints.
 - **Blog:** every finding written up as a dispatch, with an Atom feed.
 - **Explore:** search and sort every repo by stars, commits, issues, recency and health.
+- **For agents:** [`/llms.txt`](https://clojure-radar.atd-ai.workers.dev/llms.txt), a search API (`/api/search?q=`) and compact TSV catalogs, plus a Claude Code skill in [`skills/clojure-radar`](skills/clojure-radar/SKILL.md). See [`/for-agents/`](https://clojure-radar.atd-ai.workers.dev/for-agents/).
+
+Press `⌘K` or `/` anywhere for fuzzy search, and `?` for keyboard shortcuts.
 
 Snapshot: 2026-11-10. Window: the last 12 months.
 
@@ -28,7 +31,7 @@ Requires Python 3.12+ and an authenticated [`gh`](https://cli.github.com/) CLI.
 | 4. Parse awesome-clojure | `scripts/parse_awesome.py` | `data/awesome/entries.json` |
 | 5. Merge, baseline, health scores | `scripts/build.py` | `data/dataset.json` |
 | 6. Build the static site | `scripts/site.py` | `dist/` |
-| 7. Deploy to Cloudflare Workers | `scripts/deploy.sh` | live site |
+| 7. Deploy to Cloudflare Workers (assets + `/api` Worker in `src/worker.js`) | `scripts/deploy.sh` | live site |
 
 Curated projects and their notes are in `data/curated.json`. Editorial content (dispatches, the why-clojure brief, sources) is in `scripts/content.py`. Styles and client code are in `site/assets/`.
 
