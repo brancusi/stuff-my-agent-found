@@ -1,0 +1,3 @@
+#!/bin/sh
+# Last check before anything leaves the machine: every tracked file.
+exec python3 "$(git rev-parse --show-toplevel)/scripts/privacy_scrub.py" --tree

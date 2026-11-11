@@ -1,0 +1,3 @@
+#!/bin/sh
+# Privacy scrub on the commit message.
+exec python3 "$(git rev-parse --show-toplevel)/scripts/privacy_scrub.py" --message "$1"

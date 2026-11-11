@@ -50,6 +50,31 @@ Case 001's curated projects are in `data/curated.json` and its writing in `scrip
 
 Corrections and missing projects are welcome. Open an issue or PR that edits a case's repo list or writing.
 
+### Privacy scrub
+
+Every commit runs a privacy scrub. Turn it on once per clone:
+
+```sh
+git config core.hooksPath .githooks
+```
+
+The hooks run `scripts/privacy_scrub.py`:
+
+- `pre-commit` scans the staged lines.
+- `commit-msg` scans the commit message.
+- `pre-push` scans every tracked file.
+
+A hook blocks the commit or push when it finds any of these:
+
+- A string from your local denylist. The denylist lives in `.git/privacy-denylist` and `~/.config/privacy-scrub/denylist`, and is never committed.
+- An email address that isn't a noreply address.
+- A home-directory path.
+- An API token or a private key.
+- A Cloudflare account id.
+- An author email that isn't a GitHub noreply address.
+
+Your global git email is added to the denylist automatically. To scan the whole history, run `python3 scripts/privacy_scrub.py --history`. To let a false positive through, add `privacy-scrub: allow` to that line.
+
 ## License
 
 Code: MIT. The data is derived from the public GitHub API and the sources listed on the site.

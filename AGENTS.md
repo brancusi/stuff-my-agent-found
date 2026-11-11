@@ -19,4 +19,5 @@ Guide for coding agents working in this repo or using its data.
 - Front end: `site/assets/radar.css`, `radar.js`, and `search-core.js` (shared with the Worker).
 - API Worker: `src/worker.js`. Static assets are served from `dist/`, and only `/api/*` runs the Worker.
 - Local preview: `python3 scripts/site.py && npx wrangler dev`. Deploy: `scripts/deploy.sh` (set `CLOUDFLARE_ACCOUNT_ID` if your login has several accounts).
+- Privacy scrub: run `git config core.hooksPath .githooks` once. The hooks run `scripts/privacy_scrub.py` before each commit and push. Never bypass them with `--no-verify`. Fix the finding instead. Keep real emails, account ids, home paths and tokens out of the repo. Pass account ids through env vars.
 - Keep numbers in prose generated from the dataset (helpers in `content.py`). Don't hard-code figures.
