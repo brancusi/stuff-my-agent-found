@@ -135,18 +135,18 @@ def pages(memo, R, d):
 <tr><td><strong>B. Datastar, server-driven</strong><br><span class="conf mod">SPIKE ONE SCREEN</span></td><td>Views become <code>.clj</code> hiccup functions of XTDB queries, pushed over SSE.</td><td>One runtime, the most readable code, and the best agent loop (curl and the REPL). Datastar is 1.0.</td><td>Rewrites the admin. Rich widgets (grids, drag and drop) live in Datastar expressions, not Clojure.</td></tr>
 <tr><td><strong>C. Electric v3</strong><br><span class="conf low">SPIKE ONE SCREEN</span></td><td>The UI queries XTDB directly through Electric's compiler-split program.</td><td>No API plumbing for the UI. Reactive queries in place. Free for non-commercial use and bootstrappers.</td><td>Beta, licensed, and its UI bypasses the API the CLI and agents use. Mixed agent reports.</td></tr>
 </tbody></table>
-<p>Read the full reasoning, with code, on the <a href="/cases/frontend-sync/ownpurse/">for-ownpurse page</a>.</p>
+<p>Read the full reasoning, with code, on the <a href="/approaches/frontend-sync/ownpurse/">for-ownpurse page</a>.</p>
 {finding('The one move every path shares', '<p>Your writes all go through one in-process Clojure server. After each <code>execute-tx</code>, publish <code>{:tx-id … :tables …}</code> on an SSE endpoint. That replaces polling today, feeds Datastar or Electric later, and gives the CLI, the TUI and agents a change feed they can tail with curl. XTDB system time doubles as the sync cursor.</p>')}
 <h2>In this case file</h2>
 <ul>
-<li><a href="/cases/frontend-sync/landscape/">Sync engines, every language</a>: the field in November 2026, what is pushing the boundaries, and what fits a Clojure server.</li>
-<li><a href="/cases/frontend-sync/clojure/">The Clojure options</a>: Electric, Fulcro, re-frame and re-frame2, UIx with push, Replicant, Datastar, Datahike.</li>
-<li><a href="/cases/frontend-sync/cljs-cost/">Does ClojureScript cost me?</a> Benchmarks, failure modes, the TypeScript contrast, and the agent setup that closes the gap.</li>
-<li><a href="/cases/frontend-sync/ownpurse/">For ownpurse</a>: the three architectures with code sketches, and a plan.</li>
+<li><a href="/approaches/frontend-sync/landscape/">Sync engines, every language</a>: the field in November 2026, what is pushing the boundaries, and what fits a Clojure server.</li>
+<li><a href="/approaches/frontend-sync/clojure/">The Clojure options</a>: Electric, Fulcro, re-frame and re-frame2, UIx with push, Replicant, Datastar, Datahike.</li>
+<li><a href="/approaches/frontend-sync/cljs-cost/">Does ClojureScript cost me?</a> Benchmarks, failure modes, the TypeScript contrast, and the agent setup that closes the gap.</li>
+<li><a href="/approaches/frontend-sync/ownpurse/">For ownpurse</a>: the three architectures with code sketches, and a plan.</li>
 </ul>
 </div>
 {table(['hyperfiddle/electric', 'fulcrologic/fulcro', 'day8/re-frame', 'pitch-io/uix', 'starfederation/datastar', 'starfederation/datastar-clojure', 'rocicorp/mono', 'TanStack/db', 'electric-sql/electric', 'instantdb/instant', 'livestorejs/livestore', 'pubkey/rxdb'], 'Shortlist: the projects this case turns on', 'full')}'''
-    out.append(('/cases/frontend-sync/', 'Case 002: a front end for a Clojure backend', 'Which front end and sync system for a Clojure/XTDB backend, whether ClojureScript costs anything when agents write the code, and what fits ownpurse.', brief))
+    out.append(('/approaches/frontend-sync/', 'Case 002: a front end for a Clojure backend', 'Which front end and sync system for a Clojure/XTDB backend, whether ClojureScript costs anything when agents write the code, and what fits ownpurse.', brief))
 
     # ---------------- landscape
     land = f'''{M('Sync engines, every language', 'Server-to-client data sync in November 2026: what exists, how each one works, and what can sit in front of a Clojure server', 'sync engines')}
@@ -186,7 +186,7 @@ def pages(memo, R, d):
 {table(ENGINES, 'Sync engines, client stores and CRDTs', 'full', 'cat')}
 {table(SERVER_UI, 'Server-driven UI', 'full')}
 {table(FP_FRONT, 'Typed and functional front ends', 'full')}'''
-    out.append(('/cases/frontend-sync/landscape/', 'Sync engines, every language', 'Server-to-client data sync in 2026: Zero, ElectricSQL, TanStack DB, LiveStore, Instant, Convex, PowerSync, CRDTs and server-driven UI, and what can sit in front of a Clojure server.', land))
+    out.append(('/approaches/frontend-sync/landscape/', 'Sync engines, every language', 'Server-to-client data sync in 2026: Zero, ElectricSQL, TanStack DB, LiveStore, Instant, Convex, PowerSync, CRDTs and server-driven UI, and what can sit in front of a Clojure server.', land))
 
     # ---------------- clojure options
     clj = f'''{M('The Clojure options', 'Electric, Fulcro, re-frame, UIx with push, Replicant, Datastar and Datahike, judged for a local ledger with agents as clients', 'clojure options')}
@@ -217,7 +217,7 @@ def pages(memo, R, d):
 <p>{a('day8/re-frame', 're-frame')} 1.4.7: pure event handlers over one immutable app-db. Sync is up to you (for example over {a('taoensso/sente', 'sente')}). Its standout is {a('day8/re-frame-pair', 're-frame-pair')}, a Claude Code skill that lets an agent read app-db, dispatch events, trace, hot-swap handlers and time-travel in the running app. {a('day8/re-frame2', 're-frame2')} is designed AI-first ("the spec is complete enough that a sufficiently capable AI can one-shot a working implementation") but is pre-alpha and unpublished.</p>
 
 <h2>Keep UIx (or Helix) and add push</h2>
-<p>{a('pitch-io/uix', 'UIx')} 1.4.9 tracks React 19.2. Add one SSE endpoint that publishes transactions, and a hook that refetches what changed (code on the <a href="/cases/frontend-sync/ownpurse/">ownpurse page</a>). This is the least disruptive path, and React is the UI library models have seen most.</p>
+<p>{a('pitch-io/uix', 'UIx')} 1.4.9 tracks React 19.2. Add one SSE endpoint that publishes transactions, and a hook that refetches what changed (code on the <a href="/approaches/frontend-sync/ownpurse/">ownpurse page</a>). This is the least disruptive path, and React is the UI library models have seen most.</p>
 
 <h2>Replicant and Nexus</h2>
 <p>Pure <code>state → hiccup</code> rendering with event handlers as data, and the views render to strings on the JVM, so they can be tested in Clojure. This is the most Elm-like option in Clojure. Both moved to <a href="https://codeberg.org/cjohansen/replicant">Codeberg</a> on 6 November 2026 and are active there. There's no sync, so you add your own push channel. The code is easy for agents to work with, but the author is openly anti-LLM, so don't expect agent-oriented docs.</p>
@@ -241,7 +241,7 @@ def pages(memo, R, d):
 </tbody></table>
 </div>
 {table(CLJ_OPTS, 'Clojure front-end and sync projects', 'full')}'''
-    out.append(('/cases/frontend-sync/clojure/', 'The Clojure options', 'Electric v3, Fulcro, re-frame and re-frame2, UIx with push, Replicant, Datastar and Datahike, judged for a local ledger whose clients include agents.', clj))
+    out.append(('/approaches/frontend-sync/clojure/', 'The Clojure options', 'Electric v3, Fulcro, re-frame and re-frame2, UIx with push, Replicant, Datastar and Datahike, judged for a local ledger whose clients include agents.', clj))
 
     # ---------------- does cljs cost me
     cost = f'''{M('Does ClojureScript cost me?', 'If the backend is Clojure and agents write most of the code, is a ClojureScript front end a hit compared with TypeScript, Elm or Gleam?', 'does cljs cost me?')}
@@ -292,7 +292,7 @@ def pages(memo, R, d):
 {finding('Hedge, don\'t rewrite', '<p>If you later need a TypeScript-native widget, keep domain logic in <code>.cljc</code> and treat the TS part as a leaf component. That costs far less than moving the whole front end.</p>')}
 </div>
 {table(AGENT_TOOLS, 'Agent tooling for ClojureScript', 'full')}'''
-    out.append(('/cases/frontend-sync/cljs-cost/', 'Does ClojureScript cost me?', 'Whether a ClojureScript front end is a hit compared with TypeScript, Elm or Gleam when AI agents write most of the code: benchmarks, failure modes, costs and the setup that closes the gap.', cost))
+    out.append(('/approaches/frontend-sync/cljs-cost/', 'Does ClojureScript cost me?', 'Whether a ClojureScript front end is a hit compared with TypeScript, Elm or Gleam when AI agents write most of the code: benchmarks, failure modes, costs and the setup that closes the gap.', cost))
 
     # ---------------- ownpurse
     op = f'''{M('For ownpurse', 'Three architectures for ownpurse\'s front end, with code, and a plan', 'for ownpurse')}
@@ -322,14 +322,14 @@ def pages(memo, R, d):
 <h2>The plan</h2>
 <ol>
 <li><strong>This week:</strong> the change feed and <code>use-live</code>. Delete the <code>setInterval</code> calls. Add <code>/api/changes</code> to the OpenAPI document so agents find it.</li>
-<li><strong>Agent setup:</strong> clojure-mcp against shadow-cljs, the paren-repair hook, clj-kondo as a gate, malli on API payloads (see <a href="/cases/frontend-sync/cljs-cost/">does cljs cost me?</a>).</li>
+<li><strong>Agent setup:</strong> clojure-mcp against shadow-cljs, the paren-repair hook, clj-kondo as a gate, malli on API payloads (see <a href="/approaches/frontend-sync/cljs-cost/">does cljs cost me?</a>).</li>
 <li><strong>Spike B:</strong> the trial balance as a Datastar page served beside the admin, driven by the same feed.</li>
 <li><strong>Spike C:</strong> the same screen in Electric, under the free license.</li>
 <li><strong>Decide</strong> by three tests. Which code do you understand on first read? Which one could your agent change and verify alone? Which one keeps one write path for every client?</li>
 </ol>
 {finding('If you only do one thing', '<p>Do step 1. It\'s the part of every option that pays off immediately, and it keeps the decision about the UI open.</p>')}
 </div>'''
-    out.append(('/cases/frontend-sync/ownpurse/', 'For ownpurse', 'Three front-end architectures for ownpurse, a local Clojure/XTDB ledger, with code sketches: a change feed, UIx with push, Datastar and Electric.', op))
+    out.append(('/approaches/frontend-sync/ownpurse/', 'For ownpurse', 'Three front-end architectures for ownpurse, a local Clojure/XTDB ledger, with code sketches: a change feed, UIx with push, Datastar and Electric.', op))
     return out
 
 def posts(R, BL, d):

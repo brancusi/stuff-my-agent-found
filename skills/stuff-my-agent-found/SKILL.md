@@ -1,6 +1,6 @@
 ---
 name: stuff-my-agent-found
-description: Find, compare and vet libraries and frameworks using the "stuff my agent found" case files (3,300+ GitHub repos with stars, commits, issues, recency and health, plus written findings with sources). Deepest on Clojure/ClojureScript; also covers sync engines and local-first databases in any language, front-end options for a Clojure backend, and frameworks that work well with coding agents. Use when choosing a dependency, comparing frameworks (e.g. UIx vs re-frame vs Electric, Zero vs TanStack DB, Datastar vs htmx), checking whether a library is maintained, or surveying a category.
+description: Find, compare and vet libraries and frameworks using the "stuff my agent found" case files (3,300+ GitHub repos with stars, commits, issues, recency and health, plus written findings with sources). Deepest on Clojure/ClojureScript; also covers sync engines and local-first databases in any language, front-end options for a Clojure backend, and frameworks that work well with coding agents, Datastar and its ecosystem, and agentic coding practices with evidence. Use when choosing a dependency, comparing frameworks (e.g. UIx vs re-frame vs Electric, Zero vs TanStack DB, Datastar vs htmx), checking whether a library is maintained, or surveying a category.
 ---
 
 # stuff my agent found
@@ -28,7 +28,7 @@ Adds open and closed issues, PRs, latest release, license, topics, the health br
 ## 3. Broader context, only if needed
 
 - Index, case list and field docs (~1k tokens): `https://stuff-my-agent-found.atd-ai.workers.dev/llms.txt`
-- A case's shortlist with notes: `https://stuff-my-agent-found.atd-ai.workers.dev/catalog/case-<slug>.tsv` (`clojure`, `frontend-sync`, `agentic-frameworks`)
+- A case's shortlist with notes: `https://stuff-my-agent-found.atd-ai.workers.dev/catalog/case-<slug>.tsv` (`clojure`, `frontend-sync`, `agentic-frameworks`, `datastar`, `agentic-practices`)
 - Every hand-picked repo with notes (~10k tokens): `https://stuff-my-agent-found.atd-ai.workers.dev/catalog/curated.tsv`
 - Category index (~3k tokens): `https://stuff-my-agent-found.atd-ai.workers.dev/catalog/categories.tsv`
 - Everything active this year (~50k tokens): `https://stuff-my-agent-found.atd-ai.workers.dev/catalog/active.tsv`

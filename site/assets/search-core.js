@@ -9,13 +9,13 @@
     crdt: ['CRDT', 'Local-first database'],
     reactive: ['Reactive', 'Concurrency / async', 'Async processing', 'Novel / reactive'],
     runtime: ['Novel / runtime', 'Runtime / compiler', 'Language / runtime', 'Languages'],
-    ai: ['Agent tooling', 'AI / LLM', 'Machine Learning', 'Framework agent tooling', 'Benchmark'],
+    ai: ['Agent tooling', 'AI / LLM', 'Machine Learning', 'Framework agent tooling', 'Benchmark', 'Agent skills', 'Agent workflow', 'Spec-driven development', 'Coding agent', 'Agent hooks', 'Agent verification', 'Review agent', 'Context files'],
     web: ['Web / HTTP', 'HTTP', 'Web server', 'RESTful API', 'Web Framework', 'Full-stack framework', 'Hypermedia / server-driven', 'WebSocket', 'GraphQL API'],
     css: ['CSS'], routing: ['Routing'], state: ['State management'], test: ['Testing', 'Webdriver automation'],
     tooling: ['Dev tooling', 'Build tooling', 'Editor Plugins', 'Code Analysis and Linter', 'Debugging', 'Build Automation and Package management'],
     desktop: ['Desktop UI', 'GUI', 'Terminal UI'], mobile: ['Mobile'],
     data: ['Data science', 'Science and Data Analysis', 'Machine Learning', 'Data'],
-    hypermedia: ['Hypermedia / server-driven', 'Server-driven UI'], fullstack: ['Full-stack framework', 'Web Framework', 'App framework', 'Backend platform'],
+    hypermedia: ['Hypermedia / server-driven', 'Server-driven UI', 'Datastar SDK', 'Datastar app'], fullstack: ['Full-stack framework', 'Web Framework', 'App framework', 'Backend platform'],
     games: ['Games / art / music', 'Game Development', 'Audio'], validation: ['Data Validation', 'Data'],
   };
   const SYN = {
@@ -29,7 +29,7 @@
     css: 'css', style: 'css', styles: 'css', styling: 'css', router: 'routing', routing: 'routing', routes: 'routing', state: 'state',
     test: 'test', tests: 'test', testing: 'test', tool: 'tooling', tools: 'tooling', tooling: 'tooling', dev: 'tooling', devtools: 'tooling', editor: 'tooling', repl: 'tooling', lint: 'tooling', linter: 'tooling', build: 'tooling', debug: 'tooling',
     desktop: 'desktop', gui: 'desktop', tui: 'desktop', terminal: 'desktop', mobile: 'mobile', ios: 'mobile', android: 'mobile', flutter: 'mobile',
-    science: 'data', stats: 'data', dataframe: 'data', notebook: 'data', hypermedia: 'hypermedia', htmx: 'hypermedia', datastar: 'hypermedia', ssr: 'hypermedia',
+    science: 'data', stats: 'data', dataframe: 'data', notebook: 'data', hypermedia: 'hypermedia', ssr: 'hypermedia',
     fullstack: 'fullstack', 'full-stack': 'fullstack', framework: 'fullstack', game: 'games', games: 'games', music: 'games', art: 'games', schema: 'validation', validation: 'validation', spec: 'validation',
   };
   const synFor = t => { if (SYN[t]) return SYN[t]; if (t.length >= 3) { const k = Object.keys(SYN).find(k => k.length > t.length && k.startsWith(t)); if (k) return SYN[k]; } return null; };
@@ -87,7 +87,7 @@
       }).filter(Boolean).sort((a, b) => b.s - a.s).slice(0, lim.repos || 14);
     }
     if (PAGES) out.pages = PAGES.map(p => { let s = 0, idx = null; for (const t of all) { const mt = fz(t, p.t), md = t.length > 2 && p.d && p.d.toLowerCase().includes(t);
-        const syn = synFor(t); const sec = syn && p.k === 'sector' && ({ frontend: '/cases/clojure/frontend/', db: '/cases/clojure/sync/', sync: '/cases/clojure/sync/', reactive: '/cases/clojure/sync/', runtime: '/cases/clojure/runtimes/', ai: '/cases/clojure/agents/', hypermedia: '/cases/clojure/novel/', fullstack: '/cases/clojure/novel/' })[syn] === p.u;
+        const syn = synFor(t); const sec = syn && p.k === 'sector' && ({ frontend: '/approaches/clojure/frontend/', db: '/approaches/clojure/sync/', sync: '/approaches/clojure/sync/', reactive: '/approaches/clojure/sync/', runtime: '/approaches/clojure/runtimes/', ai: '/approaches/clojure/agents/', hypermedia: '/approaches/clojure/novel/', fullstack: '/approaches/clojure/novel/' })[syn] === p.u;
         if (mt) { s += mt.s * 1.4; if (all.length === 1) idx = mt.idx; } else if (sec) s += 200; else if (md) s += 60; else return null; }
       return { p, s: s + (p.k === 'sector' ? 30 : p.k === 'page' ? 20 : p.k === 'dispatch' ? 10 : 0), idx }; }).filter(Boolean).sort((a, b) => b.s - a.s).slice(0, lim.pages || 6);
     return out;

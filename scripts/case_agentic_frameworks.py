@@ -39,13 +39,13 @@ def pages(memo, R, d):
 <tr><td>Hypermedia (htmx, Datastar)</td><td>Less client state to get wrong</td><td>Little official</td><td><span class="conf low">LOW</span> mixed reports</td></tr>
 <tr><td>Clojure</td><td>REPL checks against the running program</td><td>clojure-mcp <code>:repl</code>, paren repair</td><td><span class="conf low">LOW</span> no benchmark includes it</td></tr>
 </tbody></table>
-{finding('What this means for a Clojure developer', '<p>Clojure already has the mechanism the field is converging on: the agent evaluating code against the running program, which is what Tidewave, Boost and <code>/_next/mcp</code> add to their frameworks. What it lacks is the rest of the kit those frameworks ship: a type checker (use clj-kondo and malli), an official AGENTS.md (write your own, compact and always loaded), and benchmarks. See <a href="/cases/frontend-sync/cljs-cost/">case 002</a> for the setup.</p>')}
+{finding('What this means for a Clojure developer', '<p>Clojure already has the mechanism the field is converging on: the agent evaluating code against the running program, which is what Tidewave, Boost and <code>/_next/mcp</code> add to their frameworks. What it lacks is the rest of the kit those frameworks ship: a type checker (use clj-kondo and malli), an official AGENTS.md (write your own, compact and always loaded), and benchmarks. See <a href="/approaches/frontend-sync/cljs-cost/">case 002</a> for the setup.</p>')}
 <h2>In this case file</h2>
-<ul><li><a href="/cases/agentic-frameworks/frameworks/">Framework by framework</a>: the claims, the evidence, the tooling and the counterpoints.</li>
-<li><a href="/cases/agentic-frameworks/patterns/">Patterns</a>: what makes a framework agent-friendly, and how much of it is measured.</li></ul>
+<ul><li><a href="/practices/agentic-frameworks/frameworks/">Framework by framework</a>: the claims, the evidence, the tooling and the counterpoints.</li>
+<li><a href="/practices/agentic-frameworks/patterns/">Patterns</a>: what makes a framework agent-friendly, and how much of it is measured.</li></ul>
 </div>
 {table(FRAMEWORKS, 'Frameworks and platforms in this case', 'full')}'''
-    out.append(('/cases/agentic-frameworks/', 'Case 003: frameworks agents work well in', 'Which app frameworks work best when coding agents write the code: Rails, Phoenix and Tidewave, Laravel Boost, Next.js, SvelteKit, Convex and more, with the evidence and the patterns.', brief))
+    out.append(('/practices/agentic-frameworks/', 'Case 003: frameworks agents work well in', 'Which app frameworks work best when coding agents write the code: Rails, Phoenix and Tidewave, Laravel Boost, Next.js, SvelteKit, Convex and more, with the evidence and the patterns.', brief))
 
     fw = f'''{M('Framework by framework', 'The claims, the evidence, the agent tooling and the counterpoints for each framework', 'frameworks')}
 <div class="bluf"><p>Every framework here has a story about why agents do well with it. Few of those stories are measured. Read the claims for which mechanism they describe (types, conventions, small surface, live introspection, pinned docs). That part transfers between frameworks; the "agents love us" part usually doesn't.</p></div>
@@ -76,12 +76,12 @@ def pages(memo, R, d):
 <li><strong>Gleam:</strong> "Gleam's compiler lets agents self-correct", though the team behind that post later chose Rust and TypeScript (<a href="https://curling.io/blog/21-reasons-ai-agents-love-gleam">Curling IO</a>).</li>
 </ul>
 <h2>Clojure</h2>
-<p>{a('bhauman/clojure-mcp', 'clojure-mcp')}'s README now recommends its <code>:repl</code> profile: the agent can "explore in the REPL, check its assumptions against the running program, and test changes as it makes them". No benchmark includes Clojure; Racket, another Lisp, scored 68.9 on AutoCodeBench, which is a weak hint that the syntax isn't disqualifying. The full argument is in <a href="/cases/clojure/agents/">case 001</a>.</p>
+<p>{a('bhauman/clojure-mcp', 'clojure-mcp')}'s README now recommends its <code>:repl</code> profile: the agent can "explore in the REPL, check its assumptions against the running program, and test changes as it makes them". No benchmark includes Clojure; Racket, another Lisp, scored 68.9 on AutoCodeBench, which is a weak hint that the syntax isn't disqualifying. The full argument is in <a href="/approaches/clojure/agents/">case 001</a>.</p>
 <h2>Vendor claims on token cost</h2>
 <p>Wasp says the same feature took 38% fewer tokens than on a Next.js starter (<a href="https://wasp.sh/blog/2026/03/26/nextjs-vs-wasp-40-percent-less-tokens-same-app">Wasp</a>). Encore says NestJS took about twice the tokens (<a href="https://encore.dev/articles/nestjs-vs-encore-ai-agents">Encore</a>). Both are single-vendor and small. For tRPC, Hono, Elysia and RedwoodSDK we found no agent-specific evidence at all.</p>
 </div>
 {table(TOOLING, 'Agent tooling that frameworks ship', 'full')}'''
-    out.append(('/cases/agentic-frameworks/frameworks/', 'Framework by framework', 'The claims, evidence, agent tooling and counterpoints for Phoenix, Rails, Laravel, Next.js, SvelteKit, Convex, Supabase, shadcn, htmx, Datastar, Go, Django, Effect, Gleam and Clojure.', fw))
+    out.append(('/practices/agentic-frameworks/frameworks/', 'Framework by framework', 'The claims, evidence, agent tooling and counterpoints for Phoenix, Rails, Laravel, Next.js, SvelteKit, Convex, Supabase, shadcn, htmx, Datastar, Go, Django, Effect, Gleam and Clojure.', fw))
 
     pt = f'''{M('What makes a framework agent-friendly', 'Eight patterns, how much of each is measured, and what the benchmarks actually test', 'patterns')}
 <div class="bluf"><p>Four things are measured to help agents: docs that are always in context, fast type or compiler feedback, small surface area, and live access to the running app. Conventions, stability and training-data mass are argued but not measured, and the training-data argument cuts both ways.</p></div>
@@ -117,7 +117,7 @@ def pages(memo, R, d):
 </ul>
 </div>
 {table(BENCH, 'Benchmarks and evals', 'full')}'''
-    out.append(('/cases/agentic-frameworks/patterns/', 'What makes a framework agent-friendly', 'Eight patterns that make frameworks work well with coding agents, which are measured and which are argued, and what the benchmarks actually test.', pt))
+    out.append(('/practices/agentic-frameworks/patterns/', 'What makes a framework agent-friendly', 'Eight patterns that make frameworks work well with coding agents, which are measured and which are argued, and what the benchmarks actually test.', pt))
     return out
 
 def posts(R, BL, d):
@@ -135,7 +135,7 @@ def posts(R, BL, d):
 <li><strong>{a('sveltejs/ai-tools', 'Svelte MCP')}</strong>: docs plus an autofixer that runs in the agent's loop.</li>
 <li><strong>{a('bhauman/clojure-mcp', 'clojure-mcp')}</strong>: whose README now recommends the plain <code>:repl</code> profile over its own editing tools.</li>
 </ul>
-{finding('Why it works', '<p>An agent that guesses has to be right the first time. An agent that can check fixes its own mistakes before you see them. Live introspection turns the running program into the source of truth, which is the argument Clojure developers have made for the REPL for fifteen years (<a href="/cases/clojure/agents/">case 001</a>).</p>')}
+{finding('Why it works', '<p>An agent that guesses has to be right the first time. An agent that can check fixes its own mistakes before you see them. Live introspection turns the running program into the source of truth, which is the argument Clojure developers have made for the REPL for fifteen years (<a href="/approaches/clojure/agents/">case 001</a>).</p>')}
 {caveat('<p>The trend is certain; the payoff is measured only indirectly. No study isolates "MCP into the dev server" as a variable.</p>')}''',
       after=table(['tidewave-ai/tidewave_phoenix', 'tidewave-ai/tidewave_rails', 'laravel/boost', 'vercel/next-devtools-mcp', 'supabase/mcp', 'sveltejs/ai-tools', 'bhauman/clojure-mcp', 'day8/re-frame-pair'], 'Live-app tooling', 'full')))
     P.append(dict(slug='agents-md-beats-skills', kj='Docs the agent always sees beat docs it has to ask for', conf=HIGH, tags=['agents'],

@@ -53,7 +53,7 @@ async function route(request, env, url) {
         '/api/repo/<owner>/<name>': 'Full record for one repo, including monthly commits and health breakdown.',
         '/api/categories': 'Every category with repo counts and the top repos in each.',
       },
-      files: { '/llms.txt': 'Start here: how the data is organised', '/catalog/case-<slug>.tsv': 'One case file\'s shortlist (clojure, frontend-sync, agentic-frameworks)', '/catalog/curated.tsv': 'Hand-picked projects with notes', '/catalog/active.tsv': 'Every repo with a commit in the last 12 months', '/catalog/all.tsv': 'Every repo', '/catalog/categories.tsv': 'Category index' },
+      files: { '/llms.txt': 'Start here: how the data is organised', '/catalog/case-<slug>.tsv': 'One case file\'s shortlist (clojure, frontend-sync, agentic-frameworks, datastar, agentic-practices)', '/catalog/curated.tsv': 'Hand-picked projects with notes', '/catalog/active.tsv': 'Every repo with a commit in the last 12 months', '/catalog/all.tsv': 'Every repo', '/catalog/categories.tsv': 'Category index' },
       fields: { status: 'thriving|active|maintained|stable|slowing|dormant|moved|archived', health: '0-100, percentile blend vs the Clojure baseline' },
     });
     if (path === '/api/search') {
@@ -63,7 +63,7 @@ async function route(request, env, url) {
       const res = globalThis.RadarSearch.search(data, pages, q, { repos: limit, cats: 5, pages: 5 });
       if (url.searchParams.get('format') === 'tsv') return text('# repo\tlanguage\tcategory\tcases\tstars\tcommits_12mo\tlast_commit\tstatus\thealth\tdescription\n' + res.repos.map(x => tsvRow(x.r)).join('\n') + '\n');
       return json({ query: q, language_filter: res.lang || null, snapshot: data.generated,
-        categories: res.cats.map(c => ({ category: c.c, repos: c.n, browse: url.origin + '/explore/?all=1&cat=' + encodeURIComponent(c.c) })),
+        categories: res.cats.map(c => ({ category: c.c, repos: c.n, browse: url.origin + '/repos/?all=1&cat=' + encodeURIComponent(c.c) })),
         pages: res.pages.map(({ p }) => ({ title: p.t, kind: p.k, url: p.u.startsWith('http') ? p.u : url.origin + p.u })),
         repos: res.repos.map(x => compact(x.r)) });
     }

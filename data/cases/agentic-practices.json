@@ -1,0 +1,172 @@
+[
+[
+"github/spec-kit",
+"Spec-driven development",
+"GitHub's spec-driven toolkit: constitution, specify, plan, tasks, implement. Slash commands for many agents."
+],
+[
+"Fission-AI/OpenSpec",
+"Spec-driven development",
+"Lighter spec workflow: a proposal, delta specs and tasks."
+],
+[
+"bmad-code-org/BMAD-METHOD",
+"Spec-driven development",
+"Persona-based multi-agent agile method; reported as heavy for small apps."
+],
+[
+"humanlayer/humanlayer",
+"Agent workflow",
+"HumanLayer's workspace; .claude/commands holds the research, plan and implement prompts."
+],
+[
+"humanlayer/advanced-context-engineering-for-coding-agents",
+"Agent workflow",
+"The 'frequent intentional compaction' essay: keep context 40-60% full."
+],
+[
+"obra/superpowers",
+"Agent skills",
+"Jesse Vincent's skills and method: brainstorm, plan, TDD, review."
+],
+[
+"anthropics/skills",
+"Agent skills",
+"Anthropic's public Agent Skills examples."
+],
+[
+"agentskills/agentskills",
+"Agent skills",
+"The Agent Skills open specification."
+],
+[
+"agentsmd/agents.md",
+"Context files",
+"The AGENTS.md format site and spec."
+],
+[
+"anthropics/claude-code",
+"Coding agent",
+"Claude Code: issues, plugins, docs."
+],
+[
+"anthropics/claude-code-action",
+"Coding agent",
+"Claude Code in GitHub Actions: background agents on PRs and issues."
+],
+[
+"anthropics/claude-code-security-review",
+"Review agent",
+"Security review GitHub Action using Claude."
+],
+[
+"openai/codex",
+"Coding agent",
+"Codex CLI."
+],
+[
+"anomalyco/opencode",
+"Coding agent",
+"Open-source coding agent (was sst/opencode)."
+],
+[
+"earendil-works/pi",
+"Coding agent",
+"Mario Zechner's minimal pi agent; no MCP by design, tools read on demand."
+],
+[
+"badlogic/terminalcp",
+"Agent tooling",
+"From Zechner's MCP-vs-CLI benchmark; works as MCP server and CLI."
+],
+[
+"Aider-AI/aider",
+"Coding agent",
+"Terminal pair programmer; one git commit per change."
+],
+[
+"aaif-goose/goose",
+"Coding agent",
+"Open-source extensible agent (was block/goose)."
+],
+[
+"gastownhall/beads",
+"Agent workflow",
+"Git-backed issue tracker as agent memory across sessions (was steveyegge/beads)."
+],
+[
+"ghuntley/how-to-ralph-wiggum",
+"Agent workflow",
+"The Ralph loop playbook: one task per loop, forever."
+],
+[
+"nizos/tdd-guard",
+"Agent hooks",
+"Hook-based TDD enforcement for Claude Code."
+],
+[
+"disler/claude-code-hooks-mastery",
+"Agent hooks",
+"Worked examples of every Claude Code hook."
+],
+[
+"microsoft/playwright-mcp",
+"Agent verification",
+"Browser automation MCP so the agent checks its own UI work."
+],
+[
+"ChromeDevTools/chrome-devtools-mcp",
+"Agent verification",
+"Chrome DevTools for agents: DOM, console, network, performance."
+],
+[
+"vercel-labs/agent-browser",
+"Agent verification",
+"Browser automation as an agent-ergonomic CLI."
+],
+[
+"benchflow-ai/skillsbench",
+"Benchmark",
+"SkillsBench: curated skills +16.6 pp; focused beats exhaustive."
+],
+[
+"pepealonso95/TDAD",
+"Benchmark",
+"Test-impact map as a skill: regressions -70%; generic TDD prompts made it worse."
+],
+[
+"wilsonzlin/fastrender",
+"Agent workflow",
+"The browser engine from Cursor's long-running planner/worker experiment."
+],
+[
+"hesreallyhim/awesome-claude-code",
+"Agent skills",
+"Curated list of Claude Code skills, hooks, commands and tools."
+],
+[
+"bhauman/clojure-mcp",
+"",
+""
+],
+[
+"bhauman/clojure-mcp-light",
+"",
+""
+],
+[
+"laravel/boost",
+"",
+""
+],
+[
+"tidewave-ai/tidewave_phoenix",
+"",
+""
+],
+[
+"AnswerDotAI/llms-txt",
+"",
+""
+]
+]

@@ -15,20 +15,21 @@ SNAP = d['generated']
 DOC = 'SMAF-' + SNAP[:7].replace('-', '')
 esc = html.escape
 
-NAV = [('/', 'index'), ('/cases/', 'cases'), ('/explore/', 'explore'), ('/blog/', 'dispatches'), ('/sources/', 'sources'), ('/for-agents/', 'for-agents'), ('/method/', 'method')]
-from cases import CASES
+NAV = [('/', 'index'), ('/projects/', 'projects'), ('/approaches/', 'approaches'), ('/repos/', 'repos'), ('/practices/', 'practices'), ('/blog/', 'dispatches'), ('/sources/', 'sources'), ('/method/', 'method')]
+from cases import CASES, SECTIONS, SEC
+REPO_TABS = [('/repos/', 'library'), ('/for-agents/', 'api & context files')]
 CASE = {c['slug']: c for c in CASES}
 
-def page(path, title, desc, body, crumb=None, active=None, case=None):
-    active = active or ('/cases/' if case else path)
+def page(path, title, desc, body, crumb=None, active=None, case=None, tabs_=None):
+    active = active or (SEC[CASE[case]['kind']]['href'] if case else path)
     nav = ''.join('<a href="%s"%s>%s</a>' % (h, ' aria-current="page"' if h == active else '', l) for h, l in NAV)
     parts = [p for p in path.strip('/').split('/') if p]
     trail = '<a href="/">~/stuff-my-agent-found</a>' + ''.join(f'/<a href="/{"/".join(parts[:i+1])}/">{esc(p)}</a>' for i, p in enumerate(parts))
     full_title = title if path == '/' else f'{title} · {BRAND}'
     tabs = ''
-    if case:
-        c = CASE[case]
-        tabs = '<div class="wrap"><nav class="casetabs" aria-label="Case %s pages"><span class="cno">CASE %s</span>%s</nav></div>' % (c['no'], c['no'], ''.join('<a href="%s"%s>%s</a>' % (h, ' aria-current="page"' if h == path else '', l) for h, l in c['tabs']))
+    if case: c = CASE[case]; tabs_ = (f'Case {c["no"]} pages', f'{SEC[c["kind"]]["one"]} // CASE {c["no"]}', c['tabs'])
+    if tabs_:
+        tabs = '<div class="wrap"><nav class="casetabs" aria-label="%s"><span class="cno">%s</span>%s</nav></div>' % (tabs_[0], tabs_[1], ''.join('<a href="%s"%s>%s</a>' % (h, ' aria-current="page"' if h == path else '', l) for h, l in tabs_[2]))
     return f'''<!doctype html>
 <html lang="en">
 <head>
@@ -116,7 +117,7 @@ home = f'''
   <div data-radar><p class="dim">Loading radar…</p></div></section>
 <section aria-labelledby="kj-h"><h2 class="sec" id="kj-h">Key judgments</h2><ol class="kj">{kj}</ol>
   <p class="dim" style="font-size:12.5px;max-width:var(--measure)">Confidence follows intelligence-analysis convention. <span class="conf high">HIGH</span> means several independent sources agree and the numbers back it. <span class="conf mod">MODERATE</span> means consistent reports with limited measurement. <span class="conf low">LOW</span> means plausible but mostly argued.</p></section>
-<section aria-labelledby="sec-h"><h2 class="sec" id="sec-h">Sectors</h2><div class="sectors">{sectors}<a class="sector" href="/explore/?lang=Clojure"><span class="k">INDEX // CLOJURE</span><h3>Explore every Clojure repo</h3><p>All {sum(1 for r in d['repos'] if r['lang'] == 'Clojure'):,} Clojure repositories, searchable and sortable, with filters for category, status and age.</p><span class="go">open the explorer →</span></a></div></section>
+<section aria-labelledby="sec-h"><h2 class="sec" id="sec-h">Sectors</h2><div class="sectors">{sectors}<a class="sector" href="/repos/?lang=Clojure"><span class="k">INDEX // CLOJURE</span><h3>Explore every Clojure repo</h3><p>All {sum(1 for r in d['repos'] if r['lang'] == 'Clojure'):,} Clojure repositories, searchable and sortable, with filters for category, status and age.</p><span class="go">open the explorer →</span></a></div></section>
 <section aria-labelledby="norm-h"><h2 class="sec" id="norm-h">What normal looks like</h2>
   <div class="grid2">
     <div class="card"><h3>Time since last commit</h3><p class="sub">{BL['n']:,} non-archived Clojure repos with 50+ stars.</p><div class="hist" data-hist="age"></div></div>
@@ -124,7 +125,7 @@ home = f'''
   </div>
   <p class="prose" style="margin-top:10px"><a href="/blog/quiet-is-normal/">Why quiet is normal in Clojure →</a></p></section>
 '''
-write('/cases/clojure/', page('/cases/clojure/', 'Case 001: the Clojure ecosystem', 'The Clojure ecosystem mapped from the repos up: front-end frameworks, data sync, novel frameworks, runtimes and agentic coding, with live GitHub health data.', home, case='clojure'))
+write('/approaches/clojure/', page('/approaches/clojure/', 'Case 001: the Clojure ecosystem', 'The Clojure ecosystem mapped from the repos up: front-end frameworks, data sync, novel frameworks, runtimes and agentic coding, with live GitHub health data.', home, case='clojure'))
 
 # ---------------- sector pages
 for s in SECTORS:
@@ -140,7 +141,7 @@ for s in SECTORS:
 
 # ---------------- why clojure (agents)
 from functools import partial
-write('/cases/clojure/agents/', page('/cases/clojure/agents/', 'Why Clojure for agentic coding', 'Why REPL-driven, data-oriented Clojure suits AI coding agents: the arguments, the evidence, real-world wins, counterpoints and the tooling.', why_clojure(partial(memo, ref=CASE['clojure']['ref']), R, n), case='clojure'))
+write('/approaches/clojure/agents/', page('/approaches/clojure/agents/', 'Why Clojure for agentic coding', 'Why REPL-driven, data-oriented Clojure suits AI coding agents: the arguments, the evidence, real-world wins, counterpoints and the tooling.', why_clojure(partial(memo, ref=CASE['clojure']['ref']), R, n), case='clojure'))
 
 # ---------------- other case files (pages, dispatches, sources)
 from cases import case_pages, case_posts, case_sources
@@ -160,18 +161,24 @@ by_case_no = sorted(CASES, key=lambda c: c['no'], reverse=True)
 def case_card(c):
     np = sum(1 for p in POSTS if p['case'] == c['slug'])
     st = '<span class="cst open">open</span>' if c['status'] == 'open' else '<span class="cst">filed</span>'
-    return (f'<a class="case" href="{c["href"]}"><span class="k">CASE {c["no"]} // {c["ref"]} {st}</span><h3>{c["title"]}</h3>'
+    return (f'<a class="case" href="{c["href"]}"><span class="k">{SEC[c["kind"]]["one"]} // CASE {c["no"]} {st}</span><h3>{c["title"]}</h3>'
             f'<p class="q">{c["q"]}</p><p>{c["dek"]}</p><span class="go">opened {c["opened"]} · {np} dispatches · open the file →</span></a>')
 
 def dispatch_item(p, show_case=True):
     meta = (f'case {CASE[p["case"]]["no"]} · ' if show_case else '') + f'{p["date"]} · {p["read"]} min · <span class="conf {p["conf"][0]}">{p["conf"][1]}</span>'
     return f'<a class="dispatch" href="/blog/{p["slug"]}/"><span class="no">DSP-{p["no"]}</span><div><h3>{p["title"]}</h3><p>{p["dek"]}</p></div><span class="meta">{meta}</span></a>'
 
-langchips = ''.join(f'<a class="lchip" href="/explore/?lang={esc(l)}">{esc(l)} <span>{c:,}</span></a>' for l, c in LANGS.most_common(14))
+langchips = ''.join(f'<a class="lchip" href="/repos/?lang={esc(l)}">{esc(l)} <span>{c:,}</span></a>' for l, c in LANGS.most_common(14))
 latest = ''.join(dispatch_item(p) for p in sorted(POSTS, key=lambda p: (p['date'], p['no']), reverse=True)[:6])
-home = f'''
-<header class="memo hero"><span class="stamp">Open files</span><div class="eyebrow">Index // case files</div><h1>stuff my agent found</h1>
-<p class="lede">I research the tech I'm about to build on with an AI agent. This is where it files what it finds: one case file per question, the repos measured from the GitHub API, the articles it read, and what it concluded, with confidence levels and sources.</p></header>
+def sec_cases(k): return [c for c in by_case_no if c['kind'] == k]
+def sec_block(x, h='h2'):
+    cs = sec_cases(x['key'])
+    cards = ''.join(case_card(c) for c in cs) or '<p class="dim">Nothing filed here yet.</p>'
+    return (f'<section aria-labelledby="s-{x["key"]}"><{h} class="sec" id="s-{x["key"]}"><a href="{x["href"]}">{x["title"]}</a></{h}>'
+            f'<p class="prose dim" style="margin:0 0 10px">{x["dek"]}</p><div class="cases">{cards}</div></section>')
+home = f"""
+<header class="memo hero"><span class="stamp">Open files</span><div class="eyebrow">Index // four sections</div><h1>stuff my agent found</h1>
+<p class="lede">I research the tech I'm about to build on with an AI agent. This is where it files what it finds, in four sections: <a href="/projects/">projects</a> it took apart, <a href="/approaches/">approaches</a> it compared, the <a href="/repos/">repos</a> it measured, and the <a href="/practices/">agentic coding practices</a> that are working. Every claim has a confidence level and a source.</p></header>
 <div class="strip" aria-label="Totals">
   <div><div class="v">{len(CASES)}</div><div class="l">case files</div></div>
   <div><div class="v">{len(d['repos']):,}</div><div class="l">repos measured</div></div>
@@ -179,17 +186,30 @@ home = f'''
   <div><div class="v">{len(POSTS)}</div><div class="l">dispatches filed</div></div>
   <div><div class="v">{len(S)}</div><div class="l">sources read</div></div>
 </div>
-<section aria-labelledby="cases-h"><h2 class="sec" id="cases-h">Case files</h2><div class="cases">{''.join(case_card(c) for c in by_case_no)}</div></section>
-<section aria-labelledby="lang-h"><h2 class="sec" id="lang-h">Browse by language</h2>
-  <p class="prose dim" style="margin:0 0 10px">Every repo from every case sits in one index, and language is just a filter. Press <span class="kbd">⌘K</span> and type a language, a category word like <em>sync</em> or <em>ui</em>, or a project name.</p>
-  <div class="lchips">{langchips}<a class="lchip" href="/explore/?all=1">all languages <span>{len(d['repos']):,}</span></a></div></section>
+<nav class="secmap" aria-label="Sections">{''.join(f'<a href="{x["href"]}"><span class="k">0{i+1} // {x["label"]}</span><strong>{x["title"]}</strong><span>{x["dek"]}</span></a>' for i, x in enumerate(SECTIONS))}</nav>
+{sec_block(SEC['projects'])}
+{sec_block(SEC['approaches'])}
+<section aria-labelledby="lang-h"><h2 class="sec" id="lang-h"><a href="/repos/">Repos</a></h2>
+  <p class="prose dim" style="margin:0 0 10px">{SEC['repos']['dek']} Press <span class="kbd">⌘K</span> and type a language, a category word like <em>sync</em> or <em>ui</em>, or a project name.</p>
+  <div class="lchips">{langchips}<a class="lchip" href="/repos/?all=1">all languages <span>{len(d['repos']):,}</span></a></div></section>
+{sec_block(SEC['practices'])}
 <section aria-labelledby="dsp-h"><h2 class="sec" id="dsp-h">Latest dispatches</h2><div class="dispatches">{latest}</div><p class="prose"><a href="/blog/">All {len(POSTS)} dispatches →</a></p></section>
-'''
-write('/', page('/', BRAND, 'Open case files on the tech I research with an AI agent: repos measured from the GitHub API, articles read, and conclusions with confidence levels and sources.', home))
-write('/cases/', page('/cases/', 'Case files', 'Every investigation, one question each.', f'''
-{memo('Case files', 'Every investigation, one question each', 'Index', eyebrow='Index // cases')}
-<div class="prose"><p>Each case starts from a real decision I have to make. The agent maps the field, measures the repos, reads the primary sources and files dispatches. <strong>Open</strong> cases are still being worked. <strong>Filed</strong> ones are done, and get refreshed with new snapshots.</p></div>
-<div class="cases">{''.join(case_card(c) for c in by_case_no)}</div>'''))
+"""
+write('/', page('/', BRAND, 'Field notes on the tech I research with an AI agent: projects taken apart, approaches compared, repos measured from the GitHub API, and agentic coding practices that work.', home))
+SEC_EXTRA = {
+  'projects': '',
+  'approaches': '',
+  'practices': '<div class="prose"><p>Related: <a href="/approaches/clojure/agents/">why Clojure suits coding agents</a> (case 001), <a href="/approaches/frontend-sync/cljs-cost/">does ClojureScript cost you when agents write it?</a> (case 002), and <a href="/for-agents/">how to point your own agent at this site</a>.</p></div>',
+}
+for x in SECTIONS:
+    if x['key'] == 'repos': continue
+    cs = sec_cases(x['key'])
+    np_ = sum(1 for p in POSTS if CASE[p['case']]['kind'] == x['key'])
+    write(x['href'], page(x['href'], x['title'], x['dek'], f"""
+{memo(x['title'], x['dek'], 'Index', eyebrow=f"Section // {x['label']}")}
+<div class="cases">{''.join(case_card(c) for c in cs)}</div>
+{SEC_EXTRA[x['key']]}
+<section><h2 class="sec">Dispatches in {x['label']}</h2><div class="dispatches">{''.join(dispatch_item(p) for p in POSTS if CASE[p['case']]['kind'] == x['key'])}</div><p class="dim">{np_} dispatches.</p></section>"""))
 
 # ---------------- dispatches (blog)
 groups = ''.join(f'<h2 class="sec">Case {c["no"]} // {c["short"]}</h2><div class="dispatches">{"".join(dispatch_item(p, False) for p in POSTS if p["case"] == c["slug"])}</div>'
@@ -232,11 +252,12 @@ write('/sources/', page('/sources/', 'Sources', 'Every article, talk, paper, too
 <div class="chips" data-src-filter="#src-list" role="group" aria-label="Filter sources">{chips}</div>
 <ul class="src-list" id="src-list">{lis}</ul>'''))
 
-# ---------------- explore
-write('/explore/', page('/explore/', 'Explore', f'Search and sort all {len(d["repos"]):,} repositories from every case file by language, stars, commits, issues, recency and health.', f'''
-{memo('Explore every repository', f'All {len(d["repos"]):,} repositories from every case file, in {len(LANGS)} languages', eyebrow='Index // all')}
-<div class="prose"><p>One index for every case. Filter by language, category and status. The table starts with repos that had a commit in the last 12 months; untick the box to include everything. Links like <code>/explore/?lang=TypeScript</code> or <code>/explore/?repo=owner/name</code> work too.</p></div>
-<div data-explorer><p class="dim">Loading {len(d['repos']):,} repositories…</p></div>'''))
+# ---------------- repos (the library)
+write('/repos/', page('/repos/', 'Repos', f'The library: search and sort all {len(d["repos"]):,} repositories from every case file by language, stars, commits, issues, recency and health.', f'''
+{memo('Repos: the library', f'All {len(d["repos"]):,} repositories from every case file, in {len(LANGS)} languages', 'Index', eyebrow='Section // repos')}
+<div class="prose"><p>One index for every case file, measured from the GitHub API. Filter by language, category and status; click a row for its file. The table starts with repos that had a commit in the last 12 months; untick the box to include everything. Links like <code>/repos/?lang=TypeScript</code> or <code>/repos/?repo=owner/name</code> work, and so does the <a href="/for-agents/">search API</a>: <code>/api/search?q=clojure+sync</code>.</p></div>
+<div class="lchips" style="margin-bottom:14px">{langchips}</div>
+<div data-explorer><p class="dim">Loading {len(d['repos']):,} repositories…</p></div>''', tabs_=('Repos pages', 'REPOS // LIBRARY', REPO_TABS)))
 
 # ---------------- method
 from content import method
@@ -244,9 +265,11 @@ write('/method/', page('/method/', 'Method', 'How repositories are found, measur
 
 # ---------------- 404 and redirects from the old Clojure-only paths
 open(os.path.join(DIST, '404.html'), 'w').write(page('/404', 'Not found', 'Page not found.', f'''{memo('404 // no such file', 'The page you asked for is not in these files', 'Not found')}
-<div class="prose"><p>Try the <a href="/">index</a>, the <a href="/cases/">case files</a> or <a href="/explore/">search every repo</a>.</p></div>''', active='none'))
-OLD = [('/frontend', '/cases/clojure/frontend/'), ('/sync', '/cases/clojure/sync/'), ('/novel', '/cases/clojure/novel/'), ('/runtimes', '/cases/clojure/runtimes/'), ('/why-clojure', '/cases/clojure/agents/')]
-open(os.path.join(DIST, '_redirects'), 'w').write(''.join(f'{a}/ {b} 301\n{a} {b} 301\n' for a, b in OLD))
+<div class="prose"><p>Try the <a href="/">index</a>, <a href="/projects/">projects</a>, <a href="/approaches/">approaches</a>, <a href="/practices/">practices</a> or <a href="/repos/">search every repo</a>.</p></div>''', active='none'))
+OLD = [('/frontend', '/approaches/clojure/frontend/'), ('/sync', '/approaches/clojure/sync/'), ('/novel', '/approaches/clojure/novel/'), ('/runtimes', '/approaches/clojure/runtimes/'), ('/why-clojure', '/approaches/clojure/agents/')]
+OLD += [('/cases', '/'), ('/explore', '/repos/')]
+MOVED = [('/cases/clojure', '/approaches/clojure'), ('/cases/frontend-sync', '/approaches/frontend-sync'), ('/cases/agentic-frameworks', '/practices/agentic-frameworks')]
+open(os.path.join(DIST, '_redirects'), 'w').write(''.join(f'{a}/ {b} 301\n{a} {b} 301\n' for a, b in OLD) + ''.join(f'{a} {b}/ 301\n{a}/* {b}/:splat 301\n' for a, b in MOVED))
 
 # ---------------- agent-friendly catalogs: llms.txt, TSVs, /for-agents/
 clean = lambda t, n=100: re.sub(r'\s+', ' ', (t or '')).strip()[:n]
@@ -270,7 +293,7 @@ for c in CASES:
     files[f'case-{c["slug"]}.tsv'] = PCOLS + '\n' + '\n'.join(prow(r) for r in pick if c['slug'] in (r.get('cs') or [])) + '\n'
 for f, t in files.items(): open(os.path.join(DIST, 'catalog', f), 'w').write(t)
 tok = lambda t: f'~{round(len(t) / 3.6 / 1000)}k tokens' if len(t) > 3600 else f'~{round(len(t) / 3.6)} tokens'
-case_lines = '\n'.join(f"- Case {c['no']} ({c['status']}): {strip_tags(c['title'])}. {strip_tags(c['q'])} {SITE_URL}{c['href']}\n  Shortlist: {SITE_URL}/catalog/case-{c['slug']}.tsv ({tok(files['case-' + c['slug'] + '.tsv'])})" for c in sorted(CASES, key=lambda c: c['no']))
+case_lines = '\n'.join(f"\n### {x['title']} ({SITE_URL}{x['href']})\n{x['dek']}\n" + '\n'.join(f"- Case {c['no']} ({c['status']}): {strip_tags(c['title'])}. {strip_tags(c['q'])} {SITE_URL}{c['href']}\n  Shortlist: {SITE_URL}/catalog/case-{c['slug']}.tsv ({tok(files['case-' + c['slug'] + '.tsv'])})" for c in sorted(CASES, key=lambda c: c['no']) if c['kind'] == x['key']) for x in SECTIONS if x['key'] != 'repos')
 findings = '\n'.join(f"- [case {CASE[p['case']]['no']}] {strip_tags(p.get('kj') or p['title'])} ({p['conf'][1].lower()}): {SITE_URL}/blog/{p['slug']}/" for p in POSTS)
 LLMS = f'''# stuff my agent found
 
@@ -289,7 +312,8 @@ Use this file to find and compare libraries without searching the web. Pick the 
 6. Everything ({len(d['repos']):,} rows, {tok(all_tsv)}): {SITE_URL}/catalog/all.tsv  (also {SITE_URL}/llms-full.txt)
 7. Raw JSON (all fields): {SITE_URL}/data/radar.json
 
-## Case files
+## Case files, by section
+The site has four sections: projects (deep dives on one project), approaches (ways to build, compared), repos (the measured library this file indexes) and practices (agentic coding practices that work).
 {case_lines}
 
 ## Fields
@@ -307,7 +331,10 @@ Use this file to find and compare libraries without searching the web. Pick the 
 
 ## Pages
 - Index: {SITE_URL}/
-- Case files: {SITE_URL}/cases/
+- Projects: {SITE_URL}/projects/
+- Approaches: {SITE_URL}/approaches/
+- Repos (the library): {SITE_URL}/repos/
+- Agentic coding practices: {SITE_URL}/practices/
 - Dispatches: {SITE_URL}/blog/
 - Sources ({len(S)} articles, talks, papers): {SITE_URL}/sources/
 - Method: {SITE_URL}/method/
@@ -346,16 +373,16 @@ fa_body = f'''{memo('For agents', 'Let coding agents find and compare libraries 
 <p>Add this to <code>AGENTS.md</code> or <code>CLAUDE.md</code>:</p>
 {ex(snippet)}
 <p>Using Claude Code? Copy <a href="{REPO_URL}/tree/main/skills/stuff-my-agent-found">skills/stuff-my-agent-found</a> into <code>.claude/skills/</code>, and Claude will query these files whenever you ask it to pick or compare libraries.</p>
-{finding('Why this matters', '<p>The <a href="/cases/clojure/agents/">case 001 brief on agents</a> found that agents do best when they check facts against something real instead of guessing. The REPL does that for code. This does it for the ecosystem: the agent asks which library is alive before it writes the dependency.</p>')}
+{finding('Why this matters', '<p>The <a href="/approaches/clojure/agents/">case 001 brief on agents</a> found that agents do best when they check facts against something real instead of guessing. The REPL does that for code. This does it for the ecosystem: the agent asks which library is alive before it writes the dependency.</p>')}
 </div>'''
-write('/for-agents/', page('/for-agents/', 'For agents', 'llms.txt, a search API and compact catalogs so coding agents can discover and compare libraries without crawling the web.', fa_body))
+write('/for-agents/', page('/for-agents/', 'For agents', 'llms.txt, a search API and compact catalogs so coding agents can discover and compare libraries without crawling the web.', fa_body, active='/repos/', tabs_=('Repos pages', 'REPOS // LIBRARY', REPO_TABS)))
 
 # search index of pages
-PIDX = ([dict(t='Index', u='/', k='page', d='Case files, languages and latest dispatches'), dict(t='Case files', u='/cases/', k='page', d='Every investigation')]
+PIDX = ([dict(t='Index', u='/', k='page', d='Case files, languages and latest dispatches'), ] + [dict(t=x['title'], u=x['href'], k='page', d=x['dek']) for x in SECTIONS]
         + [dict(t=f"Case {c['no']}: {strip_tags(c['title'])}", u=c['href'], k='case', d=strip_tags(c['q'])) for c in CASES]
         + [dict(t=t, u=h, k='sector', d=f"Case {c['no']} · {c['short']}", case=c['slug']) for c in CASES for h, t in c['tabs'][1:]]
         + [dict(t='Dispatches', u='/blog/', k='page', d='All dispatches'), dict(t='Sources', u='/sources/', k='page', d='Every article, talk and paper'),
-           dict(t='Explore every repo', u='/explore/', k='page', d='Search and sort all repositories by language'), dict(t='Method', u='/method/', k='page', d='How repos are found and scored'),
+           dict(t='Repos: search every repo', u='/repos/', k='page', d='The library: search and sort all repositories by language'), dict(t='Method', u='/method/', k='page', d='How repos are found and scored'),
            dict(t='For agents', u='/for-agents/', k='page', d='llms.txt, search API and compact catalogs for coding agents')]
         + [dict(t=strip_tags(p['title']), u=f"/blog/{p['slug']}/", k='dispatch', d='DSP-' + p['no'] + ' · ' + strip_tags(p['dek'])) for p in POSTS]
         + [dict(t=x['title'], u=x['url'], k='source', d=x['who']) for x in S])

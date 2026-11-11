@@ -1,0 +1,247 @@
+[
+[
+"starfederation/datastar",
+"Server-driven UI",
+"The hypermedia framework: backend-driven UI over SSE plus signals. MIT core, v1.0.5, ~12.5 KiB brotli."
+],
+[
+"starfederation/datastar-clojure",
+"Datastar SDK",
+"Official Clojure SDK: ring and http-kit adapters, brotli, malli schemas. Still 1.0.0-RC13 (Nov 2026)."
+],
+[
+"starfederation/datastar-go",
+"Datastar SDK",
+"Official Go SDK, maintained by Delaney Gillilan."
+],
+[
+"starfederation/datastar-python",
+"Datastar SDK",
+"Official Python SDK (datastar-py)."
+],
+[
+"starfederation/datastar-typescript",
+"Datastar SDK",
+"Official TypeScript SDK for Node, Deno and Bun."
+],
+[
+"starfederation/datastar-rust",
+"Datastar SDK",
+"Official Rust SDK."
+],
+[
+"starfederation/datastar-php",
+"Datastar SDK",
+"Official PHP SDK (Ben Croker)."
+],
+[
+"starfederation/datastar-dotnet",
+"Datastar SDK",
+"Official C#/.NET SDK."
+],
+[
+"starfederation/datastar-ruby",
+"Datastar SDK",
+"Official Ruby SDK."
+],
+[
+"starfederation/datastar-java",
+"Datastar SDK",
+"Official Java SDK."
+],
+[
+"starfederation/datastar-htmx",
+"Server-driven UI",
+"Datastar compatibility runtime for htmx 4."
+],
+[
+"starfederation/tron",
+"Data format",
+"TRie Object Notation: binary JSON-compatible HAMT format from the Datastar team; 'not a full database'."
+],
+[
+"andersmurphy/hyperlith",
+"Server-driven UI",
+"Anders Murphy's Clojure hypermedia monolith on Datastar + SQLite; powers the billion-checkboxes and Game of Life demos."
+],
+[
+"andersmurphy/sqlite4clj",
+"",
+""
+],
+[
+"jacobobryant/biff",
+"",
+""
+],
+[
+"brianium/datastar.wow",
+"Server-driven UI",
+"Data-oriented Datastar for Clojure on the official SDK and Nexus."
+],
+[
+"outskirtslabs/datastar-expressions",
+"Server-driven UI",
+"Write Datastar expressions in Clojure (proof of concept)."
+],
+[
+"realgenekim/datastar-helpers",
+"Server-driven UI",
+"Gene Kim's http-kit SSE reliability helpers: heartbeats, reaping, scroll fixes."
+],
+[
+"mbolli/clj-chess",
+"Datastar app",
+"Multiplayer chess: Pedestal + Datastar + SQLite, CQRS and brotli SSE."
+],
+[
+"dynamic-alpha/hyper",
+"Server-driven UI",
+"Reactive server-rendered web framework for Clojure on Datastar."
+],
+[
+"whamtet/simpleui",
+"Server-driven UI",
+"Clojure backend for htmx and Datastar (formerly ctmx)."
+],
+[
+"ObneyAI/grain",
+"Server-driven UI",
+"Clojure CQRS/event-sourcing framework with a grain-datastar UI module, aimed at AI-assisted dev."
+],
+[
+"onionpancakes/chassis",
+"",
+""
+],
+[
+"zangster300/northstar",
+"Datastar app",
+"Go + Datastar + NATS real-time boilerplate."
+],
+[
+"CoreyCole/datastarui",
+"Server-driven UI",
+"Templ UI components for Datastar and Tailwind (Go)."
+],
+[
+"romshark/datapages",
+"Server-driven UI",
+"Go Datastar framework with codegen and linter, built because agents 'kept messing up'."
+],
+[
+"stukennedy/irgo",
+"Server-driven UI",
+"Go + Datastar mobile and desktop apps."
+],
+[
+"delaneyj/realworld-datastar",
+"Datastar app",
+"RealWorld (Conduit) app by Datastar's creator."
+],
+[
+"stariodev/stario",
+"Server-driven UI",
+"Python asyncio framework with Datastar built in."
+],
+[
+"putyourlightson/laravel-datastar",
+"Server-driven UI",
+"Laravel integration (Ben Croker)."
+],
+[
+"tokio-rs/topcoat",
+"Server-driven UI",
+"Rust web framework with a Datastar module."
+],
+[
+"cablehead/http-nu",
+"Server-driven UI",
+"Nushell-scriptable HTTP server, Datastar-ready."
+],
+[
+"fsmunoz/datastar-cl",
+"Datastar SDK",
+"Common Lisp SDK."
+],
+[
+"StreamUI/hyperstar",
+"Server-driven UI",
+"LiveView-style server UI in TypeScript/JSX on Datastar."
+],
+[
+"dataSPA/dataSPA",
+"Server-driven UI",
+"Friendly fork restoring plugins that moved to Datastar Pro."
+],
+[
+"addrummond/datastargostrictcsp",
+"Server-driven UI",
+"Datastar without unsafe-eval or unsafe-inline (Go)."
+],
+[
+"cbeauhilton/datastar-skills",
+"Agent skills",
+"Claude Code skills for Datastar (Jan 2026; may predate 1.0 syntax)."
+],
+[
+"danmestas/wardrobe",
+"Agent skills",
+"Agent skills split into datastar, datastar-patterns and datastar-tao."
+],
+[
+"maragudk/skills",
+"Agent skills",
+"Agent skills including Datastar + gomponents (Go)."
+],
+[
+"alvarolm/datastar-resources",
+"Agent skills",
+"Community resource list and Claude Code resources for Datastar."
+],
+[
+"bencroker/stardust-todos",
+"Datastar app",
+"Laravel + Datastar + Stardust todo demo by the Datastar core team."
+],
+[
+"cablehead/stardust-todomvc",
+"Datastar app",
+"Rust TodoMVC on Stardust live subscriptions with Datastar."
+],
+[
+"bigskysoftware/htmx",
+"",
+""
+],
+[
+"alpinejs/alpine",
+"",
+""
+],
+[
+"phoenixframework/phoenix_live_view",
+"",
+""
+],
+[
+"hyperfiddle/electric",
+"",
+""
+],
+[
+"bigskysoftware/idiomorph",
+"",
+""
+],
+[
+"stackblitz/alien-signals",
+"",
+""
+],
+[
+"http-kit/http-kit",
+"",
+""
+]
+]

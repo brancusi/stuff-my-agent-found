@@ -4,18 +4,18 @@ Open case files on the tech I'm researching, built with an AI agent. Each case s
 
 **Live site:** https://stuff-my-agent-found.atd-ai.workers.dev
 
-## Case files
+## Four sections
 
-| Case | Question | Status |
+| Section | What it holds | Case files |
 | --- | --- | --- |
-| [001](https://stuff-my-agent-found.atd-ai.workers.dev/cases/clojure/) | What is alive in Clojure and ClojureScript, and where is the new energy? | filed |
-| [002](https://stuff-my-agent-found.atd-ai.workers.dev/cases/frontend-sync/) | The backend is Clojure. What should the front end be, which systems sync data between server and client, and does ClojureScript cost anything? | open |
-| [003](https://stuff-my-agent-found.atd-ai.workers.dev/cases/agentic-frameworks/) | Which app frameworks work best when coding agents write the code, and what is the evidence? | open |
+| [Projects](https://stuff-my-agent-found.atd-ai.workers.dev/projects/) | Deep dives on one project: what it is, who builds it, how people use it | [004](https://stuff-my-agent-found.atd-ai.workers.dev/projects/datastar/) Datastar, and Stardust, the database behind it |
+| [Approaches](https://stuff-my-agent-found.atd-ai.workers.dev/approaches/) | Ways to build something, compared across projects and languages | [001](https://stuff-my-agent-found.atd-ai.workers.dev/approaches/clojure/) The Clojure ecosystem (filed) · [002](https://stuff-my-agent-found.atd-ai.workers.dev/approaches/frontend-sync/) A front end for a Clojure backend, with live data sync |
+| [Repos](https://stuff-my-agent-found.atd-ai.workers.dev/repos/) | The library: every repo from every case, measured from the GitHub API, searchable by language and by API | 3,400+ repos in 40+ languages |
+| [Practices](https://stuff-my-agent-found.atd-ai.workers.dev/practices/) | Agentic coding practices that work, and the evidence | [003](https://stuff-my-agent-found.atd-ai.workers.dev/practices/agentic-frameworks/) Frameworks agents work well in · [005](https://stuff-my-agent-found.atd-ai.workers.dev/practices/agentic-practices/) Agentic coding practices that work |
 
-Every repo from every case sits in one index, and language is a filter. Press `⌘K` or `/` on any page for fuzzy search (type a language like `clojure` or `lang:typescript` to filter), and `?` for keyboard shortcuts.
+Every repo from every case sits in one index, and language is a filter. Press `⌘K` or `/` on any page for fuzzy search (type a language like `clojure` or `lang:typescript` to filter), `?` for keyboard shortcuts, and `g 1`–`g 4` to jump between sections.
 
 - **Dispatches:** every finding written up with data and sources, with an Atom feed.
-- **Explore:** search and sort every repo by language, category, stars, commits, issues, recency and health.
 - **For agents:** [`/llms.txt`](https://stuff-my-agent-found.atd-ai.workers.dev/llms.txt), a search API (`/api/search?q=`), per-case TSV shortlists, and a Claude Code skill in [`skills/stuff-my-agent-found`](skills/stuff-my-agent-found/SKILL.md). See [`/for-agents/`](https://stuff-my-agent-found.atd-ai.workers.dev/for-agents/).
 
 ## Health is calibrated to Clojure
@@ -24,7 +24,7 @@ Clojure has the deepest coverage: every Clojure repo with 50+ stars. Only about 
 
 ## Adding a case
 
-1. Add the case to `CASES` in `scripts/cases.py` (number, slug, question, tabs).
+1. Add the case to `CASES` in `scripts/cases.py` (number, slug, `kind` = `projects`, `approaches` or `practices`, question, tabs under `/<kind>/<slug>/`).
 2. List its repos in `data/cases/<slug>.json` as `[owner/repo, category, note]`.
 3. Measure them: `scripts/enrich.py` and `scripts/monthly.py` (see below), merged into `data/enriched_cases.json` and `data/monthly.json`.
 4. Write `scripts/case_<slug>.py` with `pages(memo, R, d)`, `posts(R, BL, d)` and `sources()`.
